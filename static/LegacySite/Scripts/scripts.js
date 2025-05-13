@@ -2,9 +2,6 @@
 // Created: 15/03/2005
 // Last Updated: 24/05/2005
 
-// Include jQuery 1.4.2
-document.write('<script src="/LegacySite/Scripts/jquery-1.4.2.js" type="text/javascript"></script>');
-
 // Global Variables
 var isIE = (navigator.appName.indexOf("Microsoft") != -1);
 var isNetscape = (navigator.appName.indexOf("Netscape") != -1);
