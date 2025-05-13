@@ -1,0 +1,92 @@
+Below is the fully revised Structured Contextual Prompt that generates a static‑only legacy codebase, exactly as we discussed.
+Copy‑and‑paste it into your chosen LLM / agentic tool when you’re ready to create the files.
+
+⸻
+
+
+__ASK__
+Create a dummy “Corporate Online” *static* website that looks and feels as if it were built circa 2004‑05.  
+We will later hand this cold codebase to an LLM to modernise the UI, so lean into outdated practices and quirks.
+
+__CONTEXT__
+GENERAL
+• Although the original system was ASP‑NET Web Forms, you **do not need to generate anything that compiles or runs**.  
+• Produce only **static artefacts**: plain HTML, CSS, JS, XML, XSLT, and one pre‑rendered report page.  
+• Keep file contents self‑contained – no external CDNs.
+
+PAGES / COMPONENTS (one of each)
+1. **login.html** – table‑based form, inline `<font>` tags, hard‑coded `width="780"`.
+2. **dashboard.html** – left‑hand nav column, data grid of “Accounts” built with nested tables and spacer GIFs.
+3. **settings.html** – long settings form with classic JavaScript `onblur` validation and `<input>` elements styled inline.
+4. **modal-dialog.html** – snippet representing a pop‑up (invoked by jQuery 1.4.2), includes a `<marquee>` banner for flair.
+5. **report-rendered.html** – output produced by applying **ReportTransform.xslt** to **sample-report.xml** (see below).
+
+LEGACY DESIGN QUIRKS TO INCLUDE
+• Fixed 800 × 600 layout wrapped in a centring table.  
+• Attributes such as `bgcolor`, `align`, `border="0"`, and `<img src="spacer.gif">`.  
+• GIF icons, subtle gradients, Verdana 10 px text.  
+• Comment lines like `<!-- TODO: remove table layout when we migrate to CSS3 -->`.  
+• No Flash, but otherwise embrace era‑specific styling.
+
+CSS STRATEGY
+• **Styles/co.css** – all original, opinionated rules (fonts in pixels, lots of classes).  
+• **Styles/modern-stub.css** – *empty* placeholder where a future UI will live.  
+• Elements you intend to hide later carry `class="legacyui"`. If you add duplicate modern markup, use `class="newui"` and leave it visible.
+
+JAVASCRIPT
+• **Scripts/scripts.js** – jQuery 1.4.2 bundled locally; functions that manipulate `style.top`, `style.left`, and swap classes.  
+• Inline `<script>` blocks are welcome.
+
+XML + XSLT
+• **Data/sample-report.xml** – small dataset (a dozen `<Transaction>` elements with attributes like `DateNum`, `Amount`).  
+• **Data/ReportTransform.xslt** – sorts the transactions by `@DateNum` (descending) and produces a basic HTML table.  
+• Run the transform once (any language) and save the result as **report-rendered.html** in *Pages*.
+
+DELIVERABLE FORMAT
+Output every file in the following notation:
+
+File: <relative/path/filename.ext>
+<full file contents>
+
+Use this directory hierarchy:
+
+/LegacySite
+├─ Pages/login.html
+├─ Pages/dashboard.html
+├─ Pages/settings.html
+├─ Pages/modal-dialog.html
+├─ Pages/report-rendered.html
+├─ Data/sample-report.xml
+├─ Data/ReportTransform.xslt
+├─ Styles/co.css
+├─ Styles/modern-stub.css
+└─ Scripts/scripts.js
+
+__CONSTRAINTS__
+• *Do not* include Visual Studio solution files, project files, or web.configs.  
+• *Do not* improve or modernise the code – it should look genuinely two decades old.  
+• Avoid libraries released after 2010 (stick to jQuery 1.4.2 or earlier).  
+• Use Australian/British spelling in comments and identifiers.  
+• Refrain from embedding hints for modernisation (no “TODO modernise” remarks).  
+• Total output ≤ 200 KB. If needed, trim sample data rather than stripping legacy quirks.
+
+__EXAMPLE__  (directory skeleton only – your answer must expand each file with full content)
+
+/LegacySite
+├─ Pages/…
+├─ Data/…
+├─ Styles/co.css
+├─ Styles/modern-stub.css
+└─ Scripts/scripts.js
+
+
+
+
+⸻
+
+What to do next
+	1.	Skim the prompt – if any facet looks off, tell me and we’ll tweak it.
+	2.	Run it – feed the entire prompt to the LLM/agent to generate the cold codebase.
+	3.	Start modernising – once you’re happy with the legacy artefacts, we can craft a second prompt for the LLM to refactor the UI.
+
+Let me know if you’d like any further tweaks before you fire it off!
