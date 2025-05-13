@@ -1,0 +1,420 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Corporate Online - Account Settings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/co.css">
+    <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/modern-stub.css">
+    <script type="text/javascript" src="/LegacySite/Scripts/scripts.js"></script>
+    <script type="text/javascript">
+    <!--
+    // Validate the settings form before submission
+    function validateForm() {
+        var phoneNumber = document.settingsForm.phoneNumber.value;
+        var email = document.settingsForm.email.value;
+        var password = document.settingsForm.password.value;
+        var confirmPassword = document.settingsForm.confirmPassword.value;
+        
+        // Phone number validation
+        if (phoneNumber != "" && !phoneNumber.match(/^\d{10}$/)) {
+            alert("Please enter a valid 10-digit phone number.");
+            document.settingsForm.phoneNumber.focus();
+            return false;
+        }
+        
+        // Email validation
+        if (email != "" && !email.match(/^[\w\.-]+@[\w\.-]+\.\w+$/)) {
+            alert("Please enter a valid email address.");
+            document.settingsForm.email.focus();
+            return false;
+        }
+        
+        // Password validation
+        if (password != "" && password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            document.settingsForm.password.focus();
+            return false;
+        }
+        
+        // Password match validation
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            document.settingsForm.confirmPassword.focus();
+            return false;
+        }
+        
+        alert("Settings updated successfully!");
+        return true;
+    }
+    
+    // Validate phone number when field loses focus
+    function validatePhone(field) {
+        var value = field.value;
+        if (value != "" && !value.match(/^\d{10}$/)) {
+            field.style.backgroundColor = "#FFCCCC";
+            document.getElementById("phoneError").style.visibility = "visible";
+        } else {
+            field.style.backgroundColor = "#FFFFFF";
+            document.getElementById("phoneError").style.visibility = "hidden";
+        }
+    }
+    
+    // Validate email when field loses focus
+    function validateEmail(field) {
+        var value = field.value;
+        if (value != "" && !value.match(/^[\w\.-]+@[\w\.-]+\.\w+$/)) {
+            field.style.backgroundColor = "#FFCCCC";
+            document.getElementById("emailError").style.visibility = "visible";
+        } else {
+            field.style.backgroundColor = "#FFFFFF";
+            document.getElementById("emailError").style.visibility = "hidden";
+        }
+    }
+    //-->
+    </script>
+</head>
+<body>
+    <!-- Main Table Container for centring -->
+    <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="center" valign="top">
+                <!-- Content Table with fixed width -->
+                <table width="780" border="0" cellspacing="0" cellpadding="0" class="legacyui" bgcolor="#FFFFFF">
+                    <tr>
+                        <td colspan="3" bgcolor="#003366" height="80">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="20"><img src="/LegacySite/Data/spacer.gif" width="20" height="1" border="0" alt=""></td>
+                                    <td>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="5" color="#FFFFFF"><b>Corporate Online</b></font><br>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">Secure Banking Portal</font>
+                                    </td>
+                                    <td align="right">
+                                        <table border="0" cellspacing="0" cellpadding="2">
+                                            <tr>
+                                                <td align="right">
+                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
+                                                        Welcome, <b>John Smith</b> | Last Login: 24/05/2005 10:32 AM
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <a href="/LegacySite/Pages/login.html" style="color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none;">
+                                                        <b>Logout</b>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="20"><img src="/LegacySite/Data/spacer.gif" width="20" height="1" border="0" alt=""></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#E5E5E5" width="180" valign="top">
+                            <!-- Left Navigation Menu -->
+                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                <tr>
+                                    <td height="30" bgcolor="#6699CC">
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                            <b>&nbsp;Main Menu</b>
+                                        </font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#F0F0F0">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                            <tr>
+                                                <td>
+                                                    <img src="/LegacySite/Data/bullet.gif" width="8" height="8" border="0" alt="">
+                                                    <a href="/LegacySite/Pages/dashboard.html" class="navLink">Dashboard</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="/LegacySite/Data/bullet.gif" width="8" height="8" border="0" alt="">
+                                                    <a href="/LegacySite/Pages/settings.html" class="navLink">Account Settings</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="/LegacySite/Data/bullet.gif" width="8" height="8" border="0" alt="">
+                                                    <a href="/LegacySite/Pages/report-rendered.html" class="navLink">Transaction Report</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="/LegacySite/Data/bullet.gif" width="8" height="8" border="0" alt="">
+                                                    <a href="#" class="navLink" onclick="showHelpDialog(); return false;">Help</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br>
+                            <!-- Quick Stats Box -->
+                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                <tr>
+                                    <td height="25" bgcolor="#6699CC">
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                            <b>&nbsp;Quick Stats</b>
+                                        </font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#F0F0F0">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                            <tr>
+                                                <td>
+                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+                                                        <b>Total Accounts:</b> 5<br>
+                                                        <b>Total Balance:</b> $145,230.45<br>
+                                                        <b>Last Transfer:</b> 23/05/2005
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- End Left Navigation Menu -->
+                        </td>
+                        <td valign="top" bgcolor="#FFFFFF">
+                            <!-- Main Content Area -->
+                            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                                <tr>
+                                    <td>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="3" color="#003366">
+                                            <b>Account Settings</b>
+                                        </font>
+                                        <hr size="1" noshade color="#CCCCCC">
+                                        <br>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                            Please update your account settings below. Fields marked with an asterisk (*) are required.
+                                        </font>
+                                        <br><br>
+                                        <!-- Settings Form -->
+                                        <form name="settingsForm" method="post" action="#" onsubmit="return validateForm();">
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                                <tr>
+                                                    <td colspan="2" bgcolor="#E5E5E5">
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                            <b>Personal Information</b>
+                                                        </font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="170">
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">First Name: *</font>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="firstName" value="John" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Last Name: *</font>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="lastName" value="Smith" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Company: *</font>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="company" value="ABC Corporation" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Phone Number:</font>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="phoneNumber" value="0412345678" size="30" onblur="validatePhone(this);" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
+                                                        <span id="phoneError" style="visibility: hidden;">
+                                                            <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FF0000">
+                                                                Please enter a valid 10-digit phone number
+                                                            </font>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Email Address: *</font>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="email" value="john.smith@abccorp.com.au" size="30" onblur="validateEmail(this);" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
+                                                        <span id="emailError" style="visibility: hidden;">
+                                                            <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FF0000">
+                                                                Please enter a valid email address
+                                                            </font>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" bgcolor="#E5E5E5">
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                            <b>Notification Preferences</b>
+                                                        </font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox" name="notifyLogin" value="1" checked>
+                                                                </td>
+                                                                <td>
+                                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                                        Notify me of suspicious login activity
+                                                                    </font>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox" name="notifyTransfer" value="1" checked>
+                                                                </td>
+                                                                <td>
+                                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                                        Notify me of large transfers (over $10,000)
+                                                                    </font>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox" name="notifyStatement" value="1" checked>
+                                                                </td>
+                                                                <td>
+                                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                                        Send me monthly account statements via email
+                                                                    </font>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox" name="notifyMarketing" value="1">
+                                                                </td>
+                                                                <td>
+                                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                                        Send me marketing offers and promotions
+                                                                    </font>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" bgcolor="#E5E5E5">
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                            <b>Change Password</b>
+                                                        </font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Current Password:</font>
+                                                    </td>
+                                                    <td>
+                                                        <input type="password" name="currentPassword" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">New Password:</font>
+                                                    </td>
+                                                    <td>
+                                                        <input type="password" name="password" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Confirm New Password:</font>
+                                                    </td>
+                                                    <td>
+                                                        <input type="password" name="confirmPassword" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+                                                            Leave password fields blank if you do not wish to change your password.
+                                                        </font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>
+                                                        <input type="submit" value="Save Changes" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 100px; cursor: hand;">
+                                                        &nbsp;
+                                                        <input type="reset" value="Reset Form" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 100px; cursor: hand;">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                        <!-- End Settings Form -->
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- End Main Content Area -->
+                        </td>
+                        <td bgcolor="#E5E5E5" width="1"><img src="/LegacySite/Data/spacer.gif" width="1" height="1" border="0" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" bgcolor="#003366" height="30" align="center">
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
+                                Copyright &copy; 2005 Corporate Online. All Rights Reserved.
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+                <!-- End Content Table -->
+            </td>
+        </tr>
+    </table>
+    <!-- End Main Table Container -->
+    <!-- Hidden dialog div that will be positioned using JavaScript -->
+    <div id="helpDialog" style="display: none; position: absolute; top: 200px; left: 250px; width: 400px; border: 2px solid #003366; background-color: #FFFFFF; padding: 0px;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#003366">
+            <tr>
+                <td>
+                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                        <b>Corporate Online Help</b>
+                    </font>
+                </td>
+                <td align="right">
+                    <a href="#" onclick="hideHelpDialog(); return false;" style="color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none;">
+                        <b>Close [X]</b>
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="10">
+            <tr>
+                <td>
+                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                        For assistance with Corporate Online, please contact our support team:<br><br>
+                        Phone: 1800 555 123<br>
+                        Email: support@corporateonline.com.au<br>
+                        Hours: Monday to Friday, 8:00 AM - 6:00 PM AEST
+                    </font>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

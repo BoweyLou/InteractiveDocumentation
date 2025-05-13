@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TransactionReport>
+  <ReportHeader>
+    <Title>Transaction Report</Title>
+    <GeneratedDate>24/05/2005</GeneratedDate>
+    <GeneratedBy>Corporate Online System</GeneratedBy>
+    <AccountNumber>123-456-789</AccountNumber>
+    <AccountName>Business Cheque</AccountName>
+    <DateRange>01/05/2005 - 24/05/2005</DateRange>
+  </ReportHeader>
+  <Transactions>
+    <Transaction DateNum="20050523" Date="23/05/2005" Description="Direct Deposit - ABC Pty Ltd" ReferenceNumber="TR-239857" Amount="1250.75" Type="Credit" Balance="45230.45" />
+    <Transaction DateNum="20050521" Date="21/05/2005" Description="Cheque Withdrawal - Supplier Payment" ReferenceNumber="CHQ-002341" Amount="780.50" Type="Debit" Balance="43979.70" />
+    <Transaction DateNum="20050520" Date="20/05/2005" Description="Internet Transfer - To Savings Account" ReferenceNumber="ITR-987601" Amount="2000.00" Type="Debit" Balance="44760.20" />
+    <Transaction DateNum="20050518" Date="18/05/2005" Description="EFTPOS Purchase - Office Supplies" ReferenceNumber="EFT-756438" Amount="345.67" Type="Debit" Balance="46760.20" />
+    <Transaction DateNum="20050516" Date="16/05/2005" Description="ATM Withdrawal - Elizabeth St Branch" ReferenceNumber="ATM-534290" Amount="200.00" Type="Debit" Balance="47105.87" />
+    <Transaction DateNum="20050514" Date="14/05/2005" Description="Direct Deposit - XYZ Corporation" ReferenceNumber="TR-239845" Amount="5432.10" Type="Credit" Balance="47305.87" />
+    <Transaction DateNum="20050512" Date="12/05/2005" Description="Cheque Deposit - Client Payment" ReferenceNumber="DEP-002234" Amount="3780.45" Type="Credit" Balance="41873.77" />
+    <Transaction DateNum="20050510" Date="10/05/2005" Description="Internet Transfer - From Savings Account" ReferenceNumber="ITR-987589" Amount="1000.00" Type="Credit" Balance="38093.32" />
+    <Transaction DateNum="20050508" Date="08/05/2005" Description="Direct Debit - Insurance Premium" ReferenceNumber="DD-556677" Amount="456.78" Type="Debit" Balance="37093.32" />
+    <Transaction DateNum="20050506" Date="06/05/2005" Description="EFTPOS Purchase - Corporate Lunch" ReferenceNumber="EFT-756421" Amount="123.45" Type="Debit" Balance="37550.10" />
+    <Transaction DateNum="20050503" Date="03/05/2005" Description="Cheque Withdrawal - Rent Payment" ReferenceNumber="CHQ-002340" Amount="2200.00" Type="Debit" Balance="37673.55" />
+    <Transaction DateNum="20050501" Date="01/05/2005" Description="Balance Forward" ReferenceNumber="BF-123456" Amount="39873.55" Type="Credit" Balance="39873.55" />
+  </Transactions>
+  <ReportSummary>
+    <TotalCredits>11463.30</TotalCredits>
+    <TotalDebits>6106.40</TotalDebits>
+    <NetChange>5356.90</NetChange>
+    <OpeningBalance>39873.55</OpeningBalance>
+    <ClosingBalance>45230.45</ClosingBalance>
+  </ReportSummary>
+</TransactionReport>

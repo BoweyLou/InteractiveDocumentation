@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TransactionReport>
+  <ReportHeader>
+    <AccountNumber>1098-7654-3210</AccountNumber>
+    <AccountType>Current</AccountType>
+    <ReportPeriod>
+      <StartDate>15/03/2005</StartDate>
+      <EndDate>12/04/2005</EndDate>
+    </ReportPeriod>
+    <GenerationDate>12/04/2005 10:45:23</GenerationDate>
+    <OpeningBalance>19050.65</OpeningBalance>
+    <ClosingBalance>25349.54</ClosingBalance>
+  </ReportHeader>
+  <Transactions>
+    <Transaction DateNum="20050412" ID="TRX-38291">
+      <Date>12/04/2005</Date>
+      <Description>Fund Transfer to Savings Account</Description>
+      <Category>Transfer</Category>
+      <Amount>-1500.00</Amount>
+      <Balance>25349.54</Balance>
+    </Transaction>
+    <Transaction DateNum="20050410" ID="TRX-38290">
+      <Date>10/04/2005</Date>
+      <Description>Deposit - Cheque #9823</Description>
+      <Category>Deposit</Category>
+      <Amount>3267.00</Amount>
+      <Balance>26849.54</Balance>
+    </Transaction>
+    <Transaction DateNum="20050407" ID="TRX-38289">
+      <Date>07/04/2005</Date>
+      <Description>Payment to ABC Supplier Ltd.</Description>
+      <Category>Payment</Category>
+      <Amount>-982.54</Amount>
+      <Balance>23582.54</Balance>
+    </Transaction>
+    <Transaction DateNum="20050405" ID="TRX-38288">
+      <Date>05/04/2005</Date>
+      <Description>ATM Withdrawal - Branch #23</Description>
+      <Category>Withdrawal</Category>
+      <Amount>-500.00</Amount>
+      <Balance>24565.08</Balance>
+    </Transaction>
+    <Transaction DateNum="20050401" ID="TRX-38287">
+      <Date>01/04/2005</Date>
+      <Description>Monthly Account Fee</Description>
+      <Category>Fee</Category>
+      <Amount>-25.00</Amount>
+      <Balance>25065.08</Balance>
+    </Transaction>
+    <Transaction DateNum="20050328" ID="TRX-38286">
+      <Date>28/03/2005</Date>
+      <Description>Electronic Payment - XYZ Insurance</Description>
+      <Category>Payment</Category>
+      <Amount>-750.25</Amount>
+      <Balance>25090.08</Balance>
+    </Transaction>
+    <Transaction DateNum="20050325" ID="TRX-38285">
+      <Date>25/03/2005</Date>
+      <Description>Interest Payment</Description>
+      <Category>Interest</Category>
+      <Amount>12.78</Amount>
+      <Balance>25840.33</Balance>
+    </Transaction>
+    <Transaction DateNum="20050320" ID="TRX-38284">
+      <Date>20/03/2005</Date>
+      <Description>Deposit - Wire Transfer</Description>
+      <Category>Deposit</Category>
+      <Amount>7500.00</Amount>
+      <Balance>25827.55</Balance>
+    </Transaction>
+    <Transaction DateNum="20050318" ID="TRX-38283">
+      <Date>18/03/2005</Date>
+      <Description>Electronic Payment - Office Supplies Inc.</Description>
+      <Category>Payment</Category>
+      <Amount>-487.65</Amount>
+      <Balance>18327.55</Balance>
+    </Transaction>
+    <Transaction DateNum="20050315" ID="TRX-38282">
+      <Date>15/03/2005</Date>
+      <Description>Electronic Payment - City Utilities</Description>
+      <Category>Payment</Category>
+      <Amount>-235.45</Amount>
+      <Balance>18815.20</Balance>
+    </Transaction>
+  </Transactions>
+  <ReportSummary>
+    <TotalDeposits>10779.78</TotalDeposits>
+    <TotalWithdrawals>-4480.89</TotalWithdrawals>
+    <NetChange>6298.89</NetChange>
+  </ReportSummary>
+</TransactionReport>

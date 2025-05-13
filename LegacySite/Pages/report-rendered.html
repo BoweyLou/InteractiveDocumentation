@@ -1,0 +1,356 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Corporate Online - Transaction Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" href="../Styles/co.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/modern-stub.css">
+    <script type="text/javascript" src="../Scripts/scripts.js"></script>
+    <style type="text/css">
+        .reportTable {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .reportTable th {
+            background-color: #003366;
+            color: #FFFFFF;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 4px;
+            text-align: left;
+            border: 1px solid #999999;
+        }
+        .reportTable td {
+            font-size: 10px;
+            padding: 4px;
+            border: 1px solid #CCCCCC;
+        }
+        .rowEven {
+            background-color: #FFFFFF;
+        }
+        .rowOdd {
+            background-color: #EFEFEF;
+        }
+        .amountNegative {
+            color: #FF0000;
+        }
+        .amountPositive {
+            color: #009900;
+        }
+        .reportFooter {
+            background-color: #CCCCCC;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main centring table -->
+    <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="center" valign="top">
+                <!-- Content container -->
+                <table width="780" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                    <tr>
+                        <td colspan="3" height="90" bgcolor="#003366">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="20"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" width="20" height="1" alt=""></td>
+                                    <td><font face="Verdana, Arial, Helvetica, sans-serif" size="5" color="#FFFFFF"><b>Corporate Online</b></font></td>
+                                    <td align="right">
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                            Welcome, John Smith<br>
+                                            <b>Last Login: 12/04/2005 09:23</b>
+                                        </font>
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" width="20" height="1" alt="">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" height="25" bgcolor="#666666">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="20"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" width="20" height="1" alt=""></td>
+                                    <td>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                            <a href="dashboard.html" style="color:#FFFFFF;text-decoration:none;">Home</a> &nbsp;|&nbsp; 
+                                            <a href="#" style="color:#FFFFFF;text-decoration:none;">Transfer Funds</a> &nbsp;|&nbsp; 
+                                            <a href="#" style="color:#FFFFFF;text-decoration:none;">Payments</a> &nbsp;|&nbsp; 
+                                            <a href="report-rendered.html" style="color:#FFFFFF;text-decoration:none;"><b>Reports</b></a> &nbsp;|&nbsp; 
+                                            <a href="settings.html" style="color:#FFFFFF;text-decoration:none;">Settings</a> &nbsp;|&nbsp; 
+                                            <a href="login.html" style="color:#FFFFFF;text-decoration:none;">Logout</a>
+                                        </font>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="180" valign="top" bgcolor="#EFEFEF" class="legacyui">
+                            <!-- Left navigation panel -->
+                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                <tr>
+                                    <td colspan="2" height="30" bgcolor="#CCCCCC">
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>&nbsp;Reports</b></font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="20" align="center" bgcolor="#E0E0E0">
+                                        <img src="data:image/gif;base64,R0lGODlhDAAMAKIAAMzMzJmZmTMzMwAAAP///wAAAAAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMnWLrcHmKUSYC9OLqKcN9B6whFA3Bg5BBC6TJAKkyBJGg7RFDIyQQAOw==" width="12" height="12" alt="">
+                                    </td>
+                                    <td bgcolor="#E0E0E0">
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Transaction History</b></font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="20" align="center">
+                                        <img src="data:image/gif;base64,R0lGODlhDAAMAKIAAMzMzJmZmTMzMwAAAP///wAAAAAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMnWLrcHmKUSYC9OLqKcN9B6whFA3Bg5BBC6TJAKkyBJGg7RFDIyQQAOw==" width="12" height="12" alt="">
+                                    </td>
+                                    <td>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#" style="color:#000000;">Account Statement</a></font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="20" align="center">
+                                        <img src="data:image/gif;base64,R0lGODlhDAAMAKIAAMzMzJmZmTMzMwAAAP///wAAAAAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMnWLrcHmKUSYC9OLqKcN9B6whFA3Bg5BBC6TJAKkyBJGg7RFDIyQQAOw==" width="12" height="12" alt="">
+                                    </td>
+                                    <td>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#" style="color:#000000;">Fund Transfer History</a></font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="20" align="center">
+                                        <img src="data:image/gif;base64,R0lGODlhDAAMAKIAAMzMzJmZmTMzMwAAAP///wAAAAAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMnWLrcHmKUSYC9OLqKcN9B6whFA3Bg5BBC6TJAKkyBJGg7RFDIyQQAOw==" width="12" height="12" alt="">
+                                    </td>
+                                    <td>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#" style="color:#000000;">Payment History</a></font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="20" align="center">
+                                        <img src="data:image/gif;base64,R0lGODlhDAAMAKIAAMzMzJmZmTMzMwAAAP///wAAAAAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMnWLrcHmKUSYC9OLqKcN9B6whFA3Bg5BBC6TJAKkyBJGg7RFDIyQQAOw==" width="12" height="12" alt="">
+                                    </td>
+                                    <td>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#" style="color:#000000;">Custom Report</a></font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" height="30" bgcolor="#CCCCCC">
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>&nbsp;Report Options</b></font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                            <tr>
+                                                <td><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Output Format:</font></td>
+                                                <td>
+                                                    <select name="format" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 80px;">
+                                                        <option value="html" selected>HTML</option>
+                                                        <option value="csv">CSV</option>
+                                                        <option value="pdf">PDF</option>
+                                                        <option value="xls">Excel</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Date Range:</font></td>
+                                                <td>
+                                                    <select name="dateRange" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 80px;">
+                                                        <option value="7days">Last 7 days</option>
+                                                        <option value="30days" selected>Last 30 days</option>
+                                                        <option value="90days">Last 90 days</option>
+                                                        <option value="custom">Custom Range</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" align="center">
+                                                    <input type="button" value="Export Report" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; background-color: #CCCCCC; color: #000000; padding: 2px 10px; border: 1px solid #999999; width: 100px;">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="600" valign="top">
+                            <!-- Main content area -->
+                            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                                <tr>
+                                    <td>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="3" color="#003366"><b>Transaction Report</b></font>
+                                        <hr size="1" noshade color="#CCCCCC">
+                                        
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                            <tr>
+                                                <td>
+                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                        <b>Account:</b> 1098-7654-3210 (Current)<br>
+                                                        <b>Period:</b> 15/03/2005 - 12/04/2005<br>
+                                                        <b>Generated:</b> 12/04/2005 10:45:23
+                                                    </font>
+                                                </td>
+                                                <td align="right">
+                                                    <input type="button" value="Print Report" onclick="window.print();" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; background-color: #CCCCCC; color: #000000; padding: 2px 10px; border: 1px solid #999999;">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        
+                                        <br>
+                                        
+                                        <!-- Transaction Report Table - This is generated from the XSLT transformation -->
+                                        <table class="reportTable">
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Transaction ID</th>
+                                                <th>Description</th>
+                                                <th>Category</th>
+                                                <th align="right">Amount</th>
+                                                <th align="right">Balance</th>
+                                            </tr>
+                                            <tr class="rowOdd">
+                                                <td>12/04/2005</td>
+                                                <td>TRX-38291</td>
+                                                <td>Fund Transfer to Savings Account</td>
+                                                <td>Transfer</td>
+                                                <td align="right" class="amountNegative">-$1,500.00</td>
+                                                <td align="right">$25,349.54</td>
+                                            </tr>
+                                            <tr class="rowEven">
+                                                <td>10/04/2005</td>
+                                                <td>TRX-38290</td>
+                                                <td>Deposit - Cheque #9823</td>
+                                                <td>Deposit</td>
+                                                <td align="right" class="amountPositive">$3,267.00</td>
+                                                <td align="right">$26,849.54</td>
+                                            </tr>
+                                            <tr class="rowOdd">
+                                                <td>07/04/2005</td>
+                                                <td>TRX-38289</td>
+                                                <td>Payment to ABC Supplier Ltd.</td>
+                                                <td>Payment</td>
+                                                <td align="right" class="amountNegative">-$982.54</td>
+                                                <td align="right">$23,582.54</td>
+                                            </tr>
+                                            <tr class="rowEven">
+                                                <td>05/04/2005</td>
+                                                <td>TRX-38288</td>
+                                                <td>ATM Withdrawal - Branch #23</td>
+                                                <td>Withdrawal</td>
+                                                <td align="right" class="amountNegative">-$500.00</td>
+                                                <td align="right">$24,565.08</td>
+                                            </tr>
+                                            <tr class="rowOdd">
+                                                <td>01/04/2005</td>
+                                                <td>TRX-38287</td>
+                                                <td>Monthly Account Fee</td>
+                                                <td>Fee</td>
+                                                <td align="right" class="amountNegative">-$25.00</td>
+                                                <td align="right">$25,065.08</td>
+                                            </tr>
+                                            <tr class="rowEven">
+                                                <td>28/03/2005</td>
+                                                <td>TRX-38286</td>
+                                                <td>Electronic Payment - XYZ Insurance</td>
+                                                <td>Payment</td>
+                                                <td align="right" class="amountNegative">-$750.25</td>
+                                                <td align="right">$25,090.08</td>
+                                            </tr>
+                                            <tr class="rowOdd">
+                                                <td>25/03/2005</td>
+                                                <td>TRX-38285</td>
+                                                <td>Interest Payment</td>
+                                                <td>Interest</td>
+                                                <td align="right" class="amountPositive">$12.78</td>
+                                                <td align="right">$25,840.33</td>
+                                            </tr>
+                                            <tr class="rowEven">
+                                                <td>20/03/2005</td>
+                                                <td>TRX-38284</td>
+                                                <td>Deposit - Wire Transfer</td>
+                                                <td>Deposit</td>
+                                                <td align="right" class="amountPositive">$7,500.00</td>
+                                                <td align="right">$25,827.55</td>
+                                            </tr>
+                                            <tr class="rowOdd">
+                                                <td>18/03/2005</td>
+                                                <td>TRX-38283</td>
+                                                <td>Electronic Payment - Office Supplies Inc.</td>
+                                                <td>Payment</td>
+                                                <td align="right" class="amountNegative">-$487.65</td>
+                                                <td align="right">$18,327.55</td>
+                                            </tr>
+                                            <tr class="rowEven">
+                                                <td>15/03/2005</td>
+                                                <td>TRX-38282</td>
+                                                <td>Electronic Payment - City Utilities</td>
+                                                <td>Payment</td>
+                                                <td align="right" class="amountNegative">-$235.45</td>
+                                                <td align="right">$18,815.20</td>
+                                            </tr>
+                                            <tr class="reportFooter">
+                                                <td colspan="4" align="right">Total:</td>
+                                                <td align="right">$6,298.89</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                        
+                                        <br>
+                                        
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+                                            * This report is for informational purposes only. Please refer to your official statement for accurate financial records.<br>
+                                            * All transactions are displayed in USD currency.<br>
+                                            * Transactions may include pending items that are subject to change.
+                                        </font>
+                                        
+                                        <br><br>
+                                        
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                            <tr>
+                                                <td align="center">
+                                                    <input type="button" value="Previous Period" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; background-color: #CCCCCC; color: #000000; padding: 2px 10px; border: 1px solid #999999;">
+                                                    &nbsp;
+                                                    <input type="button" value="Next Period" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; background-color: #CCCCCC; color: #000000; padding: 2px 10px; border: 1px solid #999999;" disabled>
+                                                    &nbsp;
+                                                    <input type="button" value="Return to Dashboard" onclick="window.location='dashboard.html';" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; background-color: #CCCCCC; color: #000000; padding: 2px 10px; border: 1px solid #999999;">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="20" bgcolor="#CCCCCC"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" width="20" height="1" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" height="20" bgcolor="#003366">
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">&nbsp;&copy; 2005 Corporate Banking Solutions Ltd.</font>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    
+    <!-- TODO: add support for PDF export -->
+    <script type="text/javascript">
+        // Function to check if browser is compatible
+        function checkBrowserCompatibility() {
+            var isIE = (navigator.userAgent.indexOf("MSIE") > -1);
+            
+            if (!isIE) {
+                // Display warning if not using Internet Explorer
+                document.write('<div style="padding: 5px; background-color: #FFEEEE; border: 1px solid #FF0000; margin-bottom: 10px;"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FF0000"><b>Warning:</b> This page is optimised for Internet Explorer 6.0. Some features may not work correctly in other browsers.</font></div>');
+            }
+        }
+        
+        // Call browser compatibility check when page loads
+        window.onload = checkBrowserCompatibility;
+    </script>
+</body>
+</html>

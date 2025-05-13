@@ -1,0 +1,249 @@
+/* Corporate Online Banking Stylesheet */
+/* Version 2.3.4 - Last Updated 12/11/2004 */
+
+/* General Styles */
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    background-color: #EFEFEF;
+    color: #000000;
+}
+
+/* Table Styling */
+table {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+td {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    vertical-align: top;
+}
+
+/* Text Formatting */
+.headerText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.subHeaderText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.normalText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #000000;
+}
+
+.smallText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    color: #666666;
+}
+
+.errorText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FF0000;
+    font-weight: bold;
+}
+
+.highlightText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #003366;
+    font-weight: bold;
+}
+
+/* Form Elements */
+input, select, textarea {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    border: 1px solid #999999;
+}
+
+.button {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    background-color: #CCCCCC;
+    color: #000000;
+    padding: 2px 10px;
+    border: 1px solid #999999;
+}
+
+.buttonPrimary {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    background-color: #003366;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 2px 10px;
+    border: 1px solid #000000;
+}
+
+/* Link Styles */
+a {
+    color: #003366;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #0066CC;
+    text-decoration: none;
+}
+
+a.menuLink {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a.menuLink:hover {
+    color: #CCCCCC;
+    text-decoration: underline;
+}
+
+/* Navigation Elements */
+.navHeader {
+    background-color: #CCCCCC;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.navItem {
+    padding: 4px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.navItemSelected {
+    padding: 4px;
+    background-color: #E0E0E0;
+    border-bottom: 1px solid #CCCCCC;
+    font-weight: bold;
+}
+
+/* Data Display Elements */
+.dataHeader {
+    background-color: #003366;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.dataRow1 {
+    background-color: #FFFFFF;
+    padding: 4px;
+}
+
+.dataRow2 {
+    background-color: #EFEFEF;
+    padding: 4px;
+}
+
+.dataFooter {
+    background-color: #CCCCCC;
+    font-weight: bold;
+    padding: 4px;
+}
+
+/* Special Styles */
+.boxHeader {
+    background-color: #003366;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.boxContent {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 8px;
+}
+
+.systemMessage {
+    background-color: #FFFFE1;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.errorMessage {
+    background-color: #FFEEEE;
+    border: 1px solid #FF0000;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.successMessage {
+    background-color: #EEFFEE;
+    border: 1px solid #00CC00;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+/* Frequently Used Colours */
+.corporateBlue {
+    color: #003366;
+}
+
+.corporateLightBlue {
+    color: #0066CC;
+}
+
+.corporateGrey {
+    color: #666666;
+}
+
+.negativeAmount {
+    color: #FF0000;
+}
+
+.positiveAmount {
+    color: #009900;
+}
+
+/* Legacy code support - use class methods above instead */
+.blueText {
+    color: #003366;
+}
+
+.redText {
+    color: #FF0000;
+}
+
+.greyText {
+    color: #666666;
+}
+
+/* Printing Support */
+@media print {
+    body {
+        background-color: #FFFFFF;
+    }
+    
+    .noPrint {
+        display: none;
+    }
+}
+
+/* IE 5.5/6 Hacks */
+/* \*/
+* html .ieHack {
+    height: 1%;
+}
+/* */
+
+/* Fixes extra margin in IE */
+/*\*/ 
+html .ieMarginFix { 
+    margin-top: -1px; 
+} 
+/**/

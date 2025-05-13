@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Corporate Online - Modal Dialog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <style type="text/css">
+        body {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            margin: 0;
+            padding: 0;
+            background-color: #EFEFEF;
+        }
+        .modalContainer {
+            border: 2px solid #003366;
+            background-color: #FFFFFF;
+            width: 400px;
+        }
+        .modalHeader {
+            background-color: #003366;
+            color: #FFFFFF;
+            font-weight: bold;
+            padding: 4px;
+            cursor: move;
+            height: 20px;
+        }
+        .modalContent {
+            padding: 10px;
+        }
+        .modalButtons {
+            text-align: right;
+            padding: 10px;
+            background-color: #EFEFEF;
+            border-top: 1px solid #CCCCCC;
+        }
+        .button {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            padding: 2px 10px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .buttonPrimary {
+            background-color: #003366;
+            color: #FFFFFF;
+            font-weight: bold;
+            border: 1px solid #000000;
+        }
+        .buttonSecondary {
+            background-color: #CCCCCC;
+            color: #000000;
+            border: 1px solid #999999;
+        }
+    </style>
+    <script type="text/javascript" src="../Scripts/scripts.js"></script>
+</head>
+<body>
+    <div class="modalContainer legacyui">
+        <div class="modalHeader">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td><font size="2">Important Information</font></td>
+                    <td align="right"><font size="2">[X]</font></td>
+                </tr>
+            </table>
+        </div>
+        <div class="modalContent">
+            <table width="100%" border="0" cellspacing="0" cellpadding="4">
+                <tr>
+                    <td align="center">
+                        <marquee behavior="scroll" direction="left" scrollamount="3" style="width: 100%; color: #FF0000; font-weight: bold; background-color: #FFFFCC;">
+                            System maintenance scheduled for Sunday, April 17th, 2005 from 2:00 AM to 5:00 AM ET
+                        </marquee>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                            <tr>
+                                <td width="64" align="center" valign="top">
+                                    <img src="data:image/gif;base64,R0lGODlhMgAyALMAAP/MAMwzAMwAAJkAAGYAADMAADAAAP8AADNmAP///wAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAyADIAAARrcMlJq704622BB9VpLYDYSYAkSJaspizJYiRJGYDnDrYwDAQ+D4QhcFosGpHIJJKJUCqVCoCFYBAABocFgbBgBAQPQuDRGAwGhIFhQRi4CQvCoEBgJNrtxED9ZrsBd19egYJvA4WGeEMAOw==" width="50" height="50" alt="Warning">
+                                </td>
+                                <td valign="top">
+                                    <font size="2">
+                                        <b>Terms and Conditions Update</b><br><br>
+                                        We have updated our Terms and Conditions. Please review the changes and accept to continue using Corporate Online Banking services.
+                                        <br><br>
+                                        Key changes include:
+                                        <ul>
+                                            <li>Enhanced security requirements</li>
+                                            <li>Updated fee schedule for international transfers</li>
+                                            <li>New dispute resolution process</li>
+                                        </ul>
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <textarea name="terms" rows="6" cols="50" readonly style="font-family: Courier New, Courier, monospace; font-size: 10px; border: 1px solid #999999;">CORPORATE ONLINE BANKING AGREEMENT
+
+1. GENERAL TERMS
+By accessing or using Corporate Online Banking services, you agree to be bound by these Terms and Conditions as amended from time to time.
+
+2. SECURITY
+You are responsible for maintaining the confidentiality of your account credentials. You agree to notify us immediately of any unauthorized access or use of your account.
+
+3. LIABILITY
+We are not liable for any loss or damage arising from your failure to comply with these terms. Our liability is limited to direct damages and shall not exceed the fees paid by you in the 12 months preceding the event giving rise to liability.
+
+4. FEES
+Fees for services are set forth in the Fee Schedule, which may be amended from time to time with 30 days notice.
+
+5. PRIVACY
+We collect and use your information as described in our Privacy Policy. By using our services, you consent to our collection and use of your information.
+
+6. TERMINATION
+We may terminate your access to the services at any time for any reason without notice.
+
+Last Updated: April 10, 2005
+Corporate Banking Solutions Ltd.</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size="1">
+                            <input type="checkbox" name="acceptTerms" value="1"> I have read and accept the updated Terms and Conditions.
+                        </font>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="modalButtons">
+            <input type="button" value="Accept" class="button buttonPrimary" onclick="acceptTerms();">
+            <input type="button" value="Decline" class="button buttonSecondary" onclick="declineTerms();">
+            <input type="button" value="Print" class="button buttonSecondary" onclick="printTerms();">
+        </div>
+    </div>
+
+    <!-- Legacy draggable modal script -->
+    <script type="text/javascript">
+        // Global variables for dragging
+        var dragObj = null;
+        var dragX = 0;
+        var dragY = 0;
+        
+        // Make modal draggable
+        function makeModalDraggable() {
+            var modalHeader = document.getElementsByClassName("modalHeader")[0];
+            modalHeader.onmousedown = startDrag;
+        }
+        
+        // Start drag operation
+        function startDrag(e) {
+            // Get event properties
+            e = e || window.event;
+            
+            // Get modal container
+            dragObj = document.getElementsByClassName("modalContainer")[0];
+            
+            // Calculate offset
+            dragX = e.clientX - parseInt(dragObj.style.left || "0");
+            dragY = e.clientY - parseInt(dragObj.style.top || "0");
+            
+            // Set up event handlers
+            document.onmousemove = doDrag;
+            document.onmouseup = stopDrag;
+            
+            // Prevent default behavior
+            return false;
+        }
+        
+        // Perform drag operation
+        function doDrag(e) {
+            // Get event properties
+            e = e || window.event;
+            
+            // Move modal to new position
+            dragObj.style.left = (e.clientX - dragX) + "px";
+            dragObj.style.top = (e.clientY - dragY) + "px";
+            
+            // Prevent default behavior
+            return false;
+        }
+        
+        // Stop drag operation
+        function stopDrag() {
+            // Remove event handlers
+            document.onmousemove = null;
+            document.onmouseup = null;
+            
+            // Clear drag object
+            dragObj = null;
+        }
+        
+        // Button actions
+        function acceptTerms() {
+            if (!document.getElementsByName("acceptTerms")[0].checked) {
+                alert("You must check the box to confirm you accept the Terms and Conditions.");
+                return;
+            }
+            alert("Thank you for accepting the updated Terms and Conditions.");
+            hideModal();
+        }
+        
+        function declineTerms() {
+            alert("You must accept the Terms and Conditions to continue using Corporate Online Banking.");
+        }
+        
+        function printTerms() {
+            alert("Printing functionality is not available in this example.");
+        }
+        
+        function hideModal() {
+            // In a real implementation, this would hide the modal
+            alert("Modal would be hidden now.");
+        }
+        
+        // Center modal on the screen
+        function centerModal() {
+            var modal = document.getElementsByClassName("modalContainer")[0];
+            
+            // Get browser window dimensions
+            var winWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var winHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+            
+            // Get modal dimensions
+            var modalWidth = modal.offsetWidth;
+            var modalHeight = modal.offsetHeight;
+            
+            // Center modal
+            modal.style.position = "absolute";
+            modal.style.left = Math.max(0, Math.floor((winWidth - modalWidth) / 2)) + "px";
+            modal.style.top = Math.max(0, Math.floor((winHeight - modalHeight) / 2)) + "px";
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            centerModal();
+            makeModalDraggable();
+        };
+    </script>
+</body>
+</html>
