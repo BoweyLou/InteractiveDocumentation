@@ -2,11 +2,16 @@
 <TransactionReport>
   <ReportHeader>
     <Title>Transaction Report</Title>
-    <GeneratedDate>24/05/2005</GeneratedDate>
+    <GeneratedDate>12/04/2005 10:45:23</GeneratedDate>
     <GeneratedBy>Corporate Online System</GeneratedBy>
-    <AccountNumber>123-456-789</AccountNumber>
-    <AccountName>Business Cheque</AccountName>
-    <DateRange>01/05/2005 - 24/05/2005</DateRange>
+    <AccountNumber>1098-7654-3210</AccountNumber>
+    <AccountType>Current</AccountType>
+    <ReportPeriod>
+      <StartDate>15/03/2005</StartDate>
+      <EndDate>12/04/2005</EndDate>
+    </ReportPeriod>
+    <OpeningBalance>19050.65</OpeningBalance>
+    <ClosingBalance>25349.54</ClosingBalance>
   </ReportHeader>
   <Transactions>
     <Transaction DateNum="20050523" Date="23/05/2005" Description="Direct Deposit - ABC Pty Ltd" ReferenceNumber="TR-239857" Amount="1250.75" Type="Credit" Balance="45230.45" />

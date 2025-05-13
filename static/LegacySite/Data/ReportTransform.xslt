@@ -150,11 +150,11 @@
                                             <br/>
                                             <table width="100%" border="0" cellspacing="0" cellpadding="2" class="reportSubHeader">
                                                 <tr>
-                                                    <td width="50%" align="left">Account: <xsl:value-of select="TransactionReport/ReportHeader/AccountName"/> (<xsl:value-of select="TransactionReport/ReportHeader/AccountNumber"/>)</td>
+                                                    <td width="50%" align="left">Account: <xsl:value-of select="TransactionReport/ReportHeader/AccountNumber"/> (<xsl:value-of select="TransactionReport/ReportHeader/AccountType"/>)</td>
                                                     <td width="50%" align="right">Generated: <xsl:value-of select="TransactionReport/ReportHeader/GeneratedDate"/></td>
                                                 </tr>
                                                 <tr>
-                                                    <td align="left">Date Range: <xsl:value-of select="TransactionReport/ReportHeader/DateRange"/></td>
+                                                    <td align="left">Period: <xsl:value-of select="TransactionReport/ReportHeader/ReportPeriod/StartDate"/> - <xsl:value-of select="TransactionReport/ReportHeader/ReportPeriod/EndDate"/></td>
                                                     <td align="right">By: <xsl:value-of select="TransactionReport/ReportHeader/GeneratedBy"/></td>
                                                 </tr>
                                             </table>
