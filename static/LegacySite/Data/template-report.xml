@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TransactionReport>
+  <ReportHeader>
+    <Title>Transaction Report</Title>
+    <GeneratedDate>12/04/2005 10:45:23</GeneratedDate>
+    <GeneratedBy>Corporate Online System</GeneratedBy>
+    <AccountNumber>1098-7654-3210</AccountNumber>
+    <AccountType>Current</AccountType>
+    <ReportPeriod>
+      <StartDate>15/03/2005</StartDate>
+      <EndDate>12/04/2005</EndDate>
+    </ReportPeriod>
+    <OpeningBalance>19050.65</OpeningBalance>
+    <ClosingBalance>25349.54</ClosingBalance>
+  </ReportHeader>
+  <Transactions>
+    <Transaction DateNum="20050412" Date="12/04/2005" Description="Direct Deposit - VWX Corp" ReferenceNumber="TR-239912" Amount="2500.00" Type="Credit" Balance="25349.54" />
+    <Transaction DateNum="20050410" Date="10/04/2005" Description="Cheque Withdrawal - Office Rent" ReferenceNumber="CHQ-002350" Amount="1200.00" Type="Debit" Balance="22849.54" />
+    <Transaction DateNum="20050405" Date="05/04/2005" Description="Internet Transfer - Equipment Purchase" ReferenceNumber="ITR-987650" Amount="545.75" Type="Debit" Balance="24049.54" />
+    <Transaction DateNum="20050402" Date="02/04/2005" Description="EFTPOS Purchase - Office Supplies" ReferenceNumber="EFT-756520" Amount="214.45" Type="Debit" Balance="24595.29" />
+    <Transaction DateNum="20050330" Date="30/03/2005" Description="Interest Payment" ReferenceNumber="INT-123456" Amount="89.50" Type="Credit" Balance="24809.74" />
+    <Transaction DateNum="20050325" Date="25/03/2005" Description="Direct Deposit - ABC Pty Ltd" ReferenceNumber="TR-239890" Amount="3450.00" Type="Credit" Balance="24720.24" />
+    <Transaction DateNum="20050320" Date="20/03/2005" Description="Cheque Deposit - Client Payment" ReferenceNumber="DEP-002345" Amount="1750.25" Type="Credit" Balance="21270.24" />
+    <Transaction DateNum="20050315" Date="15/03/2005" Description="Balance Forward" ReferenceNumber="BF-123457" Amount="19050.65" Type="Credit" Balance="19050.65" />
+  </Transactions>
+  <ReportSummary>
+    <TotalCredits>7789.75</TotalCredits>
+    <TotalDebits>1960.20</TotalDebits>
+    <NetChange>5829.55</NetChange>
+    <OpeningBalance>19050.65</OpeningBalance>
+    <ClosingBalance>25349.54</ClosingBalance>
+  </ReportSummary>
+</TransactionReport>

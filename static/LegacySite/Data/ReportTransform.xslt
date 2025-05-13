@@ -159,6 +159,13 @@
                                                 </tr>
                                             </table>
                                             <br/>
+                                            <div align="right">
+                                                <a href="/upload-xml" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #003366;">
+                                                    <img src="/LegacySite/Data/bullet.gif" width="8" height="8" border="0" align="absmiddle" alt=""/>
+                                                    Upload Custom XML
+                                                </a>
+                                            </div>
+                                            <br/>
                                             <!-- Transaction Table -->
                                             <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#CCCCCC">
                                                 <tr class="tableHeader">
