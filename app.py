@@ -102,12 +102,102 @@ def data(path):
 # Routes for ASP.NET Web Forms mimic (.NET 3.5)
 @app.route('/CorporateBanking.Web35/<path:path>', methods=['GET'])
 def web35_files(path):
-    return send_from_directory('CorporateBankingSolution/CorporateBanking.Web35', path)
+    if path.endswith('.aspx'):
+        try:
+            # Load the master page
+            with open('CorporateBankingSolution/CorporateBanking.Web35/Site.master', 'r') as master_file:
+                master_content = master_file.read()
+                
+            # Load the content page
+            with open(f'CorporateBankingSolution/CorporateBanking.Web35/{path}', 'r') as content_file:
+                content = content_file.read()
+                
+            # Extract content from the asp:Content tags in the ASPX file
+            import re
+            main_content_match = re.search(r'<asp:Content[^>]*ContentPlaceHolderID="MainContent"[^>]*>(.*?)</asp:Content>', content, re.DOTALL)
+            main_content = main_content_match.group(1) if main_content_match else "Content not found"
+                
+            # Insert the content into the master page
+            processed_content = master_content.replace('<!-- CONTENT_PLACEHOLDER -->', main_content)
+            
+            # Replace ASP.NET specific attributes
+            processed_content = processed_content.replace('runat="server"', '')
+            
+            return Response(processed_content, mimetype='text/html')
+        except Exception as e:
+            return f"Error processing .aspx file: {str(e)}", 500
+    elif path.endswith('.ascx'):
+        try:
+            with open(f'CorporateBankingSolution/CorporateBanking.Web35/{path}', 'r') as file:
+                content = file.read()
+                # Simple ASP.NET processing simulation
+                content = content.replace('runat="server"', '')
+                return Response(content, mimetype='text/html')
+        except Exception as e:
+            return f"Error loading control: {str(e)}", 500
+    else:
+        return send_from_directory('CorporateBankingSolution/CorporateBanking.Web35', path)
+
+# Special route for user controls in .NET 3.5
+@app.route('/CorporateBanking.Web35/Controls/<path:path>', methods=['GET'])
+def web35_controls(path):
+    try:
+        with open(f'CorporateBankingSolution/CorporateBanking.Web35/Controls/{path}', 'r') as file:
+            content = file.read()
+            content = content.replace('runat="server"', '')
+            return Response(content, mimetype='text/html')
+    except Exception as e:
+        return f"Error loading control: {str(e)}", 500
 
 # Routes for ASP.NET Web Forms mimic (.NET 4.5)
 @app.route('/CorporateBanking.Web45/<path:path>', methods=['GET'])
 def web45_files(path):
-    return send_from_directory('CorporateBankingSolution/CorporateBanking.Web45', path)
+    if path.endswith('.aspx'):
+        try:
+            # Load the master page
+            with open('CorporateBankingSolution/CorporateBanking.Web45/Site.master', 'r') as master_file:
+                master_content = master_file.read()
+                
+            # Load the content page
+            with open(f'CorporateBankingSolution/CorporateBanking.Web45/{path}', 'r') as content_file:
+                content = content_file.read()
+                
+            # Extract content from the asp:Content tags in the ASPX file
+            import re
+            main_content_match = re.search(r'<asp:Content[^>]*ContentPlaceHolderID="MainContent"[^>]*>(.*?)</asp:Content>', content, re.DOTALL)
+            main_content = main_content_match.group(1) if main_content_match else "Content not found"
+                
+            # Insert the content into the master page
+            processed_content = master_content.replace('<!-- CONTENT_PLACEHOLDER -->', main_content)
+            
+            # Replace ASP.NET specific attributes
+            processed_content = processed_content.replace('runat="server"', '')
+            
+            return Response(processed_content, mimetype='text/html')
+        except Exception as e:
+            return f"Error processing .aspx file: {str(e)}", 500
+    elif path.endswith('.ascx'):
+        try:
+            with open(f'CorporateBankingSolution/CorporateBanking.Web45/{path}', 'r') as file:
+                content = file.read()
+                # Simple ASP.NET processing simulation
+                content = content.replace('runat="server"', '')
+                return Response(content, mimetype='text/html')
+        except Exception as e:
+            return f"Error loading control: {str(e)}", 500
+    else:
+        return send_from_directory('CorporateBankingSolution/CorporateBanking.Web45', path)
+
+# Special route for user controls in .NET 4.5
+@app.route('/CorporateBanking.Web45/Controls/<path:path>', methods=['GET'])
+def web45_controls(path):
+    try:
+        with open(f'CorporateBankingSolution/CorporateBanking.Web45/Controls/{path}', 'r') as file:
+            content = file.read()
+            content = content.replace('runat="server"', '')
+            return Response(content, mimetype='text/html')
+    except Exception as e:
+        return f"Error loading control: {str(e)}", 500
 
 # Route for CorporateBankingLegacy static assets
 @app.route('/CorporateBankingLegacy/<path:path>', methods=['GET'])

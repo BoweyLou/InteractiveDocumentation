@@ -1,6 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="CorporateBanking.Web45.LoginPage" %>
 
 <asp:Content ID="LoginContent" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- ASP.NET Login Form (4.5) -->
     <font face="Verdana, Arial, Helvetica, sans-serif" size="3" color="#003366">
         <b>Login to Corporate Online</b>
     </font>
@@ -16,7 +17,8 @@
                 <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Username:</b></font>
             </td>
             <td>
-                <asp:TextBox ID="txtUsername" runat="server" CssClass="formField" Width="200px"></asp:TextBox>
+                <!-- ASP:TextBox replacement -->
+                <input type="text" id="txtUsername" class="formField" style="width: 200px;" />
             </td>
         </tr>
         <tr>
@@ -24,13 +26,15 @@
                 <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Password:</b></font>
             </td>
             <td>
-                <asp:TextBox ID="txtPassword" runat="server" CssClass="formField" Width="200px" TextMode="Password"></asp:TextBox>
+                <!-- ASP:TextBox replacement -->
+                <input type="password" id="txtPassword" class="formField" style="width: 200px;" />
             </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="formButton" OnClick="btnLogin_Click" />
+                <!-- ASP:Button replacement -->
+                <input type="button" id="btnLogin" value="Login" class="formButton" onclick="javascript:window.location.href='/CorporateBanking.Web45/dashboard.aspx';" />
             </td>
         </tr>
     </table>
