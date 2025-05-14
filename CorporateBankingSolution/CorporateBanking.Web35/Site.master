@@ -1,0 +1,187 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CorporateBanking.Web35.SiteMaster" %>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head runat="server">
+    <title>Corporate Online Banking</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" href="~/CorporateBankingLegacy/Styles/co.css">
+    <link rel="stylesheet" type="text/css" href="~/CorporateBankingLegacy/Styles/modern-stub.css">
+    <script type="text/javascript" src="~/CorporateBankingLegacy/Scripts/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="~/CorporateBankingLegacy/Scripts/scripts.js"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <!-- Main Table Container for centring -->
+    <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="center" valign="top">
+                <!-- Content Table with fixed width -->
+                <table width="780" border="0" cellspacing="0" cellpadding="0" class="legacyui" bgcolor="#FFFFFF">
+                    <tr>
+                        <td colspan="3" bgcolor="#003366" height="80">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="20"><img src="~/CorporateBankingLegacy/Data/spacer.gif" width="20" height="1" border="0" alt=""></td>
+                                    <td>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="5" color="#FFFFFF"><b>Corporate Online</b></font><br>
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">Secure Banking Portal</font>
+                                    </td>
+                                    <td align="right">
+                                        <table border="0" cellspacing="0" cellpadding="2">
+                                            <tr>
+                                                <td align="right">
+                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
+                                                        <asp:ContentPlaceHolder ID="LoginStatusPlaceHolder" runat="server">
+                                                            Welcome, <b>John Smith</b> | Last Login: 24/05/2005 10:32 AM
+                                                        </asp:ContentPlaceHolder>
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <asp:ContentPlaceHolder ID="LoginLinkPlaceholder" runat="server">
+                                                        <a href="~/CorporateBankingLegacy/Pages/login.html" style="color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none;">
+                                                            <b>Logout</b>
+                                                        </a>
+                                                    </asp:ContentPlaceHolder>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="20"><img src="~/CorporateBankingLegacy/Data/spacer.gif" width="20" height="1" border="0" alt=""></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#E5E5E5" width="180" valign="top">
+                            <!-- Left Navigation Menu -->
+                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                <tr>
+                                    <td height="30" bgcolor="#6699CC">
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                            <b>&nbsp;Main Menu</b>
+                                        </font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#F0F0F0">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                            <tr>
+                                                <td>
+                                                    <img src="~/CorporateBankingLegacy/Data/bullet.gif" width="8" height="8" border="0" alt="">
+                                                    <a href="dashboard.aspx" class="navLink">Dashboard</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="~/CorporateBankingLegacy/Data/bullet.gif" width="8" height="8" border="0" alt="">
+                                                    <a href="settings.aspx" class="navLink">Account Settings</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="~/CorporateBankingLegacy/Data/bullet.gif" width="8" height="8" border="0" alt="">
+                                                    <a href="statement.aspx" class="navLink">Transaction Report</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="~/CorporateBankingLegacy/Data/bullet.gif" width="8" height="8" border="0" alt="">
+                                                    <a href="#" class="navLink" onclick="showHelpDialog(); return false;">Help</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br>
+                            <!-- Quick Stats Box -->
+                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                <tr>
+                                    <td height="25" bgcolor="#6699CC">
+                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                            <b>&nbsp;Quick Stats</b>
+                                        </font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#F0F0F0">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                            <tr>
+                                                <td>
+                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+                                                        <b>Total Accounts:</b> 5<br>
+                                                        <b>Total Balance:</b> $145,230.45<br>
+                                                        <b>Last Transfer:</b> 23/05/2005
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- End Left Navigation Menu -->
+                        </td>
+                        <td valign="top" bgcolor="#FFFFFF">
+                            <!-- Main Content Area -->
+                            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                                <tr>
+                                    <td>
+                                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- End Main Content Area -->
+                        </td>
+                        <td bgcolor="#CCCCCC" width="1"><img src="~/CorporateBankingLegacy/Data/spacer.gif" width="1" height="1" border="0" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" bgcolor="#003366" height="30" align="center">
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
+                                Copyright &copy; 2005 Corporate Banking Ltd. All Rights Reserved.
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+                <!-- End Content Table -->
+            </td>
+        </tr>
+    </table>
+    <!-- End Main Table Container -->
+    <!-- Hidden dialog div that will be positioned using JavaScript -->
+    <div id="helpDialog" style="display: none; position: absolute; top: 200px; left: 250px; width: 400px; border: 2px solid #003366; background-color: #FFFFFF; padding: 0px;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#003366">
+            <tr>
+                <td>
+                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                        <b>Corporate Online Help</b>
+                    </font>
+                </td>
+                <td align="right">
+                    <a href="#" onclick="hideHelpDialog(); return false;" style="color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none;">
+                        <b>Close [X]</b>
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="10">
+            <tr>
+                <td>
+                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                        For assistance with Corporate Online, please contact our support team:<br><br>
+                        Phone: 1800 555 123<br>
+                        Email: support@corporateonline.com.au<br>
+                        Hours: Monday to Friday, 8:00 AM - 6:00 PM AEST
+                    </font>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

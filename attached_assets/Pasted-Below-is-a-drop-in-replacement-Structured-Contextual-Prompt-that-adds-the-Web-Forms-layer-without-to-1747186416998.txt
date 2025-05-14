@@ -1,0 +1,86 @@
+Below is a drop‑in replacement Structured Contextual Prompt that adds the Web Forms layer without touching any of the existing static files.
+It tells the generator to leave everything under /CorporateBankingLegacy exactly as‑is and to place all new .aspx / .ascx / .master artefacts in separate sibling projects.
+
+⸻
+
+
+__ASK__
+Augment the existing static “Corporate Banking Portal” codebase by creating a parallel ASP‑NET Web Forms layer that targets both .NET 3.5 and .NET 4.5—**without modifying or deleting any current files**.
+
+__CONTEXT__
+SCOPE  
+• The folder `/CorporateBankingLegacy` already contains login.html, dashboard.html, etc. **Do not edit these files.**  
+• Generate *new* files only, adding a traditional Web Forms façade so the solution compiles while still rendering the original legacy markup.  
+• Keep the UI visually identical (same tables, spacer GIFs, inline styles).
+
+DELIVERABLE STRUCTURE  
+
+/CorporateBankingSolution
+├─ CorporateBanking.Web35   (new project, targetFramework 3.5)
+├─ CorporateBanking.Web45   (new project, targetFramework 4.5)
+└─ CorporateBankingLegacy   (existing static site – leave untouched)
+
+FILES TO ADD PER PROJECT  
+
+| Purpose | New file | Contents / notes |
+|---------|----------|------------------|
+| **Master page** | `Site.master` | Wrap fixed‑width table layout copied verbatim from `CorporateBankingLegacy/Pages/dashboard.html`; insert `<asp:ContentPlaceHolder ID="MainContent" runat="server" />`. |
+| **ASPX pages** | `login.aspx`, `dashboard.aspx`, `payments.aspx`, `statement.aspx` | For each, prepend `<%@ Page … %>`, inherit `Site.master`, copy the full HTML body into an `<asp:Content>` block. |
+| **User‑control** | `Controls/ModalDialog.ascx` | Copy `modal-dialog.html` markup; add `<%@ Control … %>`. |
+| **Code‑behind stubs** | `*.aspx.cs` & `ModalDialog.ascx.cs` | Empty partial classes that inherit `System.Web.UI.Page` or `UserControl`. |
+| **XSLT demo** | `statement.aspx` | Replace body with `<asp:Xml …>` that points to `~/CorporateBankingLegacy/Data/sample-statement.xml` and `~/CorporateBankingLegacy/Data/StatementTransform.xslt`. |
+| **web.config** | one per project | Minimal config with `<compilation targetFramework="x.x" />`. |
+
+LINK/REFERENCE STATIC ASSETS  
+• Leave CSS, JS, images, XML, XSLT inside `/CorporateBankingLegacy` and reference them via relative paths (e.g., `href="~/CorporateBankingLegacy/Styles/co.css"`).  
+• Do **not** duplicate these files.
+
+BUILD SET‑UP HINT  
+• Each `.csproj` may include the legacy asset folders as “Existing Item → Add As Link” so they copy on build yet stay single‑sourced.
+
+__CONSTRAINTS__
+• **No edits** to any file under `/CorporateBankingLegacy`.  
+• All new code‑behind classes remain **empty** (no logic).  
+• Use only framework libraries available pre‑2010 (e.g., jQuery 1.4.2 already ships in legacy folder).  
+• Australian/British spelling in comments and identifiers.  
+• Total additional output ≤ 250 KB.  
+• Do not include Flash, modern JavaScript frameworks, or NuGet packages.
+
+__DELIVERABLE FORMAT__
+For each new file, follow this notation:
+
+File: <relative/path/filename.ext>
+<full file contents>
+
+Example (abbreviated):
+
+File: CorporateBanking.Web35/login.aspx
+
+<%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="false" %>
+<asp:Content ID="cnt" ContentPlaceHolderID="MainContent" runat="server">
+  <!-- (legacy HTML copied from /CorporateBankingLegacy/Pages/login.html) -->
+</asp:Content>
+
+__EXAMPLE__  (skeleton only – generator must expand every file)
+
+/CorporateBankingSolution
+├─ CorporateBanking.Web35
+│   ├─ Site.master
+│   ├─ login.aspx
+│   ├─ login.aspx.cs
+│   ├─ … (other .aspx, .cs)
+│   └─ web.config
+├─ CorporateBanking.Web45 (mirrors Web35)
+└─ CorporateBankingLegacy (unchanged)
+
+
+
+
+⸻
+
+How to use this prompt
+	1.	Feed the entire block to your chosen LLM / agent.
+	2.	Receive two new project folders that compile, while your /CorporateBankingLegacy remains pristine.
+	3.	Validate: open CorporateBankingSolution.sln in VS 2022, build either project, and browse—each page should render the familiar early‑2000s banking UI.
+
+Ping me if you’d like any more tweaks!
