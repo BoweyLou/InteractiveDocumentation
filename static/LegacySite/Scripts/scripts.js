@@ -169,6 +169,26 @@ window.onresize = function() {
     centerDialog();
 };
 
+// jQuery Collapsible Panel Function (circa 2005 style)
+function initCollapsiblePanel() {
+    // Add click handlers to all collapsible panels
+    $(".collapsiblePanel .panelHeader").click(function() {
+        var panel = $(this).parent();
+        var content = panel.find(".panelContent");
+        
+        if (content.is(":visible")) {
+            content.slideUp("slow");
+            $(this).find(".collapseIcon").html("+");
+        } else {
+            content.slideDown("slow");
+            $(this).find(".collapseIcon").html("-");
+        }
+    });
+    
+    // Initialize all panels as collapsed
+    $(".collapsiblePanel .panelContent").hide();
+}
+
 // Document ready function (using jQuery)
 $(document).ready(function() {
     // Apply hover effects to navigation
@@ -196,4 +216,7 @@ $(document).ready(function() {
             }
         }
     );
+    
+    // Initialize collapsible panels
+    initCollapsiblePanel();
 });
