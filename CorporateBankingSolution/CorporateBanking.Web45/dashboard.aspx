@@ -63,5 +63,33 @@
     </table>
     
     <br>
+    <!-- jQuery Collapsible Panel Example -->
+    <div class="collapsiblePanel">
+        <div class="panelHeader">
+            <span class="collapseIcon">+</span> Market Update
+        </div>
+        <div class="panelContent">
+            <p>Latest Financial Market Updates (24/05/2005)</p>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#CCCCCC">
+                <tr>
+                    <td bgcolor="#FFFFFF" width="120">AUD/USD</td>
+                    <td bgcolor="#FFFFFF" align="right">0.7640</td>
+                    <td bgcolor="#FFFFFF" align="right" class="creditAmount">+0.0015</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#F5F5F5">AUD/EUR</td>
+                    <td bgcolor="#F5F5F5" align="right">0.6120</td>
+                    <td bgcolor="#F5F5F5" align="right" class="debitAmount">-0.0008</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#FFFFFF">ASX 200</td>
+                    <td bgcolor="#FFFFFF" align="right">4,275.8</td>
+                    <td bgcolor="#FFFFFF" align="right" class="creditAmount">+12.5</td>
+                </tr>
+            </table>
+            <p><small>Disclaimer: Information is delayed by 15 minutes and is provided for informational purposes only.</small></p>
+        </div>
+    </div>
+    <br>
     <!-- REPORTS_PLACEHOLDER -->
 </asp:Content>
