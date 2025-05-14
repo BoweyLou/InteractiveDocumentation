@@ -153,12 +153,26 @@ def web35_files(path):
             # Add the XML report link to the Dashboard page
             if 'dashboard.aspx' in path.lower():
                 report_button = '''
-                <div style="margin-top: 20px; padding: 10px; border: 1px solid #CCCCCC; background-color: #F5F5F5;">
-                    <h3>Transaction Reports</h3>
-                    <p>Generate XML-based transaction reports.</p>
-                    <a href="/generate-report" target="_blank" class="button">View Sample Report</a>
-                    <a href="/upload-xml" class="button">Upload Custom XML</a>
-                </div>
+                <br>
+                <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr>
+                        <td height="25" bgcolor="#6699CC">
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                <b>&nbsp;Transaction Reports</b>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#F5F5F5">
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                <img src="/LegacySite/Data/chart_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
+                                <a href="/generate-report" target="_blank" class="contentLink">View Sample Report</a> | 
+                                <img src="/LegacySite/Data/download_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
+                                <a href="/upload-xml" class="contentLink">Upload Custom XML</a>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
                 '''
                 processed_content = processed_content.replace('<!-- REPORTS_PLACEHOLDER -->', report_button)
             
@@ -254,16 +268,26 @@ def web45_files(path):
             # Add the XML report link to the Dashboard page
             if 'dashboard.aspx' in path.lower():
                 report_button = '''
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Transaction Reports</h3>
-                    </div>
-                    <div class="panel-body">
-                        <p>Generate XML-based transaction reports.</p>
-                        <a href="/generate-report" target="_blank" class="btn btn-primary">View Sample Report</a>
-                        <a href="/upload-xml" class="btn btn-default">Upload Custom XML</a>
-                    </div>
-                </div>
+                <br>
+                <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr>
+                        <td height="25" bgcolor="#6699CC">
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                <b>&nbsp;Transaction Reports</b>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#F5F5F5">
+                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                <img src="/LegacySite/Data/chart_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
+                                <a href="/generate-report" target="_blank" class="contentLink">View Sample Report</a> | 
+                                <img src="/LegacySite/Data/download_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
+                                <a href="/upload-xml" class="contentLink">Upload Custom XML</a>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
                 '''
                 processed_content = processed_content.replace('<!-- REPORTS_PLACEHOLDER -->', report_button)
             
