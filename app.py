@@ -1,4 +1,5 @@
 import os
+import re
 import lxml.etree as ET
 from flask import Flask, render_template, send_from_directory, Response, request, redirect, url_for
 
@@ -108,20 +109,27 @@ def web35_files(path):
             with open('CorporateBankingSolution/CorporateBanking.Web35/Site.master', 'r') as master_file:
                 master_content = master_file.read()
                 
+            # Strip ASP.NET directive from master page
+            master_content = re.sub(r'<%@.*?%>', '', master_content)
+            
             # Load the content page
             with open(f'CorporateBankingSolution/CorporateBanking.Web35/{path}', 'r') as content_file:
                 content = content_file.read()
                 
+            # Strip ASP.NET directive from content page
+            content = re.sub(r'<%@.*?%>', '', content)
+                
             # Extract content from the asp:Content tags in the ASPX file
-            import re
             main_content_match = re.search(r'<asp:Content[^>]*ContentPlaceHolderID="MainContent"[^>]*>(.*?)</asp:Content>', content, re.DOTALL)
-            main_content = main_content_match.group(1) if main_content_match else "Content not found"
+            main_content = main_content_match.group(1) if main_content_match else "<!-- Content not found -->"
                 
             # Insert the content into the master page
             processed_content = master_content.replace('<!-- CONTENT_PLACEHOLDER -->', main_content)
             
-            # Replace ASP.NET specific attributes
+            # Replace ASP.NET specific attributes and tags
             processed_content = processed_content.replace('runat="server"', '')
+            processed_content = re.sub(r'<asp:[^>]*>', '', processed_content)
+            processed_content = re.sub(r'</asp:[^>]*>', '', processed_content)
             
             return Response(processed_content, mimetype='text/html')
         except Exception as e:
@@ -131,7 +139,10 @@ def web35_files(path):
             with open(f'CorporateBankingSolution/CorporateBanking.Web35/{path}', 'r') as file:
                 content = file.read()
                 # Simple ASP.NET processing simulation
+                content = re.sub(r'<%@.*?%>', '', content)
                 content = content.replace('runat="server"', '')
+                content = re.sub(r'<asp:[^>]*>', '', content)
+                content = re.sub(r'</asp:[^>]*>', '', content)
                 return Response(content, mimetype='text/html')
         except Exception as e:
             return f"Error loading control: {str(e)}", 500
@@ -144,7 +155,10 @@ def web35_controls(path):
     try:
         with open(f'CorporateBankingSolution/CorporateBanking.Web35/Controls/{path}', 'r') as file:
             content = file.read()
+            content = re.sub(r'<%@.*?%>', '', content)
             content = content.replace('runat="server"', '')
+            content = re.sub(r'<asp:[^>]*>', '', content)
+            content = re.sub(r'</asp:[^>]*>', '', content)
             return Response(content, mimetype='text/html')
     except Exception as e:
         return f"Error loading control: {str(e)}", 500
@@ -158,20 +172,28 @@ def web45_files(path):
             with open('CorporateBankingSolution/CorporateBanking.Web45/Site.master', 'r') as master_file:
                 master_content = master_file.read()
                 
+            # Strip ASP.NET directive from master page
+            import re
+            master_content = re.sub(r'<%@.*?%>', '', master_content)
+            
             # Load the content page
             with open(f'CorporateBankingSolution/CorporateBanking.Web45/{path}', 'r') as content_file:
                 content = content_file.read()
                 
+            # Strip ASP.NET directive from content page
+            content = re.sub(r'<%@.*?%>', '', content)
+                
             # Extract content from the asp:Content tags in the ASPX file
-            import re
             main_content_match = re.search(r'<asp:Content[^>]*ContentPlaceHolderID="MainContent"[^>]*>(.*?)</asp:Content>', content, re.DOTALL)
-            main_content = main_content_match.group(1) if main_content_match else "Content not found"
+            main_content = main_content_match.group(1) if main_content_match else "<!-- Content not found -->"
                 
             # Insert the content into the master page
             processed_content = master_content.replace('<!-- CONTENT_PLACEHOLDER -->', main_content)
             
-            # Replace ASP.NET specific attributes
+            # Replace ASP.NET specific attributes and tags
             processed_content = processed_content.replace('runat="server"', '')
+            processed_content = re.sub(r'<asp:[^>]*>', '', processed_content)
+            processed_content = re.sub(r'</asp:[^>]*>', '', processed_content)
             
             return Response(processed_content, mimetype='text/html')
         except Exception as e:
@@ -181,7 +203,10 @@ def web45_files(path):
             with open(f'CorporateBankingSolution/CorporateBanking.Web45/{path}', 'r') as file:
                 content = file.read()
                 # Simple ASP.NET processing simulation
+                content = re.sub(r'<%@.*?%>', '', content)
                 content = content.replace('runat="server"', '')
+                content = re.sub(r'<asp:[^>]*>', '', content)
+                content = re.sub(r'</asp:[^>]*>', '', content)
                 return Response(content, mimetype='text/html')
         except Exception as e:
             return f"Error loading control: {str(e)}", 500
@@ -194,7 +219,11 @@ def web45_controls(path):
     try:
         with open(f'CorporateBankingSolution/CorporateBanking.Web45/Controls/{path}', 'r') as file:
             content = file.read()
+            import re
+            content = re.sub(r'<%@.*?%>', '', content)
             content = content.replace('runat="server"', '')
+            content = re.sub(r'<asp:[^>]*>', '', content)
+            content = re.sub(r'</asp:[^>]*>', '', content)
             return Response(content, mimetype='text/html')
     except Exception as e:
         return f"Error loading control: {str(e)}", 500
