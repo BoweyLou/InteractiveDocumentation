@@ -35,6 +35,21 @@ def scripts(path):
 def data(path):
     return send_from_directory('static/LegacySite/Data', path)
 
+# Routes for ASP.NET Web Forms mimic (.NET 3.5)
+@app.route('/CorporateBanking.Web35/<path:path>', methods=['GET'])
+def web35_files(path):
+    return send_from_directory('CorporateBankingSolution/CorporateBanking.Web35', path)
+
+# Routes for ASP.NET Web Forms mimic (.NET 4.5)
+@app.route('/CorporateBanking.Web45/<path:path>', methods=['GET'])
+def web45_files(path):
+    return send_from_directory('CorporateBankingSolution/CorporateBanking.Web45', path)
+
+# Route for CorporateBankingLegacy static assets
+@app.route('/CorporateBankingLegacy/<path:path>', methods=['GET'])
+def legacy_solution_files(path):
+    return send_from_directory('CorporateBankingSolution/CorporateBankingLegacy', path)
+
 @app.route('/generate-report')
 def generate_report():
     try:
