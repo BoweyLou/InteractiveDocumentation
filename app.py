@@ -3,24 +3,6 @@ import re
 import lxml.etree as ET
 from flask import Flask, render_template, send_from_directory, Response, request, redirect, url_for
 
-# Helper function to process ASP.NET content
-def process_aspnet_content(content):
-    # Replace ASP.NET specific attributes and tags
-    content = content.replace('runat="server"', '')
-    content = re.sub(r'<asp:[^>]*>', '', content)
-    content = re.sub(r'</asp:[^>]*>', '', content)
-    
-    # Replace data binding expressions with sample values
-    content = re.sub(r'<%#\s*Eval\("AccountName"\)\s*%>', 'Sample Account', content)
-    content = re.sub(r'<%#\s*Eval\("Balance"\)\s*%>', '$12,345.67', content)
-    content = re.sub(r'<%#\s*Eval\("AccountNumber"\)\s*%>', '123456789', content)
-    content = re.sub(r'<%#\s*Eval\("LastLogin"\)\s*%>', '05/13/2025', content)
-    
-    # Generic replacement for any remaining Eval expressions
-    content = re.sub(r'<%#\s*Eval\("([^"]*)"\)\s*%>', r'Sample \1', content)
-    
-    return content
-
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "legacy_site_secret_key")
 
@@ -118,6 +100,27 @@ def scripts(path):
 def data(path):
     return send_from_directory('static/LegacySite/Data', path)
 
+# Process ASP.NET content to replace server side tags, controls, and data binding expressions
+def process_aspnet_content(content):
+    # Replace ASP.NET specific attributes and tags
+    content = content.replace('runat="server"', '')
+    content = re.sub(r'<asp:[^>]*>', '', content)
+    content = re.sub(r'</asp:[^>]*>', '', content)
+    
+    # Replace data binding expressions with sample values
+    content = re.sub(r'<%#\s*Eval\("AccountName"\)\s*%>', 'Sample Account', content)
+    content = re.sub(r'<%#\s*Eval\("Balance"\)\s*%>', '$12,345.67', content)
+    content = re.sub(r'<%#\s*Eval\("AccountNumber"\)\s*%>', '123456789', content)
+    content = re.sub(r'<%#\s*Eval\("LastLogin"\)\s*%>', '05/13/2025', content)
+    content = re.sub(r'<%#\s*Eval\("TransactionDate"\)\s*%>', '05/14/2025', content)
+    content = re.sub(r'<%#\s*Eval\("TransactionAmount"\)\s*%>', '$123.45', content)
+    content = re.sub(r'<%#\s*Eval\("Email"\)\s*%>', 'user@example.com', content)
+    
+    # Generic replacement for any remaining Eval expressions
+    content = re.sub(r'<%#\s*Eval\("([^"]*)"\)\s*%>', r'Sample \1', content)
+    
+    return content
+
 # Routes for ASP.NET Web Forms mimic (.NET 3.5)
 @app.route('/CorporateBanking.Web35/<path:path>', methods=['GET'])
 def web35_files(path):
@@ -144,10 +147,56 @@ def web35_files(path):
             # Insert the content into the master page
             processed_content = master_content.replace('<!-- CONTENT_PLACEHOLDER -->', main_content)
             
-            # Replace ASP.NET specific attributes and tags
-            processed_content = processed_content.replace('runat="server"', '')
-            processed_content = re.sub(r'<asp:[^>]*>', '', processed_content)
-            processed_content = re.sub(r'</asp:[^>]*>', '', processed_content)
+            # Process ASP.NET content
+            processed_content = process_aspnet_content(processed_content)
+            
+            # Add the XML report link to the Dashboard page
+            if 'dashboard.aspx' in path.lower():
+                report_button = '''
+                <div style="margin-top: 20px; padding: 10px; border: 1px solid #CCCCCC; background-color: #F5F5F5;">
+                    <h3>Transaction Reports</h3>
+                    <p>Generate XML-based transaction reports.</p>
+                    <a href="/generate-report" target="_blank" class="button">View Sample Report</a>
+                    <a href="/upload-xml" class="button">Upload Custom XML</a>
+                </div>
+                '''
+                processed_content = processed_content.replace('<!-- REPORTS_PLACEHOLDER -->', report_button)
+            
+            # Add form elements to the Settings page
+            if 'settings.aspx' in path.lower():
+                settings_form = '''
+                <form method="post" action="#" id="settingsForm">
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                        <tr>
+                            <td width="150">Email Address:</td>
+                            <td><input type="text" name="email" value="user@example.com" style="width: 250px;"></td>
+                        </tr>
+                        <tr>
+                            <td>Notification Preference:</td>
+                            <td>
+                                <select name="notification" style="width: 250px;">
+                                    <option selected>Email</option>
+                                    <option>SMS</option>
+                                    <option>Both</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Statement Format:</td>
+                            <td>
+                                <input type="radio" name="format" value="html" checked> HTML
+                                <input type="radio" name="format" value="pdf"> PDF
+                                <input type="radio" name="format" value="both"> Both
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><input type="button" value="Save Changes" onclick="showConfirmation('Save these settings?', function() { updateStatus('Settings saved successfully.'); }, function() {})"></td>
+                        </tr>
+                    </table>
+                </form>
+                '''
+                processed_content = processed_content.replace('<!-- SETTINGS_FORM_PLACEHOLDER -->', settings_form)
             
             return Response(processed_content, mimetype='text/html')
         except Exception as e:
@@ -156,11 +205,8 @@ def web35_files(path):
         try:
             with open(f'CorporateBankingSolution/CorporateBanking.Web35/{path}', 'r') as file:
                 content = file.read()
-                # Simple ASP.NET processing simulation
-                content = re.sub(r'<%@.*?%>', '', content)
-                content = content.replace('runat="server"', '')
-                content = re.sub(r'<asp:[^>]*>', '', content)
-                content = re.sub(r'</asp:[^>]*>', '', content)
+                # Process ASP.NET content
+                content = process_aspnet_content(content)
                 return Response(content, mimetype='text/html')
         except Exception as e:
             return f"Error loading control: {str(e)}", 500
@@ -202,10 +248,73 @@ def web45_files(path):
             # Insert the content into the master page
             processed_content = master_content.replace('<!-- CONTENT_PLACEHOLDER -->', main_content)
             
-            # Replace ASP.NET specific attributes and tags
-            processed_content = processed_content.replace('runat="server"', '')
-            processed_content = re.sub(r'<asp:[^>]*>', '', processed_content)
-            processed_content = re.sub(r'</asp:[^>]*>', '', processed_content)
+            # Process ASP.NET content
+            processed_content = process_aspnet_content(processed_content)
+            
+            # Add the XML report link to the Dashboard page
+            if 'dashboard.aspx' in path.lower():
+                report_button = '''
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Transaction Reports</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Generate XML-based transaction reports.</p>
+                        <a href="/generate-report" target="_blank" class="btn btn-primary">View Sample Report</a>
+                        <a href="/upload-xml" class="btn btn-default">Upload Custom XML</a>
+                    </div>
+                </div>
+                '''
+                processed_content = processed_content.replace('<!-- REPORTS_PLACEHOLDER -->', report_button)
+            
+            # Add form elements to the Settings page
+            if 'settings.aspx' in path.lower():
+                settings_form = '''
+                <form method="post" action="#" id="settingsForm" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="email" class="col-sm-3 control-label">Email Address:</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="email" name="email" value="user@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="notification" class="col-sm-3 control-label">Notification Preference:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="notification" name="notification">
+                                <option selected>Email</option>
+                                <option>SMS</option>
+                                <option>Both</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Statement Format:</label>
+                        <div class="col-sm-9">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="format" value="html" checked> HTML
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="format" value="pdf"> PDF
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="format" value="both"> Both
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="button" class="btn btn-primary" onclick="showConfirmation('Save these settings?', function() { updateStatus('Settings saved successfully.'); }, function() {})">Save Changes</button>
+                        </div>
+                    </div>
+                </form>
+                '''
+                processed_content = processed_content.replace('<!-- SETTINGS_FORM_PLACEHOLDER -->', settings_form)
             
             return Response(processed_content, mimetype='text/html')
         except Exception as e:
@@ -214,11 +323,8 @@ def web45_files(path):
         try:
             with open(f'CorporateBankingSolution/CorporateBanking.Web45/{path}', 'r') as file:
                 content = file.read()
-                # Simple ASP.NET processing simulation
-                content = re.sub(r'<%@.*?%>', '', content)
-                content = content.replace('runat="server"', '')
-                content = re.sub(r'<asp:[^>]*>', '', content)
-                content = re.sub(r'</asp:[^>]*>', '', content)
+                # Process ASP.NET content
+                content = process_aspnet_content(content)
                 return Response(content, mimetype='text/html')
         except Exception as e:
             return f"Error loading control: {str(e)}", 500
@@ -322,15 +428,16 @@ def upload_xml():
                                                 <tr>
                                                     <td align="right">
                                                         <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
-                                                            Welcome, <b>John Smith</b> | Last Login: 24/05/2005 10:32 AM
+                                                            Welcome, <b>John Smith</b> | Last Login: 24/05/2025
                                                         </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td align="right">
-                                                        <a href="/LegacySite/Pages/login.html" style="color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none;">
-                                                            <b>Logout</b>
-                                                        </a>
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
+                                                            <a href="/LegacySite/Pages/settings.html" style="color: #FFFFFF;">My Settings</a> |
+                                                            <a href="/LegacySite/Pages/login.html" style="color: #FFFFFF;">Log Out</a>
+                                                        </font>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -340,138 +447,132 @@ def upload_xml():
                                 </table>
                             </td>
                         </tr>
-                        <tr>
-                            <td bgcolor="#E5E5E5" width="180" valign="top">
-                                <!-- Left Navigation Menu -->
-                                <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                        <tr bgcolor="#6699CC">
+                            <td colspan="3" height="25">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
-                                        <td height="30" bgcolor="#6699CC">
+                                        <td width="20"><img src="/LegacySite/Data/spacer.gif" width="20" height="1" border="0" alt=""></td>
+                                        <td>
                                             <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
-                                                <b>&nbsp;Main Menu</b>
+                                                <a href="/LegacySite/Pages/dashboard.html" style="color: #FFFFFF; text-decoration: none;">Dashboard</a> &nbsp;|&nbsp;
+                                                <a href="/LegacySite/Pages/report-rendered.html" style="color: #FFFFFF; text-decoration: none;">Reports</a> &nbsp;|&nbsp;
+                                                <a href="/LegacySite/Pages/settings.html" style="color: #FFFFFF; text-decoration: none;">Settings</a>
                                             </font>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td bgcolor="#F0F0F0">
-                                            <table width="100%" border="0" cellspacing="0" cellpadding="2">
-                                                <tr>
-                                                    <td>
-                                                        <img src="/LegacySite/Data/bullet.gif" width="8" height="8" border="0" alt="">
-                                                        <a href="/LegacySite/Pages/dashboard.html" class="navLink">Dashboard</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="/LegacySite/Data/bullet.gif" width="8" height="8" border="0" alt="">
-                                                        <a href="/LegacySite/Pages/settings.html" class="navLink">Account Settings</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="/LegacySite/Data/bullet.gif" width="8" height="8" border="0" alt="">
-                                                        <a href="/generate-report" class="navLink">Transaction Report</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="/LegacySite/Data/bullet.gif" width="8" height="8" border="0" alt="">
-                                                        <a href="#" class="navLink" onclick="showHelpDialog(); return false;">Help</a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
+                                        <td width="20"><img src="/LegacySite/Data/spacer.gif" width="20" height="1" border="0" alt=""></td>
                                     </tr>
                                 </table>
-                                <br>
                             </td>
-                            <td valign="top" bgcolor="#FFFFFF">
+                        </tr>
+                        <tr>
+                            <td width="20"><img src="/LegacySite/Data/spacer.gif" width="20" height="1" border="0" alt=""></td>
+                            <td valign="top">
                                 <!-- Main Content Area -->
-                                <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td height="20"><img src="/LegacySite/Data/spacer.gif" width="1" height="20" border="0" alt=""></td>
+                                    </tr>
                                     <tr>
                                         <td>
-                                            <font face="Verdana, Arial, Helvetica, sans-serif" size="3" color="#003366">
-                                                <b>Upload XML Data</b>
+                                            <font face="Verdana, Arial, Helvetica, sans-serif" size="4" color="#003366">
+                                                <b>Upload XML Report Data</b>
                                             </font>
-                                            <hr size="1" noshade color="#CCCCCC">
-                                            <br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="10"><img src="/LegacySite/Data/spacer.gif" width="1" height="10" border="0" alt=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
                                             <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
-                                                Use this form to upload a custom XML file for the transaction report. The file should conform to the expected format.
-                                                <br><br>
-                                                <a href="/LegacySite/Data/template-report.xml" style="color: #003366;" target="_blank">Download XML Template</a> to use as a starting point.
+                                                Use this form to upload a custom XML file for report generation. 
+                                                The uploaded XML file must match the expected format.
                                             </font>
-                                            <br><br>
-                                            <!-- Upload Form -->
-                                            <form action="/upload-xml" method="post" enctype="multipart/form-data">
-                                                <table width="100%" border="0" cellspacing="0" cellpadding="3">
-                                                    <tr>
-                                                        <td width="150">
-                                                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">XML File:</font>
-                                                        </td>
-                                                        <td>
-                                                            <input type="file" name="xml_file" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 300px;">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>&nbsp;</td>
-                                                        <td>
-                                                            <input type="submit" value="Upload and Generate Report" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 180px; cursor: hand;">
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </form>
-                                            <br>
-                                            <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#F0F0F0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="20"><img src="/LegacySite/Data/spacer.gif" width="1" height="20" border="0" alt=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="2" bgcolor="#E6E6E6">
                                                 <tr>
                                                     <td>
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
-                                                            <b>Note:</b> The XML file must match the structure expected by the report template. Sample XML structure:
-                                                            <pre style="font-size: 9px; color: #666666; margin: 5px;">
-&lt;TransactionReport&gt;
-  &lt;ReportHeader&gt;
-    &lt;Title&gt;Transaction Report&lt;/Title&gt;
-    &lt;GeneratedDate&gt;12/04/2005 10:45:23&lt;/GeneratedDate&gt;
-    &lt;GeneratedBy&gt;Corporate Online System&lt;/GeneratedBy&gt;
-    &lt;AccountNumber&gt;1098-7654-3210&lt;/AccountNumber&gt;
-    &lt;AccountType&gt;Current&lt;/AccountType&gt;
-    &lt;ReportPeriod&gt;
-      &lt;StartDate&gt;15/03/2005&lt;/StartDate&gt;
-      &lt;EndDate&gt;12/04/2005&lt;/EndDate&gt;
-    &lt;/ReportPeriod&gt;
-    ...
-  &lt;/ReportHeader&gt;
-  &lt;Transactions&gt;
-    &lt;Transaction DateNum="..." Date="..." Description="..." ...&gt;
-    ...
-  &lt;/Transactions&gt;
-&lt;/TransactionReport&gt;
-                                                            </pre>
+                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                            <b>Upload XML File</b>
                                                         </font>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#F5F5F5">
+                                                <tr>
+                                                    <td>
+                                                        <form action="/upload-xml" method="post" enctype="multipart/form-data">
+                                                            <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                                                                <tr>
+                                                                    <td width="150"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Select XML File:</font></td>
+                                                                    <td><input type="file" name="xml_file" size="40"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                    <td>
+                                                                        <input type="submit" value="Upload and Generate Report">
+                                                                        <input type="button" value="Download Template" onclick="window.location.href='/Data/template-report.xml'">
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="20"><img src="/LegacySite/Data/spacer.gif" width="1" height="20" border="0" alt=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                <a href="/LegacySite/Pages/dashboard.html">&laquo; Back to Dashboard</a>
+                                            </font>
+                                        </td>
+                                    </tr>
                                 </table>
+                                <!-- End Main Content Area -->
                             </td>
-                            <td bgcolor="#CCCCCC" width="1"><img src="/LegacySite/Data/spacer.gif" width="1" height="1" border="0" alt=""></td>
+                            <td width="20"><img src="/LegacySite/Data/spacer.gif" width="20" height="1" border="0" alt=""></td>
                         </tr>
                         <tr>
-                            <td colspan="3" bgcolor="#003366" height="30" align="center">
-                                <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
-                                    Copyright &copy; 2005 Corporate Online. All Rights Reserved.
+                            <td colspan="3" height="20"><img src="/LegacySite/Data/spacer.gif" width="1" height="20" border="0" alt=""></td>
+                        </tr>
+                        <tr bgcolor="#6699CC">
+                            <td colspan="3" height="1"><img src="/LegacySite/Data/spacer.gif" width="1" height="1" border="0" alt=""></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" height="10"><img src="/LegacySite/Data/spacer.gif" width="1" height="10" border="0" alt=""></td>
+                        </tr>
+                        <tr>
+                            <td width="20"><img src="/LegacySite/Data/spacer.gif" width="20" height="1" border="0" alt=""></td>
+                            <td>
+                                <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#666666">
+                                    Copyright &copy; 2005-2025 Corporate Banking Ltd. All Rights Reserved.<br>
+                                    For technical assistance, please contact the IT Help Desk at 1-800-555-1234.
                                 </font>
                             </td>
+                            <td width="20"><img src="/LegacySite/Data/spacer.gif" width="20" height="1" border="0" alt=""></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" height="20"><img src="/LegacySite/Data/spacer.gif" width="1" height="20" border="0" alt=""></td>
                         </tr>
                     </table>
-                    <!-- End Content Table -->
                 </td>
             </tr>
         </table>
-        <!-- End Main Table Container -->
     </body>
     </html>
     '''
     return upload_form
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
