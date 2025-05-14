@@ -364,10 +364,11 @@ def web45_controls(path):
     except Exception as e:
         return f"Error loading control: {str(e)}", 500
 
-# Route for CorporateBankingLegacy static assets
+# Route for CorporateBankingLegacy static assets (redirected to LegacySite)
 @app.route('/CorporateBankingLegacy/<path:path>', methods=['GET'])
 def legacy_solution_files(path):
-    return send_from_directory('CorporateBankingSolution/CorporateBankingLegacy', path)
+    # Redirect to the LegacySite folder instead
+    return send_from_directory('static/LegacySite', path)
 
 @app.route('/generate-report')
 def generate_report():

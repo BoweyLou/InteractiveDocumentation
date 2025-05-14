@@ -22,7 +22,7 @@
         <Columns>
             <asp:TemplateField HeaderText="Account Name">
                 <ItemTemplate>
-                    <img src="~/CorporateBankingLegacy/Data/account_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
+                    <img src="/LegacySite/Data/account_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
                     &nbsp;<%# Eval("AccountName") %>
                 </ItemTemplate>
             </asp:TemplateField>
@@ -39,11 +39,11 @@
             <td>
                 <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
                     <b>Recent Activity Summary</b><br>
-                    <img src="~/CorporateBankingLegacy/Data/chart_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
+                    <img src="/LegacySite/Data/chart_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
                     <a href="#" class="contentLink">View Transactions</a> | 
-                    <img src="~/CorporateBankingLegacy/Data/print_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
+                    <img src="/LegacySite/Data/print_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
                     <a href="#" class="contentLink">Print Statement</a> | 
-                    <img src="~/CorporateBankingLegacy/Data/download_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
+                    <img src="/LegacySite/Data/download_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
                     <a href="#" class="contentLink">Download CSV</a>
                 </font>
             </td>
@@ -55,7 +55,7 @@
         <tr>
             <td>
                 <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
-                    <img src="~/CorporateBankingLegacy/Data/info_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
+                    <img src="/LegacySite/Data/info_icon.gif" width="16" height="16" border="0" align="absmiddle" alt="">
                     <b>Important Notice:</b> System maintenance is scheduled for Sunday, 29/05/2005, from 2:00 AM to 5:00 AM AEST. Online banking services will be unavailable during this time.
                 </font>
             </td>
