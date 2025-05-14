@@ -153,13 +153,8 @@ def web35_files(path):
 @app.route('/CorporateBanking.Web35/Controls/<path:path>', methods=['GET'])
 def web35_controls(path):
     try:
-        with open(f'CorporateBankingSolution/CorporateBanking.Web35/Controls/{path}', 'r') as file:
-            content = file.read()
-            content = re.sub(r'<%@.*?%>', '', content)
-            content = content.replace('runat="server"', '')
-            content = re.sub(r'<asp:[^>]*>', '', content)
-            content = re.sub(r'</asp:[^>]*>', '', content)
-            return Response(content, mimetype='text/html')
+        # Use the existing .ascx handling from the web35_files function
+        return web35_files(f'Controls/{path}')
     except Exception as e:
         return f"Error loading control: {str(e)}", 500
 
@@ -173,7 +168,6 @@ def web45_files(path):
                 master_content = master_file.read()
                 
             # Strip ASP.NET directive from master page
-            import re
             master_content = re.sub(r'<%@.*?%>', '', master_content)
             
             # Load the content page
@@ -217,14 +211,8 @@ def web45_files(path):
 @app.route('/CorporateBanking.Web45/Controls/<path:path>', methods=['GET'])
 def web45_controls(path):
     try:
-        with open(f'CorporateBankingSolution/CorporateBanking.Web45/Controls/{path}', 'r') as file:
-            content = file.read()
-            import re
-            content = re.sub(r'<%@.*?%>', '', content)
-            content = content.replace('runat="server"', '')
-            content = re.sub(r'<asp:[^>]*>', '', content)
-            content = re.sub(r'</asp:[^>]*>', '', content)
-            return Response(content, mimetype='text/html')
+        # Use the existing .ascx handling from the web45_files function
+        return web45_files(f'Controls/{path}')
     except Exception as e:
         return f"Error loading control: {str(e)}", 500
 
