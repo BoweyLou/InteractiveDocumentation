@@ -3,6 +3,24 @@ import re
 import lxml.etree as ET
 from flask import Flask, render_template, send_from_directory, Response, request, redirect, url_for
 
+# Helper function to process ASP.NET content
+def process_aspnet_content(content):
+    # Replace ASP.NET specific attributes and tags
+    content = content.replace('runat="server"', '')
+    content = re.sub(r'<asp:[^>]*>', '', content)
+    content = re.sub(r'</asp:[^>]*>', '', content)
+    
+    # Replace data binding expressions with sample values
+    content = re.sub(r'<%#\s*Eval\("AccountName"\)\s*%>', 'Sample Account', content)
+    content = re.sub(r'<%#\s*Eval\("Balance"\)\s*%>', '$12,345.67', content)
+    content = re.sub(r'<%#\s*Eval\("AccountNumber"\)\s*%>', '123456789', content)
+    content = re.sub(r'<%#\s*Eval\("LastLogin"\)\s*%>', '05/13/2025', content)
+    
+    # Generic replacement for any remaining Eval expressions
+    content = re.sub(r'<%#\s*Eval\("([^"]*)"\)\s*%>', r'Sample \1', content)
+    
+    return content
+
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "legacy_site_secret_key")
 
