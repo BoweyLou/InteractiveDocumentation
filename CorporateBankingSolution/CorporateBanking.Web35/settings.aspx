@@ -11,6 +11,7 @@
     </font>
     <br><br>
     <!-- Settings Form -->
+    <!-- SETTINGS_FORM_PLACEHOLDER -->
     <table width="100%" border="0" cellspacing="0" cellpadding="3">
         <tr>
             <td colspan="2" bgcolor="#6699CC" height="25">
