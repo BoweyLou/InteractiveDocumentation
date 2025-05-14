@@ -1,5 +1,8 @@
 <%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="CorporateBanking.Web45.DashboardPage" %>
 
+<asp:Content ContentPlaceHolderID="HeadContent" runat="server">
+    <script type="text/javascript" src="Scripts/modern.js"></script>
+</asp:Content>
 <asp:Content ID="DashboardContent" ContentPlaceHolderID="MainContent" runat="server">
     <font face="Verdana, Arial, Helvetica, sans-serif" size="3" color="#003366">
         <b>Account Dashboard</b>
