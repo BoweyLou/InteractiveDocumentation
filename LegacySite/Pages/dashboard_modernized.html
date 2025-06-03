@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Online - Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="../Styles/co.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/modern-stub.css">
+    <script type="text/javascript" src="../Scripts/scripts.js"></script>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Global Header -->
+        <header class="site-header">
+            <div class="header-content">
+                <div class="brand-section">
+                    <h1 class="headerText">Corporate Online</h1>
+                    <p class="normalText" style="color: #FFFFFF;">Secure Banking Portal</p>
+                </div>
+                <div class="user-info">
+                    <span class="normalText" style="color: #FFFFFF;">
+                        Welcome, <strong>John Smith</strong><br>
+                        <strong>Last Login: 12/04/2005 09:23</strong>
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="main-navigation">
+            <ul class="nav-list">
+                <li><a href="dashboard.html" class="nav-link active">Home</a></li>
+                <li><a href="#" class="nav-link">Transfer Funds</a></li>
+                <li><a href="#" class="nav-link">Payments</a></li>
+                <li><a href="report-rendered.html" class="nav-link">Reports</a></li>
+                <li><a href="settings.html" class="nav-link">Settings</a></li>
+                <li><a href="login.html" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-wrapper">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar">
+                <section class="nav-section">
+                    <h2 class="subHeaderText">Navigation</h2>
+                    <nav class="sidebar-nav">
+                        <ul>
+                            <li class="navItemSelected">
+                                <span class="nav-icon">•</span>
+                                <span>Account Summary</span>
+                            </li>
+                            <li class="navItem">
+                                <span class="nav-icon">•</span>
+                                <a href="#" class="normalText">Transaction History</a>
+                            </li>
+                            <li class="navItem">
+                                <span class="nav-icon">•</span>
+                                <a href="#" class="normalText">Funds Transfer</a>
+                            </li>
+                            <li class="navItem">
+                                <span class="nav-icon">•</span>
+                                <a href="#" class="normalText">Bill Payments</a>
+                            </li>
+                            <li class="navItem">
+                                <span class="nav-icon">•</span>
+                                <a href="report-rendered.html" class="normalText">Reports</a>
+                            </li>
+                            <li class="navItem">
+                                <span class="nav-icon">•</span>
+                                <a href="settings.html" class="normalText">Account Settings</a>
+                            </li>
+                            <li class="navItem">
+                                <span class="nav-icon">•</span>
+                                <a href="login.html" class="normalText">Logout</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+
+                <section class="account-info">
+                    <h3 class="subHeaderText">Account Information</h3>
+                    <dl class="info-list">
+                        <dt class="smallText">Customer ID:</dt>
+                        <dd class="smallText">C009834672</dd>
+                        <dt class="smallText">Last Login:</dt>
+                        <dd class="smallText">12/04/2005</dd>
+                        <dt class="smallText">Session:</dt>
+                        <dd class="smallText">2738AE9F</dd>
+                    </dl>
+                </section>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <header class="content-header">
+                    <h1 class="headerText">Account Dashboard</h1>
+                    <hr class="content-divider">
+                    <p class="normalText">
+                        Welcome to the Corporate Online Banking Platform. You are logged in as <strong>John Smith</strong>.
+                    </p>
+                </header>
+
+                <!-- Account Overview Section -->
+                <section class="account-overview">
+                    <h2 class="dataHeader">Account Overview</h2>
+                    <div class="overview-grid">
+                        <div class="balance-summary">
+                            <h3 class="subHeaderText">Account Balances</h3>
+                            <table class="data-table" role="table" aria-label="Account Balances">
+                                <tbody>
+                                    <tr class="dataRow1">
+                                        <td class="normalText">Current Account</td>
+                                        <td class="normalText positiveAmount">$25,349.54</td>
+                                    </tr>
+                                    <tr class="dataRow2">
+                                        <td class="normalText">Savings Account</td>
+                                        <td class="normalText positiveAmount">$103,278.65</td>
+                                    </tr>
+                                    <tr class="dataRow1">
+                                        <td class="normalText">Foreign Currency</td>
+                                        <td class="normalText positiveAmount">$8,724.99</td>
+                                    </tr>
+                                    <tr class="dataRow2">
+                                        <td class="normalText">Term Deposit</td>
+                                        <td class="normalText positiveAmount">$50,000.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="recent-activities">
+                            <h3 class="subHeaderText">Recent Activities</h3>
+                            <table class="data-table" role="table" aria-label="Recent Activities">
+                                <tbody>
+                                    <tr class="dataRow1">
+                                        <td class="normalText">Transfer - 12/04/2005</td>
+                                        <td class="normalText negativeAmount">-$1,500.00</td>
+                                    </tr>
+                                    <tr class="dataRow2">
+                                        <td class="normalText">Deposit - 10/04/2005</td>
+                                        <td class="normalText positiveAmount">+$3,267.00</td>
+                                    </tr>
+                                    <tr class="dataRow1">
+                                        <td class="normalText">Payment - 07/04/2005</td>
+                                        <td class="normalText negativeAmount">-$982.54</td>
+                                    </tr>
+                                    <tr class="dataRow2">
+                                        <td class="normalText">Withdrawal - 05/04/2005</td>
+                                        <td class="normalText negativeAmount">-$500.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Corporate Accounts Section -->
+                <section class="corporate-accounts">
+                    <h2 class="dataHeader">Corporate Accounts</h2>
+                    <table class="accounts-table" role="table" aria-label="Corporate Accounts">
+                        <thead>
+                            <tr class="dataHeader">
+                                <th scope="col" class="normalText">Account Number</th>
+                                <th scope="col" class="normalText">Account Type</th>
+                                <th scope="col" class="normalText">Currency</th>
+                                <th scope="col" class="normalText">Balance</th>
+                                <th scope="col" class="normalText">Available</th>
+                                <th scope="col" class="normalText">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow1">
+                                <td class="normalText">1098-7654-3210</td>
+                                <td class="normalText">Current</td>
+                                <td class="normalText">USD</td>
+                                <td class="normalText">$25,349.54</td>
+                                <td class="normalText">$25,349.54</td>
+                                <td class="smallText">
+                                    <a href="#">Details</a> | <a href="#">Transfer</a>
+                                </td>
+                            </tr>
+                            <tr class="dataRow2">
+                                <td class="normalText">2098-8554-3211</td>
+                                <td class="normalText">Savings</td>
+                                <td class="normalText">USD</td>
+                                <td class="normalText">$103,278.65</td>
+                                <td class="normalText">$103,278.65</td>
+                                <td class="smallText">
+                                    <a href="#">Details</a> | <a href="#">Transfer</a>
+                                </td>
+                            </tr>
+                            <tr class="dataRow1">
+                                <td class="normalText">3176-5432-8765</td>
+                                <td class="normalText">Foreign Currency</td>
+                                <td class="normalText">EUR</td>
+                                <td class="normalText">€6,517.00</td>
+                                <td class="normalText">€6,517.00</td>
+                                <td class="smallText">
+                                    <a href="#">Details</a> | <a href="#">Transfer</a>
+                                </td>
+                            </tr>
+                            <tr class="dataRow2">
+                                <td class="normalText">4298-3265-8761</td>
+                                <td class="normalText">Term Deposit</td>
+                                <td class="normalText">USD</td>
+                                <td class="normalText">$50,000.00</td>
+                                <td class="normalText">$0.00</td>
+                                <td class="smallText">
+                                    <a href="#">Details</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Action Buttons -->
+                <section class="action-buttons">
+                    <button type="button" class="button">View Transactions</button>
+                    <button type="button" class="button">Transfer Funds</button>
+                    <button type="button" class="button">Download Statement</button>
+                </section>
+
+                <!-- System Notice -->
+                <aside class="systemMessage" role="alert">
+                    <p class="normalText">
+                        <strong>SYSTEM NOTICE:</strong> Scheduled maintenance will occur on Sunday, April 17th, 2005 from 2:00 AM to 5:00 AM ET. Online banking services will be unavailable during this time.
+                    </p>
+                </aside>
+
+                <!-- Collapsible Market Update Panel (from reference design) -->
+                <section class="collapsible-panel">
+                    <header class="panel-header" role="button" tabindex="0" aria-expanded="false" aria-controls="market-update-content">
+                        <span class="collapse-icon">+</span>
+                        <h3 class="subHeaderText">Market Update</h3>
+                    </header>
+                    <div id="market-update-content" class="panel-content" style="display: none;">
+                        <p class="normalText">Latest Financial Market Updates (24/05/2005)</p>
+                        <table class="data-table" role="table" aria-label="Market Data">
+                            <tbody>
+                                <tr class="dataRow1">
+                                    <td class="normalText">AUD/USD</td>
+                                    <td class="normalText">0.7640</td>
+                                    <td class="normalText positiveAmount">+0.0015</td>
+                                </tr>
+                                <tr class="dataRow2">
+                                    <td class="normalText">AUD/EUR</td>
+                                    <td class="normalText">0.6120</td>
+                                    <td class="normalText negativeAmount">-0.0008</td>
+                                </tr>
+                                <tr class="dataRow1">
+                                    <td class="normalText">ASX 200</td>
+                                    <td class="normalText">4,275.8</td>
+                                    <td class="normalText positiveAmount">+12.5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="smallText">
+                            <em>Disclaimer: Information is delayed by 15 minutes and is provided for informational purposes only.</em>
+                        </p>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p class="smallText">&copy; 2005 Corporate Banking Solutions Ltd.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Modern browser-compatible JavaScript (replacing IE6 compatibility code)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Collapsible panel functionality
+            const panelHeaders = document.querySelectorAll('.panel-header');
+            panelHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.collapse-icon');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    if (isExpanded) {
+                        content.style.display = 'none';
+                        icon.textContent = '+';
+                        this.setAttribute('aria-expanded', 'false');
+                    } else {
+                        content.style.display = 'block';
+                        icon.textContent = '-';
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                });
+                
+                // Keyboard support
+                header.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
