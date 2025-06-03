@@ -1,0 +1,58 @@
+---
+// Migration from legacy Flask embedded HTML to Astro component
+// Original source: app.py lines 17-80 (Flask route handler)
+// Converted HTML 4.01 Transitional to modern HTML5
+// Extracted inline styles to external CSS for better maintainability
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Banking Portal - Version Selector</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" type="text/css" href="/styles/banking-portal.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Corporate Banking Portal</h1>
+            <div style="font-size: 14px; margin-top: 5px;">Version Migration Demonstration</div>
+        </div>
+        <div class="content">
+            <p>This demonstration shows the evolution of a legacy corporate banking portal through various technology migrations.</p>
+            
+            <h2>Select Version to View</h2>
+            
+            <div class="version-box">
+                <div class="version-title">Legacy Static Version (circa 2004-2005)</div>
+                <div class="version-description">
+                    The original static HTML website using table-based layouts, spacer GIFs, and font tags with limited JavaScript.
+                </div>
+                <a href="/LegacySite/Pages/login.html" class="version-link">View Legacy Version</a>
+            </div>
+            
+            <div class="version-box">
+                <div class="version-title">ASP.NET 3.5 Web Forms Migration</div>
+                <div class="version-description">
+                    Migration showing how the legacy site would be wrapped in ASP.NET 3.5 Web Forms architecture with Master Pages and server controls.
+                </div>
+                <a href="/CorporateBanking.Web35/login.aspx" class="version-link">View .NET 3.5 Version</a>
+            </div>
+            
+            <div class="version-box">
+                <div class="version-title">ASP.NET 4.5 Web Forms Migration</div>
+                <div class="version-description">
+                    Further evolution to ASP.NET 4.5 Web Forms, maintaining backward compatibility while leveraging newer framework features.
+                </div>
+                <a href="/CorporateBanking.Web45/login.aspx" class="version-link">View .NET 4.5 Version</a>
+            </div>
+        </div>
+        <div class="footer">
+            Copyright &copy; 2005-2025 Corporate Banking Ltd. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>
