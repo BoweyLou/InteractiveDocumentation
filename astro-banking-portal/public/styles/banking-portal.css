@@ -1,0 +1,78 @@
+/* Corporate Banking Portal Styles - Modernized for Astro */
+body { 
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-color: #F0F0F0; 
+}
+
+.container { 
+    width: 780px; 
+    margin: 50px auto; 
+    background-color: #FFFFFF; 
+    border: 1px solid #CCCCCC; 
+}
+
+.header { 
+    background-color: #003366; 
+    color: #FFFFFF; 
+    padding: 20px; 
+}
+
+.content { 
+    padding: 20px; 
+}
+
+h1 { 
+    font-size: 24px; 
+    margin: 0; 
+    padding: 0; 
+}
+
+h2 { 
+    font-size: 18px; 
+    color: #003366; 
+    margin-top: 30px; 
+    border-bottom: 1px solid #CCCCCC; 
+    padding-bottom: 5px; 
+}
+
+.version-box { 
+    background-color: #F5F5F5; 
+    border: 1px solid #E0E0E0; 
+    padding: 15px; 
+    margin-bottom: 15px; 
+}
+
+.version-title { 
+    font-weight: bold; 
+    color: #003366; 
+    margin-bottom: 5px; 
+}
+
+.version-description { 
+    font-size: 12px; 
+    color: #666666; 
+    margin-bottom: 10px; 
+}
+
+.version-link { 
+    display: inline-block; 
+    background-color: #6699CC; 
+    color: #FFFFFF; 
+    padding: 5px 10px; 
+    text-decoration: none; 
+    font-size: 12px; 
+}
+
+.version-link:hover { 
+    background-color: #003366; 
+}
+
+.footer { 
+    background-color: #003366; 
+    color: #FFFFFF; 
+    font-size: 11px; 
+    padding: 10px; 
+    text-align: center; 
+}

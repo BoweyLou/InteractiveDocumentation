@@ -1,0 +1,189 @@
+/* Corporate Online Main Stylesheet */
+/* Created: 15/03/2005 */
+/* Last Updated: 24/05/2005 */
+/* TODO: remove table layout when we migrate to CSS3 */
+/* Last Updated: 14/05/2025 - Added legacy jQuery UI elements */
+
+/* Main Elements */
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #E0E0E0;
+    scrollbar-face-color: #CCCCCC;
+    scrollbar-highlight-color: #FFFFFF;
+    scrollbar-shadow-color: #999999;
+    scrollbar-3dlight-color: #FFFFFF;
+    scrollbar-arrow-color: #003366;
+    scrollbar-track-color: #F0F0F0;
+    scrollbar-darkshadow-color: #666666;
+}
+
+/* Main Tables */
+.mainTable {
+    border: 0px;
+    width: 780px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Navigation Links */
+.navLink {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.navLink:hover {
+    text-decoration: underline;
+    color: #003366;
+}
+
+/* Headers */
+.pageHeader {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.sectionHeader {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #003366;
+    background-color: #E5E5E5;
+    padding: 3px;
+}
+
+/* Form Elements */
+input, select, textarea {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #000000;
+    background-color: #FFFFFF;
+    border: 1px solid #999999;
+}
+
+.button {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #000000;
+    background-color: #CCCCCC;
+    border: 1px solid #999999;
+    cursor: hand;
+}
+
+/* Data Grid Styles */
+.gridHeader {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #6699CC;
+    padding: 3px;
+}
+
+.gridAlternateRow {
+    background-color: #F5F5F5;
+}
+
+.gridRow {
+    background-color: #FFFFFF;
+}
+
+/* Special Text Styles */
+.smallText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    color: #666666;
+}
+
+.errorText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FF0000;
+}
+
+/* Content Box Styles */
+.contentBox {
+    border: 1px solid #CCCCCC;
+    background-color: #F5F5F5;
+    padding: 5px;
+}
+
+/* Modal Dialog Styles */
+.modalBackground {
+    background-color: #000000;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.modalDialog {
+    border: 2px solid #003366;
+    background-color: #FFFFFF;
+    padding: 0px;
+}
+
+.modalHeader {
+    background-color: #003366;
+    color: #FFFFFF;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px;
+}
+
+/* Report Styles */
+.reportTitle {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #003366;
+    text-align: center;
+}
+
+.creditAmount {
+    color: #008800;
+}
+
+.debitAmount {
+    color: #FF0000;
+}
+
+/* jQuery UI-like Collapsible Panel (circa 2005) */
+.collapsiblePanel {
+    width: 100%;
+    border: 1px solid #CCCCCC;
+    margin-bottom: 10px;
+    background-color: #FFFFFF;
+}
+
+.collapsiblePanel .panelHeader {
+    background-color: #6699CC;
+    padding: 3px;
+    cursor: pointer;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.collapsiblePanel .panelHeader .collapseIcon {
+    float: right;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #FFFFFF;
+    text-align: center;
+    margin-right: 3px;
+    background-color: #003366;
+}
+
+.collapsiblePanel .panelContent {
+    padding: 5px;
+    background-color: #F5F5F5;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #000000;
+    border-top: 1px solid #CCCCCC;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Corporate Banking Portal - Version Selector</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/co.css">
+    <style type="text/css">
+        body { font-family: Verdana, Arial, Helvetica, sans-serif; margin: 0; padding: 0; background-color: #F0F0F0; }
+        .container { width: 780px; margin: 50px auto; background-color: #FFFFFF; border: 1px solid #CCCCCC; }
+        .header { background-color: #003366; color: #FFFFFF; padding: 20px; }
+        .content { padding: 20px; }
+        h1 { font-size: 24px; margin: 0; padding: 0; }
+        h2 { font-size: 18px; color: #003366; margin-top: 30px; border-bottom: 1px solid #CCCCCC; padding-bottom: 5px; }
+        .version-box { background-color: #F5F5F5; border: 1px solid #E0E0E0; padding: 15px; margin-bottom: 15px; }
+        .version-title { font-weight: bold; color: #003366; margin-bottom: 5px; }
+        .version-description { font-size: 12px; color: #666666; margin-bottom: 10px; }
+        .version-link { display: inline-block; background-color: #6699CC; color: #FFFFFF; padding: 5px 10px; text-decoration: none; font-size: 12px; }
+        .version-link:hover { background-color: #003366; }
+        .footer { background-color: #003366; color: #FFFFFF; font-size: 11px; padding: 10px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Corporate Banking Portal</h1>
+            <div style="font-size: 14px; margin-top: 5px;">Version Migration Demonstration</div>
+        </div>
+        <div class="content">
+            <p>This demonstration shows the evolution of a legacy corporate banking portal through various technology migrations.</p>
+            
+            <h2>Select Version to View</h2>
+            
+            <div class="version-box">
+                <div class="version-title">Legacy Static Version (circa 2004-2005)</div>
+                <div class="version-description">
+                    The original static HTML website using table-based layouts, spacer GIFs, and font tags with limited JavaScript.
+                </div>
+                <a href="/LegacySite/Pages/login.html" class="version-link">View Legacy Version</a>
+            </div>
+            
+            <div class="version-box">
+                <div class="version-title">ASP.NET 3.5 Web Forms Migration</div>
+                <div class="version-description">
+                    Migration showing how the legacy site would be wrapped in ASP.NET 3.5 Web Forms architecture with Master Pages and server controls.
+                </div>
+                <a href="/CorporateBanking.Web35/login.aspx" class="version-link">View .NET 3.5 Version</a>
+            </div>
+            
+            <div class="version-box">
+                <div class="version-title">ASP.NET 4.5 Web Forms Migration</div>
+                <div class="version-description">
+                    Further evolution to ASP.NET 4.5 Web Forms, maintaining backward compatibility while leveraging newer framework features.
+                </div>
+                <a href="/CorporateBanking.Web45/login.aspx" class="version-link">View .NET 4.5 Version</a>
+            </div>
+        </div>
+        <div class="footer">
+            Copyright &copy; 2005-2025 Corporate Banking Ltd. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>
