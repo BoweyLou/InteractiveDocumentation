@@ -13,24 +13,66 @@
     <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/co.css"/>
     <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/modern-stub.css"/>
     <style type="text/css">
-        body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; }
-        .reportHeader { font-size: 14px; font-weight: bold; color: #003366; }
-        .reportSubHeader { font-size: 12px; color: #000000; }
-        .tableHeader { background-color: #6699CC; color: #FFFFFF; font-weight: bold; }
-        .rowEven { background-color: #F5F5F5; }
-        .rowOdd { background-color: #FFFFFF; }
-        .creditAmount { color: #008800; }
-        .debitAmount { color: #FF0000; }
-        .summaryTable { background-color: #E5E5E5; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+            font-size: 14px; 
+            line-height: 1.6;
+            color: var(--text-primary, #2c3e50);
+        }
+        .reportHeader { 
+            font-size: 28px; 
+            font-weight: 600; 
+            color: var(--primary-color, #2c3e50);
+            margin-bottom: 1rem;
+        }
+        .reportSubHeader { 
+            font-size: 16px; 
+            color: var(--text-secondary, #64748b);
+            font-weight: 500;
+        }
+        .tableHeader { 
+            background: linear-gradient(135deg, var(--primary-color, #2c3e50) 0%, var(--primary-dark, #1a252f) 100%);
+            color: #ffffff; 
+            font-weight: 600;
+            padding: 12px 8px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+        .rowEven { 
+            background-color: var(--surface-light, #f8fafc); 
+            transition: background-color 0.2s ease;
+        }
+        .rowOdd { 
+            background-color: #ffffff; 
+            transition: background-color 0.2s ease;
+        }
+        .rowEven:hover, .rowOdd:hover {
+            background-color: var(--hover-bg, #e2e8f0);
+        }
+        .creditAmount { 
+            color: var(--success-color, #059669); 
+            font-weight: 600;
+        }
+        .debitAmount { 
+            color: var(--error-color, #dc2626); 
+            font-weight: 600;
+        }
+        .summaryTable { 
+            background-color: var(--surface-light, #f8fafc);
+            border: 1px solid var(--border-color, #e2e8f0);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
-<body>
+<body class="modern-ui">
     <!-- Main Table Container for centring -->
     <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td align="center" valign="top">
                 <!-- Content Table with fixed width -->
-                <table width="780" border="0" cellspacing="0" cellpadding="0" class="legacyui" bgcolor="#FFFFFF">
+                <table width="780" border="0" cellspacing="0" cellpadding="0" class="legacyui modern-container" bgcolor="#FFFFFF">
                     <tr>
                         <td colspan="3" bgcolor="#003366" height="80">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -64,7 +106,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#E5E5E5" width="180" valign="top">
+                        <td bgcolor="#E5E5E5" width="180" valign="top" class="modern-sidebar">
                             <!-- Left Navigation Menu -->
                             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                                 <tr>
@@ -133,7 +175,7 @@
                             </table>
                             <!-- End Left Navigation Menu -->
                         </td>
-                        <td valign="top" bgcolor="#FFFFFF">
+                        <td valign="top" bgcolor="#FFFFFF" class="modern-main-content">
                             <!-- Main Content Area -->
                             <table width="100%" border="0" cellspacing="0" cellpadding="10">
                                 <tr>
@@ -167,7 +209,7 @@
                                             </div>
                                             <br/>
                                             <!-- Transaction Table -->
-                                            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#CCCCCC">
+                                            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#CCCCCC" class="modern-table">
                                                 <tr class="tableHeader">
                                                     <td>Date</td>
                                                     <td>Description</td>
