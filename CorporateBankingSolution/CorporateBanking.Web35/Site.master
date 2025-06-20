@@ -12,9 +12,40 @@
     <!-- HeadContent Placeholder -->
 </head>
 <body>
-    <!-- Global Header -->
-    <div style="background-color: #000033; padding: 5px 0; text-align: center; font-family: Verdana, Arial, Helvetica, sans-serif; color: #FFFFFF; font-size: 11px;">
-        <a href="/" style="color: #FFFFFF; text-decoration: none; font-weight: bold;">← Return to Version Selector</a>
+    <!-- Global Header with Metrics -->
+    <div id="globalHeader" style="background-color: #000033; padding: 5px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #FFFFFF; font-size: 12px; border-bottom: 1px solid #333;">
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <a href="/" style="color: #FFFFFF; text-decoration: none; font-weight: bold; padding: 8px 16px; background-color: rgba(255,255,255,0.1); border-radius: 4px;">← Return to Version Selector</a>
+            <button id="metricsToggle" onclick="toggleMetrics()" style="background: #4CAF50; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 11px;">Show Legacy Metrics</button>
+        </div>
+        <div id="metricsPanel" style="display: none; background-color: #f8f9fa; color: #333; padding: 15px; margin-top: 10px; border-top: 1px solid #ddd;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h4 style="margin: 0 0 10px 0; color: #333;">Legacy Code Analysis - ASP.NET 3.5 Version</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 11px;">
+                    <div>
+                        <strong>CSS Distribution:</strong><br>
+                        • Inline CSS: 24% (ASP.NET controls + inline)<br>
+                        • Stylesheet CSS: 76%<br><br>
+                        <strong>Inline CSS Controls:</strong><br>
+                        • ASP.NET GridView styling: style="background-color: #CCCCCC"<br>
+                        • Cell padding on templates: style="padding: 4px 6px"<br>
+                        • Font overrides: style="font-weight: bold"<br>
+                        • Border styling: style="border-right: 1px solid #5588BB"
+                    </div>
+                    <div>
+                        <strong>Stylesheet CSS Controls:</strong><br>
+                        • Master page layout (.legacyui)<br>
+                        • Navigation styles (.navLink)<br>
+                        • Content area formatting<br>
+                        • jQuery components (.collapsiblePanel)<br><br>
+                        <strong>Legacy Artifacts:</strong><br>
+                        • ASP.NET Web Forms controls mixed with HTML<br>
+                        • Eval() data binding expressions<br>
+                        • Master page content placeholders
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <form id="form1" method="post" action="">
     <!-- Main Table Container for centring -->

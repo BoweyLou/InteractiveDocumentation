@@ -164,6 +164,22 @@ function formatCurrency(amount) {
     return s;
 }
 
+// Function to toggle legacy metrics panel
+function toggleMetrics() {
+    var panel = document.getElementById('metricsPanel');
+    var button = document.getElementById('metricsToggle');
+    
+    if (panel.style.display === 'none' || panel.style.display === '') {
+        panel.style.display = 'block';
+        button.innerHTML = 'Hide Legacy Metrics';
+        button.style.background = '#f44336';
+    } else {
+        panel.style.display = 'none';
+        button.innerHTML = 'Show Legacy Metrics';
+        button.style.background = '#4CAF50';
+    }
+}
+
 // Window resize handler
 window.onresize = function() {
     centerDialog();
