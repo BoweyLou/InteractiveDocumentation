@@ -25,6 +25,42 @@
     </style>
 </head>
 <body>
+    <!-- Global Header with Metrics -->
+    <div id="globalHeader" style="background-color: #000033; padding: 5px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #FFFFFF; font-size: 12px; border-bottom: 1px solid #333;">
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <a href="/" style="color: #FFFFFF; text-decoration: none; font-weight: bold; padding: 8px 16px; background-color: rgba(255,255,255,0.1); border-radius: 4px;">← Return to Version Selector</a>
+            <button id="metricsToggle" onclick="toggleMetrics()" style="background: #4CAF50; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 11px;">Show Legacy Metrics</button>
+        </div>
+        <div id="metricsPanel" style="display: none; background-color: #f8f9fa; color: #333; padding: 15px; margin-top: 10px; border-top: 1px solid #ddd;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h4 style="margin: 0 0 10px 0; color: #333;">Legacy Code Analysis - XSLT Transaction Report</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 11px;">
+                    <div>
+                        <strong>CSS Distribution:</strong><br/>
+                        • Inline CSS: 31% (XSLT template heavy inline)<br/>
+                        • Stylesheet CSS: 69%<br/><br/>
+                        <strong>Inline CSS Controls:</strong><br/>
+                        • Report table styling: style="border-collapse: separate"<br/>
+                        • Cell-specific padding: style="padding: 4px 6px"<br/>
+                        • Font variations: style="font-family: Courier New"<br/>
+                        • Color coding: style="color: #006600" (credits/debits)
+                    </div>
+                    <div>
+                        <strong>Stylesheet CSS Controls:</strong><br/>
+                        • Base report layout (.legacyui)<br/>
+                        • Report header styling (.reportHeader)<br/>
+                        • Transaction table classes (.transactionTable)<br/>
+                        • Amount formatting (.creditAmount/.debitAmount)<br/><br/>
+                        <strong>Legacy Artifacts:</strong><br/>
+                        • XSLT 1.0 transformation (legacy processor)<br/>
+                        • Mixed XML namespaces and legacy patterns<br/>
+                        • Inconsistent data formatting approaches<br/>
+                        • 5+ levels of nested tables for layout
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Main Table Container for centring -->
     <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
@@ -166,8 +202,74 @@
                                                 </a>
                                             </div>
                                             <br/>
+                                            <!-- Legacy nested table mess for report metadata (poor legacy pattern) -->
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #F0F0F0; margin-bottom: 10px;">
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                                                            <tr>
+                                                                <td width="25%" style="vertical-align: top;">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="1" bgcolor="#E8E8E8">
+                                                                        <tr>
+                                                                            <td style="font-family: Verdana; font-size: 10px; color: #333; padding: 2px; font-weight: bold;">
+                                                                                Report Period:
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td bgcolor="#FFFFFF" style="padding: 3px; border: 1px inset #CCCCCC;">
+                                                                                <font face="Verdana" size="1" style="color: #000080;">
+                                                                                    <xsl:value-of select="TransactionReport/ReportHeader/StartDate"/> - 
+                                                                                    <xsl:value-of select="TransactionReport/ReportHeader/EndDate"/>
+                                                                                </font>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td width="25%" style="vertical-align: top; padding-left: 3px;">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="1" style="background-color: #E8E8E8;">
+                                                                        <tr>
+                                                                            <td><font face="Verdana" size="1" color="#333" style="font-weight: bold;">Account:</font></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td bgcolor="#FFFFFF" style="padding: 3px; border: 1px inset #CCCCCC;">
+                                                                                <font face="Verdana" size="1" style="font-family: 'Courier New', monospace;">
+                                                                                    <xsl:value-of select="TransactionReport/ReportHeader/AccountName"/>
+                                                                                </font>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td width="25%" style="vertical-align: top; padding-left: 3px;">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="1" bgcolor="#E8E8E8">
+                                                                        <tr>
+                                                                            <td><font face="Verdana" size="1" color="#333" style="font-weight: bold;">Generated:</font></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td bgcolor="#FFFFFF" style="padding: 3px; border: 1px inset #CCCCCC;">
+                                                                                <font face="Verdana" size="1" style="color: #666666;">24/05/2005 14:32</font>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td width="25%" style="vertical-align: top; padding-left: 3px;">
+                                                                    <table width="100%" border="0" cellspacing="0" cellpadding="1" bgcolor="#E8E8E8">
+                                                                        <tr>
+                                                                            <td><font face="Verdana" size="1" color="#333" style="font-weight: bold;">Status:</font></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td bgcolor="#FFFFFF" style="padding: 3px; border: 1px inset #CCCCCC;">
+                                                                                <font face="Verdana" size="1" style="color: #006600; font-weight: bold;">COMPLETE</font>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                             <!-- Transaction Table -->
-                                            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#CCCCCC">
+                                            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#CCCCCC" style="border-collapse: separate; border-spacing: 1px;">
                                                 <tr class="tableHeader">
                                                     <td>Date</td>
                                                     <td>Description</td>
@@ -177,27 +279,43 @@
                                                 </tr>
                                                 <xsl:for-each select="TransactionReport/Transactions/Transaction">
                                                     <xsl:sort select="@DateNum" data-type="number" order="descending"/>
-                                                    <tr>
+                                                    <tr style="border-bottom: 1px dotted #DDDDDD;">
                                                         <xsl:attribute name="class">
                                                             <xsl:choose>
                                                                 <xsl:when test="position() mod 2 = 0">rowEven</xsl:when>
                                                                 <xsl:otherwise>rowOdd</xsl:otherwise>
                                                             </xsl:choose>
                                                         </xsl:attribute>
-                                                        <td><xsl:value-of select="@Date"/></td>
-                                                        <td><xsl:value-of select="@Description"/></td>
-                                                        <td><xsl:value-of select="@ReferenceNumber"/></td>
-                                                        <td align="right">
+                                                        <td style="padding: 4px 6px; vertical-align: middle; border-right: 1px solid #EEEEEE;">
+                                                            <font face="Verdana" size="1" style="font-family: 'Courier New', monospace; letter-spacing: 0.3px;">
+                                                                <xsl:value-of select="@Date"/>
+                                                            </font>
+                                                        </td>
+                                                        <td style="padding: 4px 6px; vertical-align: middle; border-right: 1px solid #EEEEEE;">
+                                                            <font face="Verdana" size="2" style="line-height: 1.2;">
+                                                                <xsl:value-of select="@Description"/>
+                                                            </font>
+                                                        </td>
+                                                        <td style="padding: 4px 6px; vertical-align: middle; border-right: 1px solid #EEEEEE;">
+                                                            <font face="Verdana" size="1" style="font-family: 'Courier New', monospace; color: #666666;">
+                                                                <xsl:value-of select="@ReferenceNumber"/>
+                                                            </font>
+                                                        </td>
+                                                        <td align="right" style="padding: 4px 8px; vertical-align: middle; border-right: 1px solid #EEEEEE;">
                                                             <xsl:choose>
                                                                 <xsl:when test="@Type = 'Credit'">
-                                                                    <span class="creditAmount">$<xsl:value-of select="@Amount"/></span>
+                                                                    <span class="creditAmount" style="font-weight: bold; font-family: 'Courier New', monospace;">$<xsl:value-of select="@Amount"/></span>
                                                                 </xsl:when>
                                                                 <xsl:otherwise>
-                                                                    <span class="debitAmount">-$<xsl:value-of select="@Amount"/></span>
+                                                                    <span class="debitAmount" style="font-weight: bold; font-family: 'Courier New', monospace;">-$<xsl:value-of select="@Amount"/></span>
                                                                 </xsl:otherwise>
                                                             </xsl:choose>
                                                         </td>
-                                                        <td align="right">$<xsl:value-of select="@Balance"/></td>
+                                                        <td align="right" style="padding: 4px 8px; vertical-align: middle; font-weight: bold;">
+                                                            <font face="Verdana" size="2" style="font-family: 'Courier New', monospace; color: #000080;">
+                                                                $<xsl:value-of select="@Balance"/>
+                                                            </font>
+                                                        </td>
                                                     </tr>
                                                 </xsl:for-each>
                                             </table>
