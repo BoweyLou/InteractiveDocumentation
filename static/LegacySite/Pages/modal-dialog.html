@@ -9,6 +9,19 @@
     <script type="text/javascript" src="/LegacySite/Scripts/scripts.js"></script>
 </head>
 <body onload="centerDialog();">
+    <!-- Hidden IE6/Netscape compatibility spacer tables (legacy browser hacks) -->
+    <table width="0" height="0" border="0" cellspacing="0" cellpadding="0" style="display: none; visibility: hidden;">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <!-- IE6 hasLayout trigger hack -->
+    <div style="zoom: 1; display: none;"></div>
+    <!-- Netscape 4.x clearfix hack -->
+    <br clear="all" style="display: none;">
+    <!-- Safari 1.x font rendering hack -->
+    <table width="1" height="1" border="0" cellspacing="0" cellpadding="0" style="position: absolute; left: -9999px; top: -9999px;">
+        <tr><td style="font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
+    </table>
+    
     <!-- Modal Dialog Container -->
     <div id="modalDialog" class="legacyui" style="position: absolute; width: 450px; border: 2px solid #003366; background-color: #FFFFFF;">
         <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#003366">
