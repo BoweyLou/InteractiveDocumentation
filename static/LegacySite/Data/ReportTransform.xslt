@@ -23,9 +23,9 @@
         .debitAmount { color: #FF0000; }
         .summaryTable { background-color: #E5E5E5; }
     </style>
-    <script type="text/javascript" src="/LegacySite/Scripts/legacy-metrics.js"></script>
-    <script type="text/javascript" src="/LegacySite/Scripts/jquery-1.4.2.js"></script>
-    <script type="text/javascript" src="/LegacySite/Scripts/scripts.js"></script>
+    <script type="text/javascript" src="/LegacySite/Scripts/legacy-metrics.js"><xsl:text> </xsl:text></script>
+    <script type="text/javascript" src="/LegacySite/Scripts/jquery-1.4.2.js"><xsl:text> </xsl:text></script>
+    <script type="text/javascript" src="/LegacySite/Scripts/scripts.js"><xsl:text> </xsl:text></script>
 </head>
 <body>
     <!-- Global Header with Metrics -->
