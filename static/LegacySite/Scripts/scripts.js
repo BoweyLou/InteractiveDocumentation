@@ -169,15 +169,40 @@ function toggleMetrics() {
     var panel = document.getElementById('metricsPanel');
     var button = document.getElementById('metricsToggle');
     
-    if (panel.style.display === 'none' || panel.style.display === '') {
-        panel.style.display = 'block';
-        button.innerHTML = 'Hide Legacy Metrics';
-        button.style.background = '#f44336';
-    } else {
-        panel.style.display = 'none';
-        button.innerHTML = 'Show Legacy Metrics';
-        button.style.background = '#4CAF50';
+    if (panel && button) {
+        if (panel.style.display === 'none' || panel.style.display === '') {
+            panel.style.display = 'block';
+            button.innerHTML = 'Hide Legacy Metrics';
+            button.style.background = '#f44336';
+        } else {
+            panel.style.display = 'none';
+            button.innerHTML = 'Show Legacy Metrics';
+            button.style.background = '#4CAF50';
+        }
     }
+}
+
+// Legacy browser compatibility - define function globally
+window.toggleMetrics = toggleMetrics;
+
+// Alternative inline definition for legacy browsers
+if (typeof window.toggleMetrics === 'undefined') {
+    window.toggleMetrics = function() {
+        var panel = document.getElementById('metricsPanel');
+        var button = document.getElementById('metricsToggle');
+        
+        if (panel && button) {
+            if (panel.style.display === 'none' || panel.style.display === '') {
+                panel.style.display = 'block';
+                button.innerHTML = 'Hide Legacy Metrics';
+                button.style.background = '#f44336';
+            } else {
+                panel.style.display = 'none';
+                button.innerHTML = 'Show Legacy Metrics';
+                button.style.background = '#4CAF50';
+            }
+        }
+    };
 }
 
 // Window resize handler
