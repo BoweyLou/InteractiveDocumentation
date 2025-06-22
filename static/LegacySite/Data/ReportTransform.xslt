@@ -23,6 +23,25 @@
         .debitAmount { color: #FF0000; }
         .summaryTable { background-color: #E5E5E5; }
     </style>
+    <script type="text/javascript">
+        // Inline legacy metrics toggle function (legacy browser compatibility)
+        function toggleMetrics() {
+            var panel = document.getElementById('metricsPanel');
+            var button = document.getElementById('metricsToggle');
+            
+            if (panel &amp;&amp; button) {
+                if (panel.style.display === 'none' || panel.style.display === '') {
+                    panel.style.display = 'block';
+                    button.innerHTML = 'Hide Legacy Metrics';
+                    button.style.background = '#f44336';
+                } else {
+                    panel.style.display = 'none';
+                    button.innerHTML = 'Show Legacy Metrics';
+                    button.style.background = '#4CAF50';
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Global Header with Metrics -->
