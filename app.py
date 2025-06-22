@@ -397,6 +397,10 @@ def generate_report():
         # Convert the result to a string and decode if necessary
         html_content = ET.tostring(result, pretty_print=True, encoding='unicode')
         
+        # If the transformation resulted in empty or invalid content, use fallback
+        if not html_content or len(html_content.strip()) < 100:
+            return send_from_directory('static/LegacySite/Pages', 'report-fallback.html')
+        
         # Return the transformed HTML with proper headers
         response = Response(html_content, mimetype='text/html; charset=utf-8')
         response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
@@ -404,13 +408,8 @@ def generate_report():
         response.headers['Expires'] = '0'
         return response
     except Exception as e:
-        error_html = f'''
-        <!DOCTYPE html>
-        <html><head><title>Report Generation Error</title></head>
-        <body><h1>Error generating report</h1><p>{str(e)}</p>
-        <p><a href="/">Return to main page</a></p></body></html>
-        '''
-        return Response(error_html, status=500, mimetype='text/html')
+        # Use fallback page on any error
+        return send_from_directory('static/LegacySite/Pages', 'report-fallback.html')
 
 @app.route('/upload-xml', methods=['GET', 'POST'])
 def upload_xml():

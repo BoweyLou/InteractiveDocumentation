@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Corporate Online - Transaction Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/co.css">
+    <style type="text/css">
+        body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; margin: 0; padding: 0; }
+        .reportHeader { font-size: 14px; font-weight: bold; color: #003366; }
+        .reportSubHeader { font-size: 12px; color: #000000; }
+        .tableHeader { background-color: #6699CC; color: #FFFFFF; font-weight: bold; }
+        .rowEven { background-color: #F5F5F5; }
+        .rowOdd { background-color: #FFFFFF; }
+        .creditAmount { color: #008800; }
+        .debitAmount { color: #FF0000; }
+        .summaryTable { background-color: #E5E5E5; }
+    </style>
+    <script type="text/javascript" src="/LegacySite/Scripts/legacy-metrics.js"> </script>
+    <script type="text/javascript" src="/LegacySite/Scripts/scripts.js"> </script>
+</head>
+<body>
+    <div id="globalHeader" style="background-color: #000033; padding: 5px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #FFFFFF; font-size: 12px; border-bottom: 1px solid #333;">
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <a href="/" style="color: #FFFFFF; text-decoration: none; font-weight: bold; padding: 8px 16px; background-color: rgba(255,255,255,0.1); border-radius: 4px;">← Return to Version Selector</a>
+            <button id="metricsToggle" onclick="toggleMetrics()" style="background: #4CAF50; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 11px;">Show Legacy Metrics</button>
+        </div>
+        <div id="metricsPanel" style="display: none; background-color: #f8f9fa; color: #333; padding: 15px; margin-top: 10px; border-top: 1px solid #ddd;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h4 style="margin: 0 0 10px 0; color: #333;">Legacy Code Analysis - Transaction Report</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 11px;">
+                    <div id="metricsContent">Loading metrics...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin: 20px;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div class="reportHeader">Corporate Online Banking</div>
+                    <div class="reportSubHeader">Transaction Report - Account Summary</div>
+                    <br>
+                    
+                    <!-- Account Details Table -->
+                    <table border="1" cellspacing="0" cellpadding="4" width="100%">
+                        <tr class="tableHeader">
+                            <td>Account Number</td>
+                            <td>Account Name</td>
+                            <td>Branch</td>
+                            <td>Currency</td>
+                            <td>Current Balance</td>
+                        </tr>
+                        <tr class="rowEven">
+                            <td>ACC-001234567</td>
+                            <td>BUSINESS OPERATING ACCOUNT</td>
+                            <td>Sydney CBD Branch (001)</td>
+                            <td>AUD</td>
+                            <td class="creditAmount">$125,847.32</td>
+                        </tr>
+                    </table>
+                    
+                    <br><br>
+                    
+                    <!-- Transaction Details -->
+                    <div class="reportSubHeader">Recent Transactions (Last 30 Days)</div>
+                    <br>
+                    
+                    <table border="1" cellspacing="0" cellpadding="4" width="100%">
+                        <tr class="tableHeader">
+                            <td>Date</td>
+                            <td>Description</td>
+                            <td>Reference</td>
+                            <td>Debit</td>
+                            <td>Credit</td>
+                            <td>Balance</td>
+                        </tr>
+                        <tr class="rowOdd">
+                            <td>15/06/2005</td>
+                            <td>Wire Transfer - International</td>
+                            <td>WT-20050615-001</td>
+                            <td class="debitAmount">$15,000.00</td>
+                            <td></td>
+                            <td>$125,847.32</td>
+                        </tr>
+                        <tr class="rowEven">
+                            <td>14/06/2005</td>
+                            <td>Deposit - Electronic Transfer</td>
+                            <td>ET-20050614-005</td>
+                            <td></td>
+                            <td class="creditAmount">$25,500.00</td>
+                            <td>$140,847.32</td>
+                        </tr>
+                        <tr class="rowOdd">
+                            <td>13/06/2005</td>
+                            <td>Service Fee - Wire Transfer</td>
+                            <td>SF-20050613-002</td>
+                            <td class="debitAmount">$45.00</td>
+                            <td></td>
+                            <td>$115,347.32</td>
+                        </tr>
+                        <tr class="rowEven">
+                            <td>12/06/2005</td>
+                            <td>Check Deposit</td>
+                            <td>CD-20050612-008</td>
+                            <td></td>
+                            <td class="creditAmount">$8,750.00</td>
+                            <td>$115,392.32</td>
+                        </tr>
+                        <tr class="rowOdd">
+                            <td>10/06/2005</td>
+                            <td>ACH Payment - Vendor</td>
+                            <td>ACH-20050610-012</td>
+                            <td class="debitAmount">$3,247.89</td>
+                            <td></td>
+                            <td>$106,642.32</td>
+                        </tr>
+                    </table>
+                    
+                    <br><br>
+                    
+                    <!-- Summary Table -->
+                    <table border="1" cellspacing="0" cellpadding="4" width="50%" class="summaryTable">
+                        <tr class="tableHeader">
+                            <td colspan="2">30-Day Summary</td>
+                        </tr>
+                        <tr>
+                            <td><b>Total Debits:</b></td>
+                            <td class="debitAmount">$18,292.89</td>
+                        </tr>
+                        <tr>
+                            <td><b>Total Credits:</b></td>
+                            <td class="creditAmount">$34,250.00</td>
+                        </tr>
+                        <tr>
+                            <td><b>Net Change:</b></td>
+                            <td class="creditAmount">+$15,957.11</td>
+                        </tr>
+                        <tr>
+                            <td><b>Number of Transactions:</b></td>
+                            <td>5</td>
+                        </tr>
+                    </table>
+                    
+                    <!-- Hidden legacy browser compatibility tables -->
+                    <table style="display: none;" id="ie6compat"><tr><td></td></tr></table>
+                    <table style="visibility: hidden;" id="netscape4fix"><tr><td></td></tr></table>
+                    <table style="display: none;" id="safari1hack"><tr><td></td></tr></table>
+                    
+                    <br><br>
+                    
+                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                        For assistance with Corporate Online, please contact our support team:<br><br>
+                        Phone: 1800 555 123<br>
+                        Email: support@corporateonline.com.au<br>
+                        Hours: Monday to Friday, 8:00 AM - 6:00 PM AEST
+                    </font>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        // Initialize metrics on page load
+        if (window.addEventListener) {
+            window.addEventListener('load', function() {
+                if (typeof calculateLegacyMetrics === 'function') {
+                    // Small delay to ensure all content is loaded
+                    setTimeout(function() {
+                        document.getElementById('metricsContent').innerHTML = generateMetricsContent();
+                    }, 100);
+                }
+            });
+        } else if (window.attachEvent) {
+            window.attachEvent('onload', function() {
+                if (typeof calculateLegacyMetrics === 'function') {
+                    setTimeout(function() {
+                        document.getElementById('metricsContent').innerHTML = generateMetricsContent();
+                    }, 100);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
