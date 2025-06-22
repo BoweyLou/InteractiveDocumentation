@@ -394,13 +394,23 @@ def generate_report():
         # Apply the transformation
         result = transform(xml_doc)
         
-        # Convert the result to a string
-        html_content = ET.tostring(result, pretty_print=True)
+        # Convert the result to a string and decode if necessary
+        html_content = ET.tostring(result, pretty_print=True, encoding='unicode')
         
-        # Return the transformed HTML
-        return Response(html_content, mimetype='text/html')
+        # Return the transformed HTML with proper headers
+        response = Response(html_content, mimetype='text/html; charset=utf-8')
+        response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+        response.headers['Pragma'] = 'no-cache'
+        response.headers['Expires'] = '0'
+        return response
     except Exception as e:
-        return f"Error generating report: {str(e)}", 500
+        error_html = f'''
+        <!DOCTYPE html>
+        <html><head><title>Report Generation Error</title></head>
+        <body><h1>Error generating report</h1><p>{str(e)}</p>
+        <p><a href="/">Return to main page</a></p></body></html>
+        '''
+        return Response(error_html, status=500, mimetype='text/html')
 
 @app.route('/upload-xml', methods=['GET', 'POST'])
 def upload_xml():
