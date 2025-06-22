@@ -24,9 +24,9 @@
             var table = allTables[i];
             metrics.tableCount++;
             var style = window.getComputedStyle ? window.getComputedStyle(table) : table.currentStyle;
-            if (style && (style.display === 'none' || style.visibility === 'hidden' || 
-                style.position === 'absolute' && (style.left === '-9999px' || style.left === '-10000px'))) {
-                metrics.hiddenTables++; metrics.legacyHacks++;
+            if (style && (style.display === 'none' || style.visibility === 'hidden')) {
+                metrics.hiddenTables++; 
+                metrics.legacyHacks++;
             }
         }
         metrics.fontTags = document.getElementsByTagName('font').length;
