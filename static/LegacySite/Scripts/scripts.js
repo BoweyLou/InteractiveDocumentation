@@ -164,6 +164,109 @@ function formatCurrency(amount) {
     return s;
 }
 
+// Function to analyze page and calculate legacy metrics dynamically
+function calculateLegacyMetrics() {
+    var metrics = {
+        inlineStyles: 0,
+        stylesheetStyles: 0,
+        hiddenTables: 0,
+        nestingLevels: 0,
+        fontTags: 0,
+        tableCount: 0,
+        legacyHacks: 0
+    };
+    
+    // Count inline styles
+    var elementsWithStyle = document.querySelectorAll('*[style]');
+    metrics.inlineStyles = elementsWithStyle.length;
+    
+    // Count stylesheet rules (approximate)
+    var stylesheets = document.styleSheets;
+    for (var i = 0; i < stylesheets.length; i++) {
+        try {
+            if (stylesheets[i].cssRules) {
+                metrics.stylesheetStyles += stylesheets[i].cssRules.length;
+            }
+        } catch (e) {
+            // Cross-origin stylesheets may throw errors
+            metrics.stylesheetStyles += 50; // Estimate
+        }
+    }
+    
+    // Count hidden tables and legacy hacks
+    var allTables = document.getElementsByTagName('table');
+    for (var i = 0; i < allTables.length; i++) {
+        var table = allTables[i];
+        metrics.tableCount++;
+        
+        var style = window.getComputedStyle ? window.getComputedStyle(table) : table.currentStyle;
+        if (style && (style.display === 'none' || style.visibility === 'hidden' || 
+            style.position === 'absolute' && (style.left === '-9999px' || style.left === '-10000px'))) {
+            metrics.hiddenTables++;
+            metrics.legacyHacks++;
+        }
+    }
+    
+    // Count font tags
+    metrics.fontTags = document.getElementsByTagName('font').length;
+    
+    // Calculate nesting levels
+    var maxNesting = 0;
+    var tables = document.getElementsByTagName('table');
+    for (var i = 0; i < tables.length; i++) {
+        var nesting = 0;
+        var parent = tables[i].parentNode;
+        while (parent) {
+            if (parent.tagName && parent.tagName.toLowerCase() === 'table') {
+                nesting++;
+            }
+            parent = parent.parentNode;
+        }
+        if (nesting > maxNesting) {
+            maxNesting = nesting;
+        }
+    }
+    metrics.nestingLevels = maxNesting;
+    
+    return metrics;
+}
+
+// Function to generate dynamic metrics content
+function generateMetricsContent() {
+    var metrics = calculateLegacyMetrics();
+    var totalStyles = metrics.inlineStyles + metrics.stylesheetStyles;
+    var inlinePercentage = totalStyles > 0 ? Math.round((metrics.inlineStyles / totalStyles) * 100) : 0;
+    var stylesheetPercentage = 100 - inlinePercentage;
+    
+    var pageName = document.title.replace('Corporate Online - ', '') || 'Unknown Page';
+    
+    return '<h4 style="margin: 0 0 10px 0; color: #333;">Legacy Code Analysis - ' + pageName + '</h4>' +
+           '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 11px;">' +
+           '<div>' +
+           '<strong>CSS Distribution:</strong><br>' +
+           '• Inline CSS: ' + inlinePercentage + '% (' + metrics.inlineStyles + ' elements)<br>' +
+           '• Stylesheet CSS: ' + stylesheetPercentage + '% (' + metrics.stylesheetStyles + ' rules)<br><br>' +
+           '<strong>Inline CSS Controls:</strong><br>' +
+           '• Elements with style attributes: ' + metrics.inlineStyles + '<br>' +
+           '• Font tags used: ' + metrics.fontTags + '<br>' +
+           '• Hidden compatibility tables: ' + metrics.hiddenTables + '<br>' +
+           '• Maximum table nesting: ' + metrics.nestingLevels + ' levels' +
+           '</div>' +
+           '<div>' +
+           '<strong>Legacy Artifacts:</strong><br>' +
+           '• Total tables: ' + metrics.tableCount + '<br>' +
+           '• Hidden browser hacks: ' + metrics.legacyHacks + '<br>' +
+           '• Legacy font tags: ' + metrics.fontTags + '<br>' +
+           '• Mixed styling approaches detected<br><br>' +
+           '<strong>Compatibility Issues:</strong><br>' +
+           '• IE6/Netscape legacy patterns<br>' +
+           '• Nested table layout structure<br>' +
+           '• Inline styling inconsistencies<br>' +
+           '• Poor separation of concerns' +
+           '</div>' +
+           '</div>';
+}
+
 // Function to toggle legacy metrics panel
 function toggleMetrics() {
     var panel = document.getElementById('metricsPanel');
@@ -171,6 +274,12 @@ function toggleMetrics() {
     
     if (panel && button) {
         if (panel.style.display === 'none' || panel.style.display === '') {
+            // Generate dynamic content when opening
+            var contentDiv = panel.querySelector('div[style*="max-width"]');
+            if (contentDiv) {
+                contentDiv.innerHTML = generateMetricsContent();
+            }
+            
             panel.style.display = 'block';
             button.innerHTML = 'Hide Legacy Metrics';
             button.style.background = '#f44336';
