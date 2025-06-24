@@ -11,7 +11,6 @@
     <title>Corporate Online - Transaction Report</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
     <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/co.css" id="mainStylesheet"/>
-    <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/modern-stub.css"/>
     <style type="text/css">
         body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; }
         .reportHeader { font-size: 14px; font-weight: bold; color: #003366; }
