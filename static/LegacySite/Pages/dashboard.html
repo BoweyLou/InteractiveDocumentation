@@ -13,14 +13,11 @@
             var elementsWithStyle = document.querySelectorAll ? document.querySelectorAll('*[style]') : [];
             metrics.inlineStyles = elementsWithStyle.length;
             var stylesheets = document.styleSheets;
-            console.log('Found', stylesheets.length, 'stylesheets');
             for (var i = 0; i < stylesheets.length; i++) {
                 try { 
                     // Only count the main stylesheet, not the top banner styles
                     var sheet = stylesheets[i];
-                    console.log('Sheet', i, '- href:', sheet.href);
                     if (sheet.href && (sheet.href.indexOf('co.css') !== -1 || sheet.href.indexOf('modern-stub.css') !== -1)) {
-                        console.log('Found main stylesheet:', sheet.href, 'Rules:', sheet.cssRules ? sheet.cssRules.length : 'no rules');
                         if (sheet.cssRules) {
                             metrics.stylesheetStyles += sheet.cssRules.length;
                         }
@@ -28,17 +25,13 @@
                 } catch (e) { 
                     // Cross-origin or access issues - estimate based on which CSS is loaded
                     var mainStylesheet = document.getElementById('mainStylesheet');
-                    console.log('Fallback triggered - stylesheet href:', mainStylesheet ? mainStylesheet.href : 'not found');
                     if (mainStylesheet && mainStylesheet.href.indexOf('co.css') !== -1) {
-                        console.log('Adding 24 rules for co.css');
-                        metrics.stylesheetStyles += 24; // Legacy CSS has 24 rules (from curl count)
+                        metrics.stylesheetStyles += 24; // Legacy CSS has 24 rules
                     } else {
-                        console.log('Adding 0 rules for modern-stub.css');
                         metrics.stylesheetStyles += 0; // Modern stub is empty
                     }
                 }
             }
-            console.log('Total stylesheet rules counted:', metrics.stylesheetStyles);
             var allTables = document.getElementsByTagName('table');
             for (var i = 0; i < allTables.length; i++) {
                 var table = allTables[i];
@@ -64,7 +57,6 @@
         }
         
         function generateMetricsContent() {
-            console.log('generateMetricsContent() called - starting calculation');
             var metrics = calculateLegacyMetrics();
             var totalStyles = metrics.inlineStyles + metrics.stylesheetStyles;
             var inlinePercentage = totalStyles > 0 ? Math.round((metrics.inlineStyles / totalStyles) * 100) : 0;
@@ -88,8 +80,6 @@
             var mainStylesheet = document.getElementById('mainStylesheet');
             var toggleButton = document.getElementById('styleToggle');
             
-            console.log('Before toggle - href:', mainStylesheet ? mainStylesheet.href : 'not found');
-            
             if (mainStylesheet && toggleButton) {
                 if (mainStylesheet.href.indexOf('co.css') !== -1) {
                     mainStylesheet.href = '/LegacySite/Styles/modern-stub.css';
@@ -101,11 +91,8 @@
                     toggleButton.style.background = '#FF9800';
                 }
                 
-                console.log('After toggle - href:', mainStylesheet.href);
-                
                 // Update metrics after CSS change with a delay to allow stylesheet to load
                 setTimeout(function() {
-                    console.log('Timeout triggered - recalculating metrics');
                     var metricsPanel = document.getElementById('metricsPanel');
                     if (metricsPanel && metricsPanel.style.display !== 'none') {
                         // Update metrics if panel is visible
@@ -113,15 +100,9 @@
                             // Look for the metrics content div inside the panel
                             var metricsContentDiv = metricsPanel.querySelector('div[style*="max-width"]');
                             if (metricsContentDiv) {
-                                console.log('Calling generateMetricsContent() to recalculate...');
                                 var newContent = generateMetricsContent();
-                                console.log('New metrics content generated:', newContent.substring(0, 200) + '...');
                                 metricsContentDiv.innerHTML = newContent;
-                            } else {
-                                console.log('metricsContentDiv not found in panel');
                             }
-                        } else {
-                            console.log('generateMetricsContent function not found');
                         }
                     }
                 }, 500); // 500ms delay to ensure stylesheet loads

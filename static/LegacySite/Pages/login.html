@@ -14,8 +14,23 @@
             metrics.inlineStyles = elementsWithStyle.length;
             var stylesheets = document.styleSheets;
             for (var i = 0; i < stylesheets.length; i++) {
-                try { if (stylesheets[i].cssRules) metrics.stylesheetStyles += stylesheets[i].cssRules.length; }
-                catch (e) { metrics.stylesheetStyles += 50; }
+                try { 
+                    // Only count the main stylesheet, not the top banner styles
+                    var sheet = stylesheets[i];
+                    if (sheet.href && (sheet.href.indexOf('co.css') !== -1 || sheet.href.indexOf('modern-stub.css') !== -1)) {
+                        if (sheet.cssRules) {
+                            metrics.stylesheetStyles += sheet.cssRules.length;
+                        }
+                    }
+                } catch (e) { 
+                    // Cross-origin or access issues - estimate based on which CSS is loaded
+                    var mainStylesheet = document.getElementById('mainStylesheet');
+                    if (mainStylesheet && mainStylesheet.href.indexOf('co.css') !== -1) {
+                        metrics.stylesheetStyles += 24; // Legacy CSS has 24 rules
+                    } else {
+                        metrics.stylesheetStyles += 0; // Modern stub is empty
+                    }
+                }
             }
             var allTables = document.getElementsByTagName('table');
             for (var i = 0; i < allTables.length; i++) {
@@ -49,6 +64,40 @@
                    '• Minimal JavaScript validation</div></div>';
         }
         
+        // CSS Toggle functionality
+        function toggleStylesheet() {
+            var mainStylesheet = document.getElementById('mainStylesheet');
+            var toggleButton = document.getElementById('styleToggle');
+            
+            if (mainStylesheet && toggleButton) {
+                if (mainStylesheet.href.indexOf('co.css') !== -1) {
+                    mainStylesheet.href = '/LegacySite/Styles/modern-stub.css';
+                    toggleButton.innerHTML = 'Modern CSS';
+                    toggleButton.style.background = '#2196F3';
+                } else {
+                    mainStylesheet.href = '/LegacySite/Styles/co.css';
+                    toggleButton.innerHTML = 'Legacy CSS';
+                    toggleButton.style.background = '#FF9800';
+                }
+                
+                // Update metrics after CSS change with a delay to allow stylesheet to load
+                setTimeout(function() {
+                    var metricsPanel = document.getElementById('metricsPanel');
+                    if (metricsPanel && metricsPanel.style.display !== 'none') {
+                        // Update metrics if panel is visible
+                        if (typeof generateMetricsContent === 'function') {
+                            // Look for the metrics content div inside the panel
+                            var metricsContentDiv = metricsPanel.querySelector('div[style*="max-width"]');
+                            if (metricsContentDiv) {
+                                var newContent = generateMetricsContent();
+                                metricsContentDiv.innerHTML = newContent;
+                            }
+                        }
+                    }
+                }, 500); // 500ms delay to ensure stylesheet loads
+            }
+        }
+
         function toggleMetrics() {
             var panel = document.getElementById('metricsPanel');
             var button = document.getElementById('metricsToggle');

@@ -88,7 +88,8 @@ This repository contains a demonstration platform that simulates the evolution o
 
 ## Changelog
 
-- June 24, 2025. Initial setup
+- June 24, 2025: Initial setup and architecture implementation
+- June 24, 2025: Fixed CSS toggle functionality with real-time metrics updates across all legacy pages - stylesheet count now properly changes from 24 rules (legacy CSS) to 0 rules (modern stub) when toggling, updating percentage distribution accordingly
 
 ## User Preferences
 
