@@ -9,13 +9,6 @@ body {
     margin: 0px;
     padding: 0px;
     background-color: #E0E0E0;
-    scrollbar-face-color: #CCCCCC;
-    scrollbar-highlight-color: #FFFFFF;
-    scrollbar-shadow-color: #999999;
-    scrollbar-3dlight-color: #FFFFFF;
-    scrollbar-arrow-color: #003366;
-    scrollbar-track-color: #F0F0F0;
-    scrollbar-darkshadow-color: #666666;
 }
 
 /* Main Tables */
@@ -71,7 +64,7 @@ input, select, textarea {
     color: #000000;
     background-color: #CCCCCC;
     border: 1px solid #999999;
-    cursor: hand;
+    cursor: pointer;
 }
 
 /* Data Grid Styles */
@@ -115,7 +108,6 @@ input, select, textarea {
 /* Modal Dialog Styles */
 .modalBackground {
     background-color: #000000;
-    filter: alpha(opacity=50);
     opacity: 0.5;
 }
 
@@ -186,4 +178,380 @@ input, select, textarea {
     font-size: 11px;
     color: #000000;
     border-top: 1px solid #CCCCCC;
+}
+
+/* Global Header Styles */
+.globalHeader {
+    background-color: #000033;
+    padding: 5px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    font-size: 12px;
+    border-bottom: 1px solid #333;
+    position: relative;
+    z-index: 10000;
+}
+
+.globalHeaderContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.globalHeaderButtonGroup {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.versionSelectorLink {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+
+.headerButton {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    color: white;
+}
+
+.styleToggleButton {
+    background: #FF9800;
+}
+
+.metricsToggleButton {
+    background: #4CAF50;
+}
+
+.metricsPanel {
+    display: none;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 15px;
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.metricsContent {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    font-size: 11px;
+}
+
+.metricsTitle {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+/* Form Input Styles */
+.loginInput {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    width: 150px;
+}
+
+.settingsInput {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    width: 200px;
+}
+
+.primaryButton {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.wideButton {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    width: 180px;
+    cursor: pointer;
+}
+
+.validationError {
+    background-color: #FFCCCC;
+}
+
+.validationMessage {
+    visibility: hidden;
+    color: #FF0000;
+    font-size: 9px;
+}
+
+/* Modal Dialog Styles */
+.modalContainer {
+    position: absolute;
+    width: 450px;
+    border: 2px solid #003366;
+    background-color: #FFFFFF;
+}
+
+.modalOverlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.5;
+}
+
+.modalHeaderTable {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    padding: 3px;
+    background-color: #003366;
+}
+
+.modalTitle {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.modalCloseLink {
+    color: #FFFFFF;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.modalContentTable {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    padding: 10px;
+}
+
+.modalMarquee {
+    background-color: #FFFFCC;
+    border: 1px solid #FFCC00;
+    width: 100%;
+    height: 20px;
+}
+
+.modalSecurityIcon {
+    width: 64px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.modalFooter {
+    text-align: center;
+    background-color: #F5F5F5;
+}
+
+/* Typography Classes */
+.headerText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.subHeaderText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000000;
+}
+
+.bodyText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #000000;
+}
+
+.smallText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    color: #000000;
+}
+
+.whiteText {
+    color: #FFFFFF;
+}
+
+.brandText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.taglineText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+
+.welcomeText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    color: #FFFFFF;
+}
+
+.menuHeaderText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.securityText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FF0000;
+    font-weight: bold;
+}
+
+.footerText {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    color: #000000;
+}
+
+/* Report Styles (from XSLT) */
+.reportHeader {
+    font-size: 14px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.reportSubHeader {
+    font-size: 12px;
+    color: #000000;
+}
+
+.tableHeader {
+    background-color: #6699CC;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.rowEven {
+    background-color: #F5F5F5;
+}
+
+.rowOdd {
+    background-color: #FFFFFF;
+}
+
+.summaryTable {
+    background-color: #E5E5E5;
+}
+
+.reportCell {
+    padding: 3px;
+    border: 1px inset #CCCCCC;
+}
+
+.reportDateCell {
+    background-color: #FFFFFF;
+    padding: 3px;
+    border: 1px inset #CCCCCC;
+    color: #000080;
+    font-family: Verdana;
+    font-size: 9px;
+}
+
+.courierText {
+    font-family: Courier New, monospace;
+    font-size: 10px;
+}
+
+/* Layout Helper Classes */
+.centerAlign {
+    text-align: center;
+}
+
+.rightAlign {
+    text-align: right;
+}
+
+.leftAlign {
+    text-align: left;
+}
+
+.verticalTop {
+    vertical-align: top;
+}
+
+.paddingSmall {
+    padding: 3px;
+}
+
+.paddingMedium {
+    padding: 6px;
+}
+
+.marginBottom {
+    margin-bottom: 10px;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.hiddenElement {
+    display: none;
+    visibility: hidden;
+}
+
+/* Report Styles (consolidated from ReportTransform.xslt) */
+.reportHeader {
+    font-size: 14px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.reportSubHeader {
+    font-size: 12px;
+    color: #000000;
+}
+
+.tableHeader {
+    background-color: #6699CC;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.rowEven {
+    background-color: #F5F5F5;
+}
+
+.rowOdd {
+    background-color: #FFFFFF;
+}
+
+.creditAmount {
+    color: #008800;
+}
+
+.debitAmount {
+    color: #FF0000;
+}
+
+.summaryTable {
+    background-color: #E5E5E5;
 }

@@ -11,17 +11,6 @@
     <title>Corporate Online - Transaction Report</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
     <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/co.css" id="mainStylesheet"/>
-    <style type="text/css">
-        body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; }
-        .reportHeader { font-size: 14px; font-weight: bold; color: #003366; }
-        .reportSubHeader { font-size: 12px; color: #000000; }
-        .tableHeader { background-color: #6699CC; color: #FFFFFF; font-weight: bold; }
-        .rowEven { background-color: #F5F5F5; }
-        .rowOdd { background-color: #FFFFFF; }
-        .creditAmount { color: #008800; }
-        .debitAmount { color: #FF0000; }
-        .summaryTable { background-color: #E5E5E5; }
-    </style>
     <script type="text/javascript" src="/LegacySite/Scripts/legacy-metrics.js"><xsl:text> </xsl:text></script>
     <script type="text/javascript" src="/LegacySite/Scripts/jquery-1.4.2.js"><xsl:text> </xsl:text></script>
     <script type="text/javascript" src="/LegacySite/Scripts/scripts.js"><xsl:text> </xsl:text></script>
@@ -75,16 +64,16 @@
                                 <tr>
                                     <td width="20"><img src="/LegacySite/Data/spacer.gif" width="20" height="1" border="0" alt=""/></td>
                                     <td>
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="5" color="#FFFFFF"><b>Corporate Online</b></font><br/>
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">Secure Banking Portal</font>
+                                        <span class="brandText"><b>Corporate Online</b></span><br/>
+                                        <span class="taglineText">Secure Banking Portal</span>
                                     </td>
                                     <td align="right">
                                         <table border="0" cellspacing="0" cellpadding="2">
                                             <tr>
                                                 <td align="right">
-                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
+                                                    <span class="welcomeText">
                                                         Welcome, <b>John Smith</b> | Last Login: 24/05/2005 10:32 AM
-                                                    </font>
+                                                    </span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -107,9 +96,9 @@
                             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                                 <tr>
                                     <td height="30" bgcolor="#6699CC">
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                        <span class="menuHeaderText">
                                             <b>&nbsp;Main Menu</b>
-                                        </font>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -148,9 +137,9 @@
                             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                                 <tr>
                                     <td height="25" bgcolor="#6699CC">
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                        <span class="menuHeaderText">
                                             <b>&nbsp;Quick Stats</b>
-                                        </font>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -158,11 +147,11 @@
                                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
                                             <tr>
                                                 <td>
-                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+                                                    <span class="smallText">
                                                         <b>Total Accounts:</b> 5<br/>
                                                         <b>Total Balance:</b> $145,230.45<br/>
                                                         <b>Last Transfer:</b> 23/05/2005
-                                                    </font>
+                                                    </span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -219,10 +208,10 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td bgcolor="#FFFFFF" style="padding: 3px; border: 1px inset #CCCCCC;">
-                                                                                <font face="Verdana" size="1" style="color: #000080;">
+                                                                                <span class="reportText" style="color: #000080;">
                                                                                     <xsl:value-of select="TransactionReport/ReportHeader/StartDate"/> - 
                                                                                     <xsl:value-of select="TransactionReport/ReportHeader/EndDate"/>
-                                                                                </font>
+                                                                                </span>
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -230,13 +219,13 @@
                                                                 <td width="25%" style="vertical-align: top; padding-left: 3px;">
                                                                     <table width="100%" border="0" cellspacing="0" cellpadding="1" style="background-color: #E8E8E8;">
                                                                         <tr>
-                                                                            <td><font face="Verdana" size="1" color="#333" style="font-weight: bold;">Account:</font></td>
+                                                                            <td><span class="smallText" style="font-weight: bold; color: #333;">Account:</span></td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td bgcolor="#FFFFFF" style="padding: 3px; border: 1px inset #CCCCCC;">
-                                                                                <font face="Verdana" size="1" style="font-family: 'Courier New', monospace;">
+                                                                                <span class="reportText" style="font-family: 'Courier New', monospace;">
                                                                                     <xsl:value-of select="TransactionReport/ReportHeader/AccountName"/>
-                                                                                </font>
+                                                                                </span>
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -244,11 +233,11 @@
                                                                 <td width="25%" style="vertical-align: top; padding-left: 3px;">
                                                                     <table width="100%" border="0" cellspacing="0" cellpadding="1" bgcolor="#E8E8E8">
                                                                         <tr>
-                                                                            <td><font face="Verdana" size="1" color="#333" style="font-weight: bold;">Generated:</font></td>
+                                                                            <td><span class="smallText" style="font-weight: bold; color: #333;">Generated:</span></td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td bgcolor="#FFFFFF" style="padding: 3px; border: 1px inset #CCCCCC;">
-                                                                                <font face="Verdana" size="1" style="color: #666666;">24/05/2005 14:32</font>
+                                                                                <span class="smallText" style="color: #666666;">24/05/2005 14:32</span>
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -256,11 +245,11 @@
                                                                 <td width="25%" style="vertical-align: top; padding-left: 3px;">
                                                                     <table width="100%" border="0" cellspacing="0" cellpadding="1" bgcolor="#E8E8E8">
                                                                         <tr>
-                                                                            <td><font face="Verdana" size="1" color="#333" style="font-weight: bold;">Status:</font></td>
+                                                                            <td><span class="smallText" style="font-weight: bold; color: #333;">Status:</span></td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td bgcolor="#FFFFFF" style="padding: 3px; border: 1px inset #CCCCCC;">
-                                                                                <font face="Verdana" size="1" style="color: #006600; font-weight: bold;">COMPLETE</font>
+                                                                                <span class="smallText" style="color: #006600; font-weight: bold;">COMPLETE</span>
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -289,19 +278,19 @@
                                                             </xsl:choose>
                                                         </xsl:attribute>
                                                         <td style="padding: 4px 6px; vertical-align: middle; border-right: 1px solid #EEEEEE;">
-                                                            <font face="Verdana" size="1" style="font-family: 'Courier New', monospace; letter-spacing: 0.3px;">
+                                                            <span class="reportText" style="font-family: 'Courier New', monospace; letter-spacing: 0.3px;">
                                                                 <xsl:value-of select="@Date"/>
-                                                            </font>
+                                                            </span>
                                                         </td>
                                                         <td style="padding: 4px 6px; vertical-align: middle; border-right: 1px solid #EEEEEE;">
-                                                            <font face="Verdana" size="2" style="line-height: 1.2;">
+                                                            <span class="bodyText" style="line-height: 1.2;">
                                                                 <xsl:value-of select="@Description"/>
-                                                            </font>
+                                                            </span>
                                                         </td>
                                                         <td style="padding: 4px 6px; vertical-align: middle; border-right: 1px solid #EEEEEE;">
-                                                            <font face="Verdana" size="1" style="font-family: 'Courier New', monospace; color: #666666;">
+                                                            <span class="reportText" style="font-family: 'Courier New', monospace; color: #666666;">
                                                                 <xsl:value-of select="@ReferenceNumber"/>
-                                                            </font>
+                                                            </span>
                                                         </td>
                                                         <td align="right" style="padding: 4px 8px; vertical-align: middle; border-right: 1px solid #EEEEEE;">
                                                             <xsl:choose>
@@ -314,9 +303,9 @@
                                                             </xsl:choose>
                                                         </td>
                                                         <td align="right" style="padding: 4px 8px; vertical-align: middle; font-weight: bold;">
-                                                            <font face="Verdana" size="2" style="font-family: 'Courier New', monospace; color: #000080;">
+                                                            <span class="reportText" style="font-family: 'Courier New', monospace; color: #000080;">
                                                                 $<xsl:value-of select="@Balance"/>
-                                                            </font>
+                                                            </span>
                                                         </td>
                                                     </tr>
                                                 </xsl:for-each>
@@ -370,9 +359,9 @@
                     </tr>
                     <tr>
                         <td colspan="3" bgcolor="#003366" height="30" align="center">
-                            <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
+                            <span class="copyrightText">
                                 Copyright &#169; 2005 Corporate Online. All Rights Reserved.
-                            </font>
+                            </span>
                         </td>
                     </tr>
                 </table>
@@ -386,9 +375,9 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#003366">
             <tr>
                 <td>
-                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                    <span class="modalTitle">
                         <b>Corporate Online Help</b>
-                    </font>
+                    </span>
                 </td>
                 <td align="right">
                     <a href="#" onclick="hideHelpDialog(); return false;" style="color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none;">
@@ -400,12 +389,12 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                    <span class="bodyText">
                         For assistance with Corporate Online, please contact our support team:<br/><br/>
                         Phone: 1800 555 123<br/>
                         Email: support@corporateonline.com.au<br/>
                         Hours: Monday to Friday, 8:00 AM - 6:00 PM AEST
-                    </font>
+                    </span>
                 </td>
             </tr>
         </table>

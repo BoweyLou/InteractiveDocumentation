@@ -71,30 +71,19 @@
     </script>
 </head>
 <body onload="centerDialog();">
-    <!-- Hidden IE6/Netscape compatibility spacer tables (legacy browser hacks) -->
-    <table width="0" height="0" border="0" cellspacing="0" cellpadding="0" style="display: none; visibility: hidden;">
-        <tr><td>&nbsp;</td></tr>
-    </table>
-    <!-- IE6 hasLayout trigger hack -->
-    <div style="zoom: 1; display: none;"></div>
-    <!-- Netscape 4.x clearfix hack -->
-    <br clear="all" style="display: none;">
-    <!-- Safari 1.x font rendering hack -->
-    <table width="1" height="1" border="0" cellspacing="0" cellpadding="0" style="position: absolute; left: -9999px; top: -9999px;">
-        <tr><td style="font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
-    </table>
+
     
     <!-- Modal Dialog Container -->
-    <div id="modalDialog" class="legacyui" style="position: absolute; width: 450px; border: 2px solid #003366; background-color: #FFFFFF;">
+    <div id="modalDialog" class="legacyui modalContainer">
         <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#003366">
             <tr>
                 <td>
-                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                    <span class="modalTitle">
                         <b>Important Security Notice</b>
-                    </font>
+                    </span>
                 </td>
                 <td align="right">
-                    <a href="#" onclick="window.close();" style="color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none;">
+                    <a href="#" onclick="window.close();" class="modalCloseLink">
                         <b>Close [X]</b>
                     </a>
                 </td>
@@ -103,10 +92,10 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td align="center">
-                    <marquee behavior="scroll" direction="left" scrollamount="3" style="background-color: #FFFFCC; border: 1px solid #FFCC00; width: 100%; height: 20px;">
-                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FF0000">
+                    <marquee behavior="scroll" direction="left" scrollamount="3" class="modalMarquee">
+                        <span class="securityText">
                             <b>ATTENTION: For your security, please ensure you log out when finished with your banking session.</b>
-                        </font>
+                        </span>
                     </marquee>
                 </td>
             </tr>
@@ -118,11 +107,11 @@
                                 <img src="/LegacySite/Data/security_icon.gif" width="48" height="48" border="0" alt="Security">
                             </td>
                             <td>
-                                <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                <span class="bodyText">
                                     Your last successful login was on <b>24/05/2005 at 10:32 AM</b>.<br><br>
                                     There have been <b>0</b> unsuccessful login attempts since your last login.<br><br>
                                     For your security, your session will automatically time out after 10 minutes of inactivity.
-                                </font>
+                                </span>
                             </td>
                         </tr>
                     </table>
@@ -130,15 +119,15 @@
             </tr>
             <tr>
                 <td align="center" bgcolor="#F5F5F5">
-                    <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+                    <span class="smallText">
                         As an additional security measure, please check that the URL in your browser address bar begins with:<br>
                         <b>https://secure.corporateonline.com.au/</b>
-                    </font>
+                    </span>
                 </td>
             </tr>
             <tr>
                 <td align="center">
-                    <input type="button" value="Acknowledge and Continue" onclick="window.close();" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 180px; cursor: hand;">
+                    <input type="button" value="Acknowledge and Continue" onclick="window.close();" class="wideButton">
                 </td>
             </tr>
         </table>
@@ -146,7 +135,7 @@
     <!-- End Modal Dialog Container -->
 
     <!-- Backdrop Overlay -->
-    <div id="overlay" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: #000000; filter: alpha(opacity=50); opacity: 0.5;"></div>
+    <div id="overlay" class="modalOverlay"></div>
     <!-- End Backdrop Overlay -->
 </body>
 </html>
