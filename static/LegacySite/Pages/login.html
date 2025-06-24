@@ -3,7 +3,7 @@
 <head>
     <title>Corporate Online - Login</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/co.css">
+    <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/co.css" id="mainStylesheet">
     <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/modern-stub.css">
     <script type="text/javascript" src="/LegacySite/Scripts/jquery-1.4.2.js"></script>
     <script type="text/javascript" src="/LegacySite/Scripts/scripts.js"></script>
@@ -71,13 +71,16 @@
 </head>
 <body>
     <!-- Global Header with Metrics -->
-    <div id="globalHeader" style="background-color: #000033; padding: 5px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #FFFFFF; font-size: 12px; border-bottom: 1px solid #333;">
-        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <a href="/" style="color: #FFFFFF; text-decoration: none; font-weight: bold; padding: 8px 16px; background-color: rgba(255,255,255,0.1); border-radius: 4px;">← Return to Version Selector</a>
-            <button id="metricsToggle" onclick="toggleMetrics()" style="background: #4CAF50; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 11px;">Show Legacy Metrics</button>
+    <div id="globalHeader" style="background-color: #000033 !important; padding: 5px 0 !important; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; color: #FFFFFF !important; font-size: 12px !important; border-bottom: 1px solid #333 !important; position: relative !important; z-index: 10000 !important;">
+        <div style="display: flex !important; justify-content: space-between !important; align-items: center !important; max-width: 1200px !important; margin: 0 auto !important; padding: 0 20px !important;">
+            <a href="/" style="color: #FFFFFF !important; text-decoration: none !important; font-weight: bold !important; padding: 8px 16px !important; background-color: rgba(255,255,255,0.1) !important; border-radius: 4px !important;">← Return to Version Selector</a>
+            <div style="display: flex !important; gap: 10px !important; align-items: center !important;">
+                <button id="styleToggle" onclick="toggleStylesheet()" style="background: #FF9800 !important; color: white !important; border: none !important; padding: 6px 12px !important; border-radius: 4px !important; cursor: pointer !important; font-size: 11px !important;">Legacy CSS</button>
+                <button id="metricsToggle" onclick="toggleMetrics()" style="background: #4CAF50 !important; color: white !important; border: none !important; padding: 6px 12px !important; border-radius: 4px !important; cursor: pointer !important; font-size: 11px !important;">Show Legacy Metrics</button>
+            </div>
         </div>
-        <div id="metricsPanel" style="display: none; background-color: #f8f9fa; color: #333; padding: 15px; margin-top: 10px; border-top: 1px solid #ddd;">
-            <div style="max-width: 1200px; margin: 0 auto;">
+        <div id="metricsPanel" style="display: none !important; background-color: #f8f9fa !important; color: #333 !important; padding: 15px !important; margin-top: 10px !important; border-top: 1px solid #ddd !important;">
+            <div style="max-width: 1200px !important; margin: 0 auto !important;">
                 <div id="metricsContent">Loading metrics...</div>
             </div>
         </div>
