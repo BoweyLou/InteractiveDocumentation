@@ -110,14 +110,15 @@
                     if (metricsPanel && metricsPanel.style.display !== 'none') {
                         // Update metrics if panel is visible
                         if (typeof generateMetricsContent === 'function') {
-                            var metricsContentDiv = document.getElementById('metricsContent');
+                            // Look for the metrics content div inside the panel
+                            var metricsContentDiv = metricsPanel.querySelector('div[style*="max-width"]');
                             if (metricsContentDiv) {
                                 console.log('Calling generateMetricsContent() to recalculate...');
                                 var newContent = generateMetricsContent();
                                 console.log('New metrics content generated:', newContent.substring(0, 200) + '...');
                                 metricsContentDiv.innerHTML = newContent;
                             } else {
-                                console.log('metricsContentDiv not found');
+                                console.log('metricsContentDiv not found in panel');
                             }
                         } else {
                             console.log('generateMetricsContent function not found');
