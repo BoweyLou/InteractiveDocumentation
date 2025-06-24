@@ -64,6 +64,7 @@
         }
         
         function generateMetricsContent() {
+            console.log('generateMetricsContent() called - starting calculation');
             var metrics = calculateLegacyMetrics();
             var totalStyles = metrics.inlineStyles + metrics.stylesheetStyles;
             var inlinePercentage = totalStyles > 0 ? Math.round((metrics.inlineStyles / totalStyles) * 100) : 0;
@@ -111,10 +112,15 @@
                         if (typeof generateMetricsContent === 'function') {
                             var metricsContentDiv = document.getElementById('metricsContent');
                             if (metricsContentDiv) {
+                                console.log('Calling generateMetricsContent() to recalculate...');
                                 var newContent = generateMetricsContent();
                                 console.log('New metrics content generated:', newContent.substring(0, 200) + '...');
                                 metricsContentDiv.innerHTML = newContent;
+                            } else {
+                                console.log('metricsContentDiv not found');
                             }
+                        } else {
+                            console.log('generateMetricsContent function not found');
                         }
                     }
                 }, 500); // 500ms delay to ensure stylesheet loads
