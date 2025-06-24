@@ -13,11 +13,14 @@
             var elementsWithStyle = document.querySelectorAll ? document.querySelectorAll('*[style]') : [];
             metrics.inlineStyles = elementsWithStyle.length;
             var stylesheets = document.styleSheets;
+            console.log('Found', stylesheets.length, 'stylesheets');
             for (var i = 0; i < stylesheets.length; i++) {
                 try { 
                     // Only count the main stylesheet, not the top banner styles
                     var sheet = stylesheets[i];
+                    console.log('Sheet', i, '- href:', sheet.href);
                     if (sheet.href && (sheet.href.indexOf('co.css') !== -1 || sheet.href.indexOf('modern-stub.css') !== -1)) {
+                        console.log('Found main stylesheet:', sheet.href, 'Rules:', sheet.cssRules ? sheet.cssRules.length : 'no rules');
                         if (sheet.cssRules) {
                             metrics.stylesheetStyles += sheet.cssRules.length;
                         }
@@ -35,6 +38,7 @@
                     }
                 }
             }
+            console.log('Total stylesheet rules counted:', metrics.stylesheetStyles);
             var allTables = document.getElementsByTagName('table');
             for (var i = 0; i < allTables.length; i++) {
                 var table = allTables[i];
