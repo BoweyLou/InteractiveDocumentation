@@ -268,6 +268,24 @@ function generateMetricsContent() {
 }
 
 // Function to toggle legacy metrics panel
+// CSS Toggle functionality
+function toggleStylesheet() {
+    var mainStylesheet = document.getElementById('mainStylesheet');
+    var toggleButton = document.getElementById('styleToggle');
+    
+    if (mainStylesheet && toggleButton) {
+        if (mainStylesheet.href.indexOf('co.css') !== -1) {
+            mainStylesheet.href = '/LegacySite/Styles/modern-stub.css';
+            toggleButton.innerHTML = 'Modern CSS';
+            toggleButton.style.background = '#2196F3';
+        } else {
+            mainStylesheet.href = '/LegacySite/Styles/co.css';
+            toggleButton.innerHTML = 'Legacy CSS';
+            toggleButton.style.background = '#FF9800';
+        }
+    }
+}
+
 function toggleMetrics() {
     var panel = document.getElementById('metricsPanel');
     var button = document.getElementById('metricsToggle');

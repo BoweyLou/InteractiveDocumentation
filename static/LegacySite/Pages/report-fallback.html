@@ -3,7 +3,7 @@
 <head>
     <title>Corporate Online - Transaction Report</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/co.css">
+    <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/co.css" id="mainStylesheet">
     <style type="text/css">
         body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; margin: 0; padding: 0; }
         .reportHeader { font-size: 14px; font-weight: bold; color: #003366; }
@@ -19,13 +19,16 @@
     <script type="text/javascript" src="/LegacySite/Scripts/scripts.js"> </script>
 </head>
 <body>
-    <div id="globalHeader" style="background-color: #000033; padding: 5px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #FFFFFF; font-size: 12px; border-bottom: 1px solid #333;">
-        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <a href="/" style="color: #FFFFFF; text-decoration: none; font-weight: bold; padding: 8px 16px; background-color: rgba(255,255,255,0.1); border-radius: 4px;">← Return to Version Selector</a>
-            <button id="metricsToggle" onclick="toggleMetrics()" style="background: #4CAF50; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 11px;">Show Legacy Metrics</button>
+    <div id="globalHeader" style="background-color: #000033 !important; padding: 5px 0 !important; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; color: #FFFFFF !important; font-size: 12px !important; border-bottom: 1px solid #333 !important; position: relative !important; z-index: 10000 !important;">
+        <div style="display: flex !important; justify-content: space-between !important; align-items: center !important; max-width: 1200px !important; margin: 0 auto !important; padding: 0 20px !important;">
+            <a href="/" style="color: #FFFFFF !important; text-decoration: none !important; font-weight: bold !important; padding: 8px 16px !important; background-color: rgba(255,255,255,0.1) !important; border-radius: 4px !important;">← Return to Version Selector</a>
+            <div style="display: flex !important; gap: 10px !important; align-items: center !important;">
+                <button id="styleToggle" onclick="toggleStylesheet()" style="background: #FF9800 !important; color: white !important; border: none !important; padding: 6px 12px !important; border-radius: 4px !important; cursor: pointer !important; font-size: 11px !important;">Legacy CSS</button>
+                <button id="metricsToggle" onclick="toggleMetrics()" style="background: #4CAF50 !important; color: white !important; border: none !important; padding: 6px 12px !important; border-radius: 4px !important; cursor: pointer !important; font-size: 11px !important;">Show Legacy Metrics</button>
+            </div>
         </div>
-        <div id="metricsPanel" style="display: none; background-color: #f8f9fa; color: #333; padding: 15px; margin-top: 10px; border-top: 1px solid #ddd;">
-            <div style="max-width: 1200px; margin: 0 auto;">
+        <div id="metricsPanel" style="display: none !important; background-color: #f8f9fa !important; color: #333 !important; padding: 15px !important; margin-top: 10px !important; border-top: 1px solid #ddd !important;">
+            <div style="max-width: 1200px !important; margin: 0 auto !important;">
                 <h4 style="margin: 0 0 10px 0; color: #333;">Legacy Code Analysis - Transaction Report</h4>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 11px;">
                     <div id="metricsContent">Loading metrics...</div>
@@ -161,6 +164,39 @@
     </div>
 
     <script type="text/javascript">
+        function toggleStylesheet() {
+            var mainStylesheet = document.getElementById('mainStylesheet');
+            var toggleButton = document.getElementById('styleToggle');
+            
+            if (mainStylesheet && toggleButton) {
+                if (mainStylesheet.href.indexOf('co.css') !== -1) {
+                    mainStylesheet.href = '/LegacySite/Styles/modern-stub.css';
+                    toggleButton.innerHTML = 'Modern CSS';
+                    toggleButton.style.background = '#2196F3';
+                } else {
+                    mainStylesheet.href = '/LegacySite/Styles/co.css';
+                    toggleButton.innerHTML = 'Legacy CSS';
+                    toggleButton.style.background = '#FF9800';
+                }
+            }
+        }
+
+        function toggleMetrics() {
+            var panel = document.getElementById('metricsPanel');
+            var button = document.getElementById('metricsToggle');
+            if (panel && button) {
+                if (panel.style.display === 'none') {
+                    panel.style.display = 'block';
+                    button.innerHTML = 'Hide Legacy Metrics';
+                    button.style.background = '#f44336';
+                } else {
+                    panel.style.display = 'none';
+                    button.innerHTML = 'Show Legacy Metrics';
+                    button.style.background = '#4CAF50';
+                }
+            }
+        }
+
         // Initialize metrics on page load
         if (window.addEventListener) {
             window.addEventListener('load', function() {
