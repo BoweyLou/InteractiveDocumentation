@@ -4,17 +4,7 @@
     <title>Corporate Online - Transaction Report</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
     <link rel="stylesheet" type="text/css" href="/LegacySite/Styles/co.css" id="mainStylesheet"/>
-    <style type="text/css">
-        body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; }
-        .reportHeader { font-size: 14px; font-weight: bold; color: #003366; }
-        .reportSubHeader { font-size: 12px; color: #000000; }
-        .tableHeader { background-color: #6699CC; color: #FFFFFF; font-weight: bold; }
-        .rowEven { background-color: #F5F5F5; }
-        .rowOdd { background-color: #FFFFFF; }
-        .creditAmount { color: #008800; }
-        .debitAmount { color: #FF0000; }
-        .summaryTable { background-color: #E5E5E5; }
-    </style>
+
     <script type="text/javascript" src="/LegacySite/Scripts/jquery-1.4.2.js"></script>
     <script type="text/javascript" src="/LegacySite/Scripts/scripts.js"></script>
     <script type="text/javascript">
@@ -82,18 +72,7 @@
     </script>
 </head>
 <body>
-    <!-- Hidden IE6/Netscape compatibility spacer tables (legacy browser hacks) -->
-    <table width="0" height="0" border="0" cellspacing="0" cellpadding="0" style="display: none; visibility: hidden;">
-        <tr><td>&nbsp;</td></tr>
-    </table>
-    <!-- IE6 hasLayout trigger hack -->
-    <div style="zoom: 1; display: none;"></div>
-    <!-- Netscape 4.x clearfix hack -->
-    <br clear="all" style="display: none;">
-    <!-- Safari 1.x font rendering hack -->
-    <table width="1" height="1" border="0" cellspacing="0" cellpadding="0" style="position: absolute; left: -9999px; top: -9999px;">
-        <tr><td style="font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
-    </table>
+
     <!-- Global Header -->
     <div style="background-color: #000033; padding: 5px 0; text-align: center; font-family: Verdana, Arial, Helvetica, sans-serif; color: #FFFFFF; font-size: 11px;">
         <a href="/" style="color: #FFFFFF; text-decoration: none; font-weight: bold;">← Return to Version Selector</a>
@@ -110,16 +89,16 @@
                                 <tr>
                                     <td width="20"><img src="/LegacySite/Data/spacer.gif" width="20" height="1" border="0" alt=""/></td>
                                     <td>
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="5" color="#FFFFFF"><b>Corporate Online</b></font><br/>
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">Secure Banking Portal</font>
+                                        <span class="brandText"><b>Corporate Online</b></span><br/>
+                                        <span class="taglineText">Secure Banking Portal</span>
                                     </td>
                                     <td align="right">
                                         <table border="0" cellspacing="0" cellpadding="2">
                                             <tr>
                                                 <td align="right">
-                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
+                                                    <span class="welcomeText">
                                                         Welcome, <b>John Smith</b> | Last Login: 24/05/2005 10:32 AM
-                                                    </font>
+                                                    </span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -142,9 +121,9 @@
                             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                                 <tr>
                                     <td height="30" bgcolor="#6699CC">
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                        <span class="menuHeaderText">
                                             <b>&nbsp;Main Menu</b>
-                                        </font>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -183,9 +162,9 @@
                             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                                 <tr>
                                     <td height="25" bgcolor="#6699CC">
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                        <span class="menuHeaderText">
                                             <b>&nbsp;Quick Stats</b>
-                                        </font>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -193,11 +172,11 @@
                                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
                                             <tr>
                                                 <td>
-                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+                                                    <span class="smallText">
                                                         <b>Total Accounts:</b> 5<br/>
                                                         <b>Total Balance:</b> $145,230.45<br/>
                                                         <b>Last Transfer:</b> 23/05/2005
-                                                    </font>
+                                                    </span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -374,7 +353,6 @@
                                                     <td align="right"><b>$45230.45</b></td>
                                                 </tr>
                                             </table>
-                                            <br clear="all"/>
                                             <br/>
                                             <!-- Print/Export Options -->
                                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -399,9 +377,9 @@
                     </tr>
                     <tr>
                         <td colspan="3" bgcolor="#003366" height="30" align="center">
-                            <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
+                            <span class="copyrightText">
                                 Copyright &#169; 2005 Corporate Online. All Rights Reserved.
-                            </font>
+                            </span>
                         </td>
                     </tr>
                 </table>
@@ -415,9 +393,9 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#003366">
             <tr>
                 <td>
-                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                    <span class="modalTitle">
                         <b>Corporate Online Help</b>
-                    </font>
+                    </span>
                 </td>
                 <td align="right">
                     <a href="#" onclick="hideHelpDialog(); return false;" style="color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none;">
@@ -429,12 +407,12 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                    <span class="bodyText">
                         For assistance with Corporate Online, please contact our support team:<br/><br/>
                         Phone: 1800 555 123<br/>
                         Email: support@corporateonline.com.au<br/>
                         Hours: Monday to Friday, 8:00 AM - 6:00 PM AEST
-                    </font>
+                    </span>
                 </td>
             </tr>
         </table>

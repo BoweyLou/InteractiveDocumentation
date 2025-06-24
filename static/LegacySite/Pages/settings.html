@@ -148,18 +148,7 @@
             </div>
         </div>
     </div>
-    <!-- Hidden IE6/Netscape compatibility spacer tables (legacy browser hacks) -->
-    <table width="0" height="0" border="0" cellspacing="0" cellpadding="0" style="display: none; visibility: hidden;">
-        <tr><td>&nbsp;</td></tr>
-    </table>
-    <!-- IE6 hasLayout trigger hack -->
-    <div style="zoom: 1; display: none;"></div>
-    <!-- Netscape 4.x clearfix hack -->
-    <br clear="all" style="display: none;">
-    <!-- Safari 1.x font rendering hack -->
-    <table width="1" height="1" border="0" cellspacing="0" cellpadding="0" style="position: absolute; left: -9999px; top: -9999px;">
-        <tr><td style="font-size: 1px; line-height: 1px;">&nbsp;</td></tr>
-    </table>
+
     
     <!-- Main Table Container for centring -->
     <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
@@ -173,16 +162,16 @@
                                 <tr>
                                     <td width="20"><img src="/LegacySite/Data/spacer.gif" width="20" height="1" border="0" alt=""></td>
                                     <td>
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="5" color="#FFFFFF"><b>Corporate Online</b></font><br>
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">Secure Banking Portal</font>
+                                        <span class="brandText"><b>Corporate Online</b></span><br>
+                                        <span class="taglineText">Secure Banking Portal</span>
                                     </td>
                                     <td align="right">
                                         <table border="0" cellspacing="0" cellpadding="2">
                                             <tr>
                                                 <td align="right">
-                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
+                                                    <span class="welcomeText">
                                                         Welcome, <b>John Smith</b> | Last Login: 24/05/2005 10:32 AM
-                                                    </font>
+                                                    </span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -205,9 +194,9 @@
                             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                                 <tr>
                                     <td height="30" bgcolor="#6699CC">
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                        <span class="menuHeaderText">
                                             <b>&nbsp;Main Menu</b>
-                                        </font>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -246,9 +235,9 @@
                             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                                 <tr>
                                     <td height="25" bgcolor="#6699CC">
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                                        <span class="menuHeaderText">
                                             <b>&nbsp;Quick Stats</b>
-                                        </font>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -256,11 +245,11 @@
                                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
                                             <tr>
                                                 <td>
-                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+                                                    <span class="smallText">
                                                         <b>Total Accounts:</b> 5<br>
                                                         <b>Total Balance:</b> $145,230.45<br>
                                                         <b>Last Transfer:</b> 23/05/2005
-                                                    </font>
+                                                    </span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -274,28 +263,28 @@
                             <table width="100%" border="0" cellspacing="0" cellpadding="10">
                                 <tr>
                                     <td>
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="3" color="#003366">
+                                        <span class="headerText">
                                             <b>Account Settings</b>
-                                        </font>
+                                        </span>
                                         <hr size="1" noshade color="#CCCCCC">
                                         <br>
-                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                        <span class="subHeaderText">
                                             Please update your account settings below. Fields marked with an asterisk (*) are required.
-                                        </font>
+                                        </span>
                                         <br><br>
                                         <!-- Settings Form -->
                                         <form name="settingsForm" method="post" action="#" onsubmit="return validateForm();">
                                             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                                                 <tr>
                                                     <td colspan="2" bgcolor="#E5E5E5">
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                        <span class="sectionHeader">
                                                             <b>Personal Information</b>
-                                                        </font>
+                                                        </span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td width="170">
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">First Name: *</font>
+                                                        <span class="bodyText">First Name: *</span>
                                                     </td>
                                                     <td>
                                                         <input type="text" name="firstName" value="John" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
@@ -303,7 +292,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Last Name: *</font>
+                                                        <span class="bodyText">Last Name: *</span>
                                                     </td>
                                                     <td>
                                                         <input type="text" name="lastName" value="Smith" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
@@ -311,7 +300,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Company: *</font>
+                                                        <span class="bodyText">Company: *</span>
                                                     </td>
                                                     <td>
                                                         <input type="text" name="company" value="ABC Corporation" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
@@ -319,27 +308,27 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Phone Number:</font>
+                                                        <span class="bodyText">Phone Number:</span>
                                                     </td>
                                                     <td>
                                                         <input type="text" name="phoneNumber" value="0412345678" size="30" onblur="validatePhone(this);" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
                                                         <span id="phoneError" style="visibility: hidden;">
-                                                            <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FF0000">
+                                                            <span class="errorText">
                                                                 Please enter a valid 10-digit phone number
-                                                            </font>
+                                                            </span>
                                                         </span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Email Address: *</font>
+                                                        <span class="bodyText">Email Address: *</span>
                                                     </td>
                                                     <td>
                                                         <input type="text" name="email" value="john.smith@abccorp.com.au" size="30" onblur="validateEmail(this);" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
                                                         <span id="emailError" style="visibility: hidden;">
-                                                            <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FF0000">
+                                                            <span class="errorText">
                                                                 Please enter a valid email address
-                                                            </font>
+                                                            </span>
                                                         </span>
                                                     </td>
                                                 </tr>
@@ -348,9 +337,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2" bgcolor="#E5E5E5">
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                        <span class="sectionHeader">
                                                             <b>Notification Preferences</b>
-                                                        </font>
+                                                        </span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -361,9 +350,9 @@
                                                                     <input type="checkbox" name="notifyLogin" value="1" checked>
                                                                 </td>
                                                                 <td>
-                                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                                    <span class="bodyText">
                                                                         Notify me of suspicious login activity
-                                                                    </font>
+                                                                    </span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -371,9 +360,9 @@
                                                                     <input type="checkbox" name="notifyTransfer" value="1" checked>
                                                                 </td>
                                                                 <td>
-                                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                                    <span class="bodyText">
                                                                         Notify me of large transfers (over $10,000)
-                                                                    </font>
+                                                                    </span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -381,9 +370,9 @@
                                                                     <input type="checkbox" name="notifyStatement" value="1" checked>
                                                                 </td>
                                                                 <td>
-                                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                                    <span class="bodyText">
                                                                         Send me monthly account statements via email
-                                                                    </font>
+                                                                    </span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -391,9 +380,9 @@
                                                                     <input type="checkbox" name="notifyMarketing" value="1">
                                                                 </td>
                                                                 <td>
-                                                                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                                    <span class="bodyText">
                                                                         Send me marketing offers and promotions
-                                                                    </font>
+                                                                    </span>
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -404,14 +393,14 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2" bgcolor="#E5E5E5">
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                                                        <span class="sectionHeader">
                                                             <b>Change Password</b>
-                                                        </font>
+                                                        </span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Current Password:</font>
+                                                        <span class="bodyText">Current Password:</span>
                                                     </td>
                                                     <td>
                                                         <input type="password" name="currentPassword" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
@@ -419,7 +408,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">New Password:</font>
+                                                        <span class="bodyText">New Password:</span>
                                                     </td>
                                                     <td>
                                                         <input type="password" name="password" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
@@ -427,7 +416,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Confirm New Password:</font>
+                                                        <span class="bodyText">Confirm New Password:</span>
                                                     </td>
                                                     <td>
                                                         <input type="password" name="confirmPassword" size="30" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; width: 200px;">
@@ -435,9 +424,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+                                                        <span class="smallText">
                                                             Leave password fields blank if you do not wish to change your password.
-                                                        </font>
+                                                        </span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -463,9 +452,9 @@
                     </tr>
                     <tr>
                         <td colspan="3" bgcolor="#003366" height="30" align="center">
-                            <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">
+                            <span class="copyrightText">
                                 Copyright &copy; 2005 Corporate Online. All Rights Reserved.
-                            </font>
+                            </span>
                         </td>
                     </tr>
                 </table>
@@ -479,9 +468,9 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#003366">
             <tr>
                 <td>
-                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                    <span class="modalTitle">
                         <b>Corporate Online Help</b>
-                    </font>
+                    </span>
                 </td>
                 <td align="right">
                     <a href="#" onclick="hideHelpDialog(); return false;" style="color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-decoration: none;">
@@ -493,12 +482,12 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td>
-                    <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+                    <span class="bodyText">
                         For assistance with Corporate Online, please contact our support team:<br><br>
                         Phone: 1800 555 123<br>
                         Email: support@corporateonline.com.au<br>
                         Hours: Monday to Friday, 8:00 AM - 6:00 PM AEST
-                    </font>
+                    </span>
                 </td>
             </tr>
         </table>
