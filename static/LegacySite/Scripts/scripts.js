@@ -184,12 +184,21 @@ function calculateLegacyMetrics() {
     var stylesheets = document.styleSheets;
     for (var i = 0; i < stylesheets.length; i++) {
         try {
-            if (stylesheets[i].cssRules) {
-                metrics.stylesheetStyles += stylesheets[i].cssRules.length;
+            // Only count the main stylesheet, not the top banner styles
+            var sheet = stylesheets[i];
+            if (sheet.href && (sheet.href.indexOf('co.css') !== -1 || sheet.href.indexOf('modern-stub.css') !== -1)) {
+                if (sheet.cssRules) {
+                    metrics.stylesheetStyles += sheet.cssRules.length;
+                }
             }
         } catch (e) {
-            // Cross-origin stylesheets may throw errors
-            metrics.stylesheetStyles += 50; // Estimate
+            // Cross-origin or access issues - estimate based on which CSS is loaded
+            var mainStylesheet = document.getElementById('mainStylesheet');
+            if (mainStylesheet && mainStylesheet.href.indexOf('co.css') !== -1) {
+                metrics.stylesheetStyles += 24; // Legacy CSS has 24 rules (from curl count)
+            } else {
+                metrics.stylesheetStyles += 0; // Modern stub is empty
+            }
         }
     }
     
@@ -284,7 +293,7 @@ function toggleStylesheet() {
             toggleButton.style.background = '#FF9800';
         }
         
-        // Update metrics after CSS change with a small delay to allow stylesheet to load
+        // Update metrics after CSS change with a delay to allow stylesheet to load
         setTimeout(function() {
             var metricsPanel = document.getElementById('metricsPanel');
             if (metricsPanel && metricsPanel.style.display !== 'none') {
@@ -296,7 +305,7 @@ function toggleStylesheet() {
                     }
                 }
             }
-        }, 300); // 300ms delay to ensure stylesheet loads
+        }, 500); // Increased delay to 500ms to ensure stylesheet loads
     }
 }
 
