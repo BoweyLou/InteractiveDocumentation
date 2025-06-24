@@ -25,9 +25,12 @@
                 } catch (e) { 
                     // Cross-origin or access issues - estimate based on which CSS is loaded
                     var mainStylesheet = document.getElementById('mainStylesheet');
+                    console.log('Fallback triggered - stylesheet href:', mainStylesheet ? mainStylesheet.href : 'not found');
                     if (mainStylesheet && mainStylesheet.href.indexOf('co.css') !== -1) {
+                        console.log('Adding 24 rules for co.css');
                         metrics.stylesheetStyles += 24; // Legacy CSS has 24 rules (from curl count)
                     } else {
+                        console.log('Adding 0 rules for modern-stub.css');
                         metrics.stylesheetStyles += 0; // Modern stub is empty
                     }
                 }
@@ -80,6 +83,8 @@
             var mainStylesheet = document.getElementById('mainStylesheet');
             var toggleButton = document.getElementById('styleToggle');
             
+            console.log('Before toggle - href:', mainStylesheet ? mainStylesheet.href : 'not found');
+            
             if (mainStylesheet && toggleButton) {
                 if (mainStylesheet.href.indexOf('co.css') !== -1) {
                     mainStylesheet.href = '/LegacySite/Styles/modern-stub.css';
@@ -91,15 +96,20 @@
                     toggleButton.style.background = '#FF9800';
                 }
                 
+                console.log('After toggle - href:', mainStylesheet.href);
+                
                 // Update metrics after CSS change with a delay to allow stylesheet to load
                 setTimeout(function() {
+                    console.log('Timeout triggered - recalculating metrics');
                     var metricsPanel = document.getElementById('metricsPanel');
                     if (metricsPanel && metricsPanel.style.display !== 'none') {
                         // Update metrics if panel is visible
                         if (typeof generateMetricsContent === 'function') {
                             var metricsContentDiv = document.getElementById('metricsContent');
                             if (metricsContentDiv) {
-                                metricsContentDiv.innerHTML = generateMetricsContent();
+                                var newContent = generateMetricsContent();
+                                console.log('New metrics content generated:', newContent.substring(0, 200) + '...');
+                                metricsContentDiv.innerHTML = newContent;
                             }
                         }
                     }
