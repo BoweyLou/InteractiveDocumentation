@@ -283,6 +283,20 @@ function toggleStylesheet() {
             toggleButton.innerHTML = 'Legacy CSS';
             toggleButton.style.background = '#FF9800';
         }
+        
+        // Update metrics after CSS change with a small delay to allow stylesheet to load
+        setTimeout(function() {
+            var metricsPanel = document.getElementById('metricsPanel');
+            if (metricsPanel && metricsPanel.style.display !== 'none') {
+                // Update metrics if panel is visible
+                if (typeof generateMetricsContent === 'function') {
+                    var metricsContentDiv = document.getElementById('metricsContent');
+                    if (metricsContentDiv) {
+                        metricsContentDiv.innerHTML = generateMetricsContent();
+                    }
+                }
+            }
+        }, 300); // 300ms delay to ensure stylesheet loads
     }
 }
 
